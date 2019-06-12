@@ -4,7 +4,9 @@
         android:id="@+id/nav_jobs"
         android:icon="@drawable/ic_work_black_24dp"
         android:title="Jobs" />
-    <item android:title="Training" />
+    <item
+        android:icon="@drawable/ic_training"
+        android:title="Training" />
     <item
         android:id="@+id/nav_services"
         android:icon="@drawable/ic_service_black_24dp"

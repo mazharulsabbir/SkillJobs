@@ -27,17 +27,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="19dp"
-                android:layout_marginEnd="8dp"
-                android:text="Be Skilled, Get Hired"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView"
-                app:layout_constraintEnd_toEndOf="@+id/imageView"
-                app:layout_constraintHorizontal_bias="0.71"
-                app:layout_constraintStart_toStartOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -48,7 +37,7 @@
                 android:text="Your trusted career partner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -99,6 +88,7 @@
                     android:textAllCaps="false" />
 
                 <Button
+                    android:id="@+id/btRegistration"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:text="Register"
@@ -119,6 +109,8 @@
             <TextView
                 android:id="@+id/textView6"
                 style="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/blue"
+                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -156,6 +148,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Signin"
+                android:layout_marginTop="@dimen/button_margin_top"
+                android:textSize="@dimen/large_text"
                 android:textAllCaps="false" />
 
         </LinearLayout>

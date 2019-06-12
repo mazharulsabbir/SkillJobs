@@ -14,7 +14,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@drawable/skill_jobs_logo_small</item>
+        <item name="android:windowBackground">@drawable/logo</item>
     </style>
 
 </resources>

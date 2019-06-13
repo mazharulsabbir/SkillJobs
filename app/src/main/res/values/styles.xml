@@ -22,6 +22,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="ToolbarOverlayTheme" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

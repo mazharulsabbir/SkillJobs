@@ -3,7 +3,6 @@ package skill.jobs;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;

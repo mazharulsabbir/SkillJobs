@@ -13,6 +13,19 @@
         android:layout_alignParentTop="true"
         android:theme="@style/AppTheme.AppBarOverlay">
 
+        <androidx.appcompat.widget.Toolbar
+            android:background="#fff"
+            android:gravity="center"
+            app:titleTextColor="@color/colorPrimaryDark"
+            android:textAlignment="center"
+            app:title="JOBS"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:theme="@style/ToolbarOverlayTheme"
+            app:layout_scrollFlags="scroll|enterAlways">
+        </androidx.appcompat.widget.Toolbar>
+
         <com.google.android.material.tabs.TabLayout
             app:tabMode="scrollable"
             android:id="@+id/tabs"

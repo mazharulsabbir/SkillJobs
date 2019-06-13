@@ -3,13 +3,13 @@
     <item
         android:id="@+id/nav_jobs"
         android:icon="@drawable/ic_work_black_24dp"
-        android:title="Jobs" />
+        android:title="JOBS" />
     <item
         android:icon="@drawable/ic_trainer"
-        android:title="Training" />
+        android:title="TRAINING" />
     <item
         android:id="@+id/nav_services"
         android:icon="@drawable/ic_services"
-        android:title="Services" />
+        android:title="SERVICES" />
 
 </menu>

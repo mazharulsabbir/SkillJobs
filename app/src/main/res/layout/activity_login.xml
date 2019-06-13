@@ -27,6 +27,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Skip"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
 
             <TextView
                 android:id="@+id/textView2"
@@ -80,21 +89,40 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5">
 
-                <Button
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="2dp"
-                    android:text="Learn more"
-                    android:textAllCaps="false" />
+                    android:text="LEARN MORE"
+                    android:textAllCaps="false"
+                    app:cornerRadius="16dp" />
 
-                <Button
+                <Space
+                    android:layout_width="4dp"
+                    android:layout_height="wrap_content" />
+
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btRegistration"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:text="Register"
-                    android:textAllCaps="false" />
+                    android:text="REGISTER"
+                    android:textAllCaps="false"
+                    app:cornerRadius="16dp" />
 
             </LinearLayout>
+
+            <View
+                android:background="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -109,15 +137,15 @@
             <TextView
                 android:id="@+id/textView6"
                 style="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/blue"
-                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:gravity="center"
-                android:text="Sign in to skill jobs" />
+                android:text="Sign in to skill jobs"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -128,7 +156,9 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -140,28 +170,25 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/pass"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:onClick="btnSignInClicked"
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Signin"
+                android:padding="10dp"
                 android:layout_marginTop="@dimen/button_margin_top"
-                android:textSize="@dimen/large_text"
-                android:textAllCaps="false" />
+                android:onClick="btnSignInClicked"
+                android:textStyle="bold"
+                android:text="Sign In"
+                android:textAllCaps="false"
+                android:textSize="@dimen/large_text" />
 
         </LinearLayout>
 
     </LinearLayout>
-
-    <!--<com.google.android.material.bottomnavigation.BottomNavigationView-->
-    <!--app:menu="@menu/bottom_nav"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content">-->
-
-    <!--</com.google.android.material.bottomnavigation.BottomNavigationView>-->
 
 </androidx.core.widget.NestedScrollView>

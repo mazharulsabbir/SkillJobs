@@ -2,6 +2,8 @@ package skill.jobs;
 
 import android.os.Bundle;
 
+import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -43,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigation_view);
+        BadgeDrawable badge = bottomNavigationView.showBadge(R.id.nav_jobs);
 
     }
 

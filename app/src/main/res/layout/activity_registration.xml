@@ -61,7 +61,6 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
             <TextView
-                android:id="@+id/textView6"
                 style="@style/TextAppearance.AppCompat.Large"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -80,7 +79,6 @@
                 android:hint="Email">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/reg_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress" />
@@ -93,7 +91,6 @@
                 android:hint="Mobile No">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/reg_mobile_no"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
@@ -107,7 +104,6 @@
                 android:hint="Password">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/reg_pass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword" />
@@ -120,14 +116,12 @@
                 android:hint="Confirm Password">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/reg_confirm_pass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/reg_registerBT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/button_margin_top"
@@ -153,7 +147,6 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
-                    android:id="@+id/reg_sign_in_BT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sign in"
@@ -187,7 +180,6 @@
                     tools:layout_editor_absoluteY="0dp" />
 
                 <TextView
-                    android:id="@+id/textView7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="and "

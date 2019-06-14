@@ -17,6 +17,11 @@
         <item name="android:windowBackground">@drawable/logo</item>
     </style>
 
+    <style name="BottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

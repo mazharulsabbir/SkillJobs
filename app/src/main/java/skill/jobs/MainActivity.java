@@ -1,11 +1,13 @@
 package skill.jobs;
 
 import android.os.Bundle;
+import android.widget.ScrollView;
 
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.PagerAdapter;
@@ -48,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation_view);
         BadgeDrawable badge = bottomNavigationView.showBadge(R.id.nav_jobs);
+        badge.setNumber(1000);
+        badge.setMaxCharacterCount(4);
 
     }
 

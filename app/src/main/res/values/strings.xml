@@ -6,24 +6,5 @@
     <string name="tab_text_4">Part Time</string>
     <string name="tab_text_5">Govt. Job</string>
     <string name="tab_text_6">Global</string>
-    <string name="section_format">
-About Us
-
-Skill.Jobs has been developed focusing on our past 20+ experiences in the Global Job Market, particularly, the latest trends in the job field, skill matrix, technological advancement, demand and expectations of modern organizations. The organization has been originated from Jobsbd.com, the first ever job portal in Bangladesh and later renamed as Skill.Jobs simply to express the focus of the organizations and to concentrate more on its service patterns. The idea was to make our position more unique and specific while we work! Skill.jobs has started its operation simultaneously in Bangladesh and Malaysia and soon it’s going to start same in Australia UK and UAE.
-
-Skill.Jobs will work as a hub to prepare the job seekers for the relevant industries through enhancing and developing skills of job seekers, bring opportunity for the job seekers and advocate for them to the HR world. On the other hand, Skill.Jobs will make the task of HRD vey easy and simple through helping them to find the right candidate with required skills rather than forwarding huge database of job seekers.
-
-We name Skill.Jobs as service provider that creates a bridge between skilled candidates and employers. Skill.jobs will keep track of trends and provide both hands on training and online training to students, fresh graduates and job seekers of all levels to make them ready for future jobs and professions. Skill.jobs will also provide necessary training to the employees of different organizations and corporate organizations.
-Vision
-
-Skill.jobs will be one of the best solution and service provider in the world in the field of skill development and bridging appropriate skilled human resources with the right job and profession, adding value to both human resources and organizations.
-        Skill.Jobs has been developed focusing on our past 20+ experiences in the Global Job Market, particularly, the latest trends in the job field, skill matrix, technological advancement, demand and expectations of modern organizations. The organization has been originated from Jobsbd.com, the first ever job portal in Bangladesh and later renamed as Skill.Jobs simply to express the focus of the organizations and to concentrate more on its service patterns. The idea was to make our position more unique and specific while we work! Skill.jobs has started its operation simultaneously in Bangladesh and Malaysia and soon it’s going to start same in Australia UK and UAE.
-
-Skill.Jobs will work as a hub to prepare the job seekers for the relevant industries through enhancing and developing skills of job seekers, bring opportunity for the job seekers and advocate for them to the HR world. On the other hand, Skill.Jobs will make the task of HRD vey easy and simple through helping them to find the right candidate with required skills rather than forwarding huge database of job seekers.
-
-We name Skill.Jobs as service provider that creates a bridge between skilled candidates and employers. Skill.jobs will keep track of trends and provide both hands on training and online training to students, fresh graduates and job seekers of all levels to make them ready for future jobs and professions. Skill.jobs will also provide necessary training to the employees of different organizations and corporate organizations.
-Vision
-
-Skill.jobs will be one of the best solution and service provider in the world in the field of skill development and bridging appropriate skilled human resources with the right job and profession, adding value to both human resources and organizations.
-        Hello World from section: %1$d</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

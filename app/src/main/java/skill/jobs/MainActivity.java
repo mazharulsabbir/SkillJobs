@@ -1,17 +1,24 @@
 package skill.jobs;
 
 import android.os.Bundle;
-import android.widget.ScrollView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+import skill.jobs.RecyclerView.Jobs;
+import skill.jobs.RecyclerView.QuickAdapter;
 
 public class MainActivity extends AppCompatActivity {
     /**
@@ -23,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
      * {@link FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
+
+    private RecyclerView mRecyclerView;
+    private List<Jobs> jobsList;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -53,6 +63,32 @@ public class MainActivity extends AppCompatActivity {
         badge.setNumber(1000);
         badge.setMaxCharacterCount(4);
 
+//        initView();
+//        initData();
+//        initAdapter();
+    }
+
+    private void initView() {
+        mRecyclerView = findViewById(R.id.recycler_view_jobs_container);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @SuppressWarnings("unchecked")
+    private void initAdapter() {
+        BaseQuickAdapter homeAdapter = new QuickAdapter(jobsList);
+
+        mRecyclerView.setAdapter(homeAdapter);
+    }
+
+    private void initData() {
+        jobsList = new ArrayList<>();
+        for (int i = 0; i < 50; i++) {
+            Jobs jobs = new Jobs("Company " + i,
+                    "Vacancy " + i,
+                    "Location " + i,
+                    "Dead Line " + i, i);
+            jobsList.add(jobs);
+        }
     }
 
 }

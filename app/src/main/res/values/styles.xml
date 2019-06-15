@@ -13,7 +13,7 @@
     <style name="SplashScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">#fff</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@drawable/luncher_background</item>
     </style>
@@ -23,7 +23,7 @@
         <item name="android:textSize">10sp</item>
     </style>
 
-    <style name="ToolbarOverlayTheme" parent="@style/Widget.AppCompat.ActionBar">
+    <style name="ToolbarOverlayTheme" parent="ThemeOverlay.AppCompat.Light">
         <item name="windowActionBarOverlay">true</item>
     </style>
 

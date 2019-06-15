@@ -15,25 +15,24 @@
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:title="@string/app_name">
 
             <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#fff"
                 android:layout_alignParentTop="true"
                 android:theme="@style/AppTheme.AppBarOverlay">
 
                 <androidx.appcompat.widget.Toolbar
+                    app:menu="@menu/top_app_bar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#fff"
                     android:gravity="center"
                     android:textAlignment="center"
                     android:theme="@style/ToolbarOverlayTheme"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                    app:title="JOBS"
-                    app:titleTextColor="@color/colorPrimaryDark"></androidx.appcompat.widget.Toolbar>
+                    app:title="DASHBOARD"></androidx.appcompat.widget.Toolbar>
 
             </com.google.android.material.appbar.AppBarLayout>
 
@@ -89,6 +88,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -97,28 +97,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!--<com.google.android.material.bottomappbar.BottomAppBar-->
-        <!--android:id="@+id/bottom_app_bar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--app:hideOnScroll="true">-->
-
-        <!--<com.google.android.material.bottomnavigation.BottomNavigationView-->
-        <!--android:id="@+id/navigation_view"-->
-        <!--style="@style/BottomNavigation"-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:layout_marginEnd="16dp"-->
-        <!--app:elevation="0dp"-->
-        <!--app:labelVisibilityMode="labeled"-->
-        <!--app:menu="@menu/bottom_nav" />-->
-
-        <!--</com.google.android.material.bottomappbar.BottomAppBar>-->
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/navigation_view"
             style="@style/BottomNavigation"
             android:layout_width="fill_parent"
             android:layout_height="50dp"
+            app:elevation="8dp"
             app:labelVisibilityMode="labeled"
             app:menu="@menu/bottom_nav" />
 

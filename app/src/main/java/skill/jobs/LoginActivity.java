@@ -21,15 +21,24 @@ public class LoginActivity extends AppCompatActivity {
 
         TextView textView = findViewById(R.id.textView3);
 
-        String text = "Login or Register to explore all our new service. We offer you the best career solution.";
+        String text = "Login or ";
 
-        SpannableString ss = new SpannableString(text);
+        SpannableString ss;
+        ss = new SpannableString(text);
 
-        StyleSpan boldSpan = new StyleSpan(Typeface.BOLD);
-        ss.setSpan(boldSpan, 0, 18, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        StyleSpan boldSpan;
+        boldSpan = new StyleSpan(Typeface.BOLD);
+        ss.setSpan(boldSpan, 0, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         textView.setText(ss);
 
+        text = "Register to explore all our new service. We offer you the best career solution.";
+
+        boldSpan = new StyleSpan(Typeface.BOLD);
+        ss = new SpannableString(text);
+        ss.setSpan(boldSpan, 0, 8, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        textView.append(ss);
 
         Button Regi_Button;
 

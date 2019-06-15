@@ -6,4 +6,7 @@
     <dimen name="large_text">18sp</dimen>
     <dimen name="medium_text">14sp</dimen>
     <dimen name="button_margin_top">8dp</dimen>
+
+    <dimen name="edit_text_layout_height">48dp</dimen>
+    <dimen name="text_size_small">13sp</dimen>
 </resources>

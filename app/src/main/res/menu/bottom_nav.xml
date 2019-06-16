@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="Dashboard" />
+
     <item
         android:id="@+id/nav_jobs"
         android:icon="@drawable/ic_work_black_24dp"
         android:title="Jobs" />
+
     <item
-        android:icon="@drawable/ic_training"
+        android:icon="@drawable/ic_trainer"
         android:title="Training" />
+
     <item
-        android:id="@+id/nav_services"
-        android:icon="@drawable/ic_service_black_24dp"
+        android:icon="@drawable/ic_account_circle_black_24dp"
+        android:title="Profile" />
+
+    <item
+        android:icon="@drawable/ic_services"
         android:title="Services" />
 
 </menu>

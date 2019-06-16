@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    android:padding="@dimen/layout_padding"
     tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/layout_padding">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -23,8 +23,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="52dp"
                 android:src="@drawable/skill_jobs_logo_small"
+                android:transitionName="ic_app_logo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Skip"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -35,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Your trusted career partner"
+                android:transitionName="txt_partner"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -44,6 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Login or Register to explore all our new service. We offer you the best career solution."
+                android:transitionName="txt_login_or_register"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -80,21 +92,41 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5">
 
-                <Button
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="2dp"
-                    android:text="Learn more"
-                    android:textAllCaps="false" />
+                    android:text="LEARN MORE"
+                    android:textAllCaps="false"
+                    app:cornerRadius="16dp" />
 
-                <Button
+                <Space
+                    android:layout_width="4dp"
+                    android:layout_height="wrap_content" />
+
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btRegistration"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:text="Register"
-                    android:textAllCaps="false" />
+                    android:text="REGISTER"
+                    android:textAllCaps="false"
+                    android:transitionName="btn_register"
+                    app:cornerRadius="16dp" />
 
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -107,61 +139,85 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/txt_heading"
                 style="@style/TextAppearance.AppCompat.Large"
-                android:textColor="@color/blue"
-                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:gravity="center"
-                android:text="Sign in to skill jobs" />
+                android:text="Sign in to skill jobs"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:transitionName="txt_headings" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/edit_text_layout_height"
                 android:hint="Email">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editText"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
+                    android:textSize="@dimen/text_size_small" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/edit_text_layout_height"
                 android:hint="Password">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/pass"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:textSize="12sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:onClick="btnSignInClicked"
-                android:id="@+id/button"
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Signin"
+                android:gravity="center_horizontal">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:checked="true"
+                    android:text="Remember Me!" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="RESET PASSWORD!"
+                    android:textColor="@color/colorAccent" />
+
+            </RelativeLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="@dimen/button_margin_top"
-                android:textSize="@dimen/large_text"
-                android:textAllCaps="false" />
+                android:layout_marginEnd="50dp"
+                android:onClick="btnSignInClicked"
+                android:padding="8dp"
+                android:text="Sign In"
+                app:cornerRadius="16dp" />
 
         </LinearLayout>
 
     </LinearLayout>
-
-    <!--<com.google.android.material.bottomnavigation.BottomNavigationView-->
-    <!--app:menu="@menu/bottom_nav"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content">-->
-
-    <!--</com.google.android.material.bottomnavigation.BottomNavigationView>-->
 
 </androidx.core.widget.NestedScrollView>

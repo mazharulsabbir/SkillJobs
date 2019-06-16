@@ -1,20 +1,24 @@
 package skill.jobs;
 
+import android.os.Bundle;
+
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
+import skill.jobs.RecyclerView.Jobs;
+import skill.jobs.RecyclerView.QuickAdapter;
 
 public class MainActivity extends AppCompatActivity {
     /**
@@ -26,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
      * {@link FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
+
+    private RecyclerView mRecyclerView;
+    private List<Jobs> jobsList;
 
     /**
      * The {@link ViewPager} that will host the section contents.
@@ -43,14 +50,45 @@ public class MainActivity extends AppCompatActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout tabLayout = findViewById(R.id.tabs);
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigation_view);
+        BadgeDrawable badge = bottomNavigationView.showBadge(R.id.nav_jobs);
+        badge.setNumber(1000);
+        badge.setMaxCharacterCount(4);
+
+//        initView();
+//        initData();
+//        initAdapter();
+    }
+
+    private void initView() {
+        mRecyclerView = findViewById(R.id.recycler_view_jobs_container);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    @SuppressWarnings("unchecked")
+    private void initAdapter() {
+        BaseQuickAdapter homeAdapter = new QuickAdapter(jobsList);
+
+        mRecyclerView.setAdapter(homeAdapter);
+    }
+
+    private void initData() {
+        jobsList = new ArrayList<>();
+        for (int i = 0; i < 50; i++) {
+            Jobs jobs = new Jobs("Company " + i,
+                    "Vacancy " + i,
+                    "Location " + i,
+                    "Dead Line " + i, i);
+            jobsList.add(jobs);
+        }
     }
 
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/nav_Jobseeker">
+        <item
+            android:id="@+id/nav_Overview_JS"
+            android:title="Overview" />
+        <item
+            android:id="@+id/nav_ProfileDetails_JS"
+            android:title="Profile Details" />
+        <item
+            android:id="@+id/nav_ProfileImage_JS"
+            android:title="Profile Image" />
+        <item
+            android:id="@+id/nav_OploadCV_JS"
+            android:title="Upload CV" />
+        <item
+            android:id="@+id/nav_RecommendedJobs_JS"
+            android:title="Recommended Jobs" />
+        <item
+            android:id="@+id/nav_CreateJobAgent_JS"
+            android:title="Create Job Agent" />
+        <item
+            android:id="@+id/nav_MyProfileView_JS"
+            android:title="My Profile Viewed" />
+        <item
+            android:id="@+id/nav_MyBookmarkedJobs_JS"
+            android:title="My Bookmarked Jobs" />
+        <item
+            android:id="@+id/nav_Help_JS"
+            android:title="Help" />
+        <item
+            android:id="@+id/nav_Logout_JS"
+            android:title="Logout" />
+
+
+    </group>
+
+</menu>

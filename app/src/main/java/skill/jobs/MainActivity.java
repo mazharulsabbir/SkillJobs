@@ -1,5 +1,6 @@
 package skill.jobs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -59,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = findViewById(R.id.tabs);
         bottomNavigation=findViewById(R.id.navigation_view);
+
+
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -78,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.nav_Profile:
-                        Toast.makeText(MainActivity.this, "nav_Profile", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(MainActivity.this,JobSeekerActivity.class));
 
                         return true;
 

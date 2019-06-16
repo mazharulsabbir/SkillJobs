@@ -1,4 +1,4 @@
-package skill.jobs;
+package skill.jobs.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +13,8 @@ import java.util.List;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import skill.jobs.R;
 import skill.jobs.RecyclerView.Jobs;
 import skill.jobs.RecyclerView.QuickAdapter;
 

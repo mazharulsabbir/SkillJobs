@@ -150,21 +150,13 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tvSigninHere"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Already have account?"
+                    android:text="Already have account? Sign in"
                     android:textSize="@dimen/medium_text" />
 
-                <Space
-                    android:layout_width="4dp"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sign in"
-                    android:textColor="@color/blue"
-                    android:textSize="@dimen/medium_text" />
 
             </LinearLayout>
 

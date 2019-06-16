@@ -2,6 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/nav_Dashboard"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="Dashboard" />
 
@@ -11,14 +12,17 @@
         android:title="Jobs" />
 
     <item
+        android:id="@+id/nav_Training"
         android:icon="@drawable/ic_trainer"
         android:title="Training" />
 
     <item
+        android:id="@+id/nav_Profile"
         android:icon="@drawable/ic_account_circle_black_24dp"
         android:title="Profile" />
 
     <item
+        android:id="@+id/nav_Services"
         android:icon="@drawable/ic_services"
         android:title="Services" />
 

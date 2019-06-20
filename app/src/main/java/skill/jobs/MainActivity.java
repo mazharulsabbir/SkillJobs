@@ -63,32 +63,6 @@ public class MainActivity extends AppCompatActivity {
         badge.setNumber(1000);
         badge.setMaxCharacterCount(4);
 
-//        initView();
-//        initData();
-//        initAdapter();
-    }
-
-    private void initView() {
-        mRecyclerView = findViewById(R.id.recycler_view_jobs_container);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-    }
-
-    @SuppressWarnings("unchecked")
-    private void initAdapter() {
-        BaseQuickAdapter homeAdapter = new QuickAdapter(jobsList);
-
-        mRecyclerView.setAdapter(homeAdapter);
-    }
-
-    private void initData() {
-        jobsList = new ArrayList<>();
-        for (int i = 0; i < 50; i++) {
-            Jobs jobs = new Jobs("Company " + i,
-                    "Vacancy " + i,
-                    "Location " + i,
-                    "Dead Line " + i, i);
-            jobsList.add(jobs);
-        }
     }
 
 }

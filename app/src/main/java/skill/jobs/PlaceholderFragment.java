@@ -13,6 +13,7 @@ import java.util.List;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import skill.jobs.RecyclerView.Jobs;
 import skill.jobs.RecyclerView.QuickAdapter;
 
@@ -50,7 +51,7 @@ public class PlaceholderFragment extends Fragment {
 
         initView();
         initData();
-        initAdapter();
+        //initAdapter();
 
         return rootView;
     }

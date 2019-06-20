@@ -28,6 +28,7 @@
                 android:theme="@style/AppTheme.AppBarOverlay">
 
                 <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -35,7 +36,7 @@
                     android:theme="@style/ToolbarOverlayTheme"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed"
                     app:menu="@menu/top_app_bar"
-                    app:title="DASHBOARD"></androidx.appcompat.widget.Toolbar>
+                    app:title="Dashboard"/>
 
             </com.google.android.material.appbar.AppBarLayout>
 

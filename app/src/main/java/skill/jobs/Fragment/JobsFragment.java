@@ -1,23 +1,25 @@
-package skill.jobs;
+package skill.jobs.Fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import skill.jobs.R;
 import skill.jobs.RecyclerView.Jobs;
 import skill.jobs.RecyclerView.QuickAdapter;
 
-public class PlaceholderFragment extends Fragment {
+public class JobsFragment extends Fragment {
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -26,16 +28,17 @@ public class PlaceholderFragment extends Fragment {
     public View rootView;
     private RecyclerView mRecyclerView;
     private List<Jobs> jobsList;
+    private BaseQuickAdapter homeAdapter;
 
-    public PlaceholderFragment() {
+    public JobsFragment() {
     }
 
     /**
      * Returns a new instance of this fragment for the given section
      * number.
      */
-    public static PlaceholderFragment newInstance(int sectionNumber) {
-        PlaceholderFragment fragment = new PlaceholderFragment();
+    public static JobsFragment newInstance(int sectionNumber) {
+        JobsFragment fragment = new JobsFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
@@ -46,14 +49,16 @@ public class PlaceholderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         rootView = inflater.inflate(R.layout.fragment_main, container, false);
-//        TextView textView = rootView.findViewById(R.id.section_label);
-//        textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-
-        initView();
-        initData();
-        //initAdapter();
 
         return rootView;
+    }
+
+    @Override
+    public void onStart() {
+        initView();
+        initData();
+        initAdapter();
+        super.onStart();
     }
 
     private void initView() {
@@ -63,8 +68,16 @@ public class PlaceholderFragment extends Fragment {
 
     @SuppressWarnings("unchecked")
     private void initAdapter() {
-        BaseQuickAdapter homeAdapter = new QuickAdapter(jobsList);
-        mRecyclerView.setAdapter(homeAdapter);
+        homeAdapter = new QuickAdapter(jobsList);
+        View errorView = getLayoutInflater().inflate(R.layout.example_empty_jobs, (ViewGroup) mRecyclerView.getParent(), false);
+        homeAdapter.setEmptyView(errorView);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mRecyclerView.setAdapter(homeAdapter);
+            }
+        }, 300);
     }
 
     private void initData() {

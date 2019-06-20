@@ -150,67 +150,24 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/tvSigninHere"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Already have account?"
+                    android:text="Already have account? Sign in"
                     android:textSize="@dimen/medium_text" />
 
-                <Space
-                    android:layout_width="4dp"
-                    android:layout_height="wrap_content" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Sign in"
-                    android:textColor="@color/blue"
-                    android:textSize="@dimen/medium_text" />
 
             </LinearLayout>
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="By clicking the button, I agree to the "
-                    app:layout_constraintStart_toStartOf="@+id/reg_privacy_policy"
-                    tools:ignore="MissingConstraints" />
-
-                <TextView
-                    android:id="@+id/reg_term_service"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Terms of Service "
-                    android:textColor="@color/blue"
-                    android:textSize="@dimen/medium_text"
-                    app:layout_constraintStart_toEndOf="@+id/textView8"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteY="0dp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="and "
-                    app:layout_constraintStart_toEndOf="@+id/reg_term_service"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteY="2dp" />
-
-                <TextView
-                    android:id="@+id/reg_privacy_policy"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Privacy Policy."
-                    android:textColor="@color/blue"
-                    android:textSize="@dimen/medium_text"
-                    app:layout_constraintTop_toBottomOf="@+id/textView8"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="0dp" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="By clicking the button, I agree to the Terms of Service and Privacy Policy."
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints" />
 
 
         </LinearLayout>

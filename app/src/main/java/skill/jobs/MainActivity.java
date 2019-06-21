@@ -1,23 +1,20 @@
 package skill.jobs;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
-
-import java.util.List;
-
-import skill.jobs.RecyclerView.Jobs;
-
-//import com.chad.library.adapter.base.BaseQuickAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,15 +32,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_service_black);
 
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        // Set up the ViewPager with the sections adapter.
-        ViewPager mViewPager = findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        final TabLayout tabLayout = findViewById(R.id.tabs);
         BottomNavigationView bottomNavigation = findViewById(R.id.navigation_view);
 
 
@@ -56,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.nav_jobs:
-                        toolbar.setTitle("Jobs");
+                        toolbar.setTitle("JOBS");
+                        fragmentJobs();
                         return true;
 
                     case R.id.nav_Training:
@@ -76,15 +66,54 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
-
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation_view);
         BadgeDrawable badge = bottomNavigationView.showBadge(R.id.nav_jobs);
         badge.setNumber(1000);
         badge.setMaxCharacterCount(4);
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.nav_job_seeker:
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
+    private void fragmentJobs() {
+        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+        // Set up the ViewPager with the sections adapter.
+        ViewPager mViewPager = findViewById(R.id.container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        final TabLayout tabLayout = findViewById(R.id.tabs);
+        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+    }
+
+    private void openFragment(final Fragment fragment) {
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.pop_enter, R.anim.pop_exit);
+        transaction.disallowAddToBackStack(); //to remove back fragment
+
+        transaction.replace(R.id.fragment_container, fragment).commit();
+        fragmentManager.executePendingTransactions();
+        //activeFragment = fragmentName;
+    }
 
 }

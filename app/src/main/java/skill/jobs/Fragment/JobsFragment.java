@@ -48,7 +48,7 @@ public class JobsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        rootView = inflater.inflate(R.layout.fragment_jobs, container, false);
 
         return rootView;
     }
@@ -90,5 +90,7 @@ public class JobsFragment extends Fragment {
             jobsList.add(jobs);
         }
     }
+
+
 
 }

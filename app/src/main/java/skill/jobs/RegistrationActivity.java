@@ -18,35 +18,37 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    TextView textView, suTextView, siTextView ;
+    TextView textView, suTextView, siTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-         textView = findViewById(R.id.textView3);
-         suTextView = findViewById(R.id.textView8);
-         siTextView = findViewById(R.id.tvSigninHere);
+        textView = findViewById(R.id.textView3);
+        suTextView = findViewById(R.id.textView8);
+        siTextView = findViewById(R.id.tvSigninHere);
 
-        StringUrlDesgin();
+        stringUrlDesign();
 
 
     }
 
-    private void StringUrlDesgin() {
+    private void stringUrlDesign() {
         String text = "Login or ";
         String sutext = "By clicking the button, I agree to the Terms of Service and Privacy Policy.";
         String sitext = "Already have account? Sign in";
 
-        SpannableString ss=new SpannableString(text);
-        SpannableString su=new SpannableString(sutext);
-        SpannableString si=new SpannableString(sitext);
+        SpannableString ss = new SpannableString(text);
+        SpannableString su = new SpannableString(sutext);
+        SpannableString si = new SpannableString(sitext);
 
-        ClickableSpan clickableSpanSignIn=new ClickableSpan() {
+        ClickableSpan clickableSpanSignIn = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
                 Toast.makeText(RegistrationActivity.this, "Sign In", Toast.LENGTH_SHORT).show();
             }
+
             @Override
             public void updateDrawState(@NonNull TextPaint ds) {
                 super.updateDrawState(ds);
@@ -56,7 +58,7 @@ public class RegistrationActivity extends AppCompatActivity {
         };
 
 
-        ClickableSpan clickableSpan1=new ClickableSpan() {
+        ClickableSpan clickableSpan1 = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
                 Toast.makeText(RegistrationActivity.this, "Terms of Service", Toast.LENGTH_SHORT).show();
@@ -70,12 +72,13 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         };
 
-        ClickableSpan clickableSpan2=new ClickableSpan() {
+        ClickableSpan clickableSpan2 = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
                 Toast.makeText(RegistrationActivity.this, "Privacy Policy", Toast.LENGTH_SHORT).show();
 
             }
+
             @Override
             public void updateDrawState(@NonNull TextPaint ds) {
                 super.updateDrawState(ds);
@@ -84,13 +87,13 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         };
 
-        si.setSpan(clickableSpanSignIn,22,29,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        si.setSpan(clickableSpanSignIn, 22, 29, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         siTextView.setText(si);
         siTextView.setMovementMethod(LinkMovementMethod.getInstance());
 
 
-        su.setSpan(clickableSpan1,39,55,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        su.setSpan(clickableSpan2,60,74,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        su.setSpan(clickableSpan1, 39, 55, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        su.setSpan(clickableSpan2, 60, 74, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         suTextView.setText(su);
         suTextView.setMovementMethod(LinkMovementMethod.getInstance());
 

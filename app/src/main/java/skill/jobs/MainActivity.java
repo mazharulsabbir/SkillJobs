@@ -10,15 +10,18 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.tabs.TabLayout;
+
+import skill.jobs.Fragment.BottomSheetProductsAndServices;
+import skill.jobs.Fragment.DashboardFragment;
+import skill.jobs.Fragment.JobsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
+    private String ACTIVE_FRAGMENT = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +31,23 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_service_black);
 
-
         BottomNavigationView bottomNavigation = findViewById(R.id.navigation_view);
+
+        if (savedInstanceState == null) {
+            toolbar.setTitle("DASHBOARD");
+            ACTIVE_FRAGMENT = "DASHBOARD";
+
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+            transaction.replace(R.id.fragment_container, new DashboardFragment()).commit();
+            fragmentManager.executePendingTransactions();
+        }
 
 
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -41,24 +55,29 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.nav_Dashboard:
-                        toolbar.setTitle("Dashboard");
+                        if (!ACTIVE_FRAGMENT.equals("DASHBOARD")) {
+                            toolbar.setTitle("DASHBOARD");
+                            openFragment(new DashboardFragment(), "DASHBOARD");
+                        }
                         return true;
 
                     case R.id.nav_jobs:
-                        toolbar.setTitle("JOBS");
-                        fragmentJobs();
+                        if (!ACTIVE_FRAGMENT.equals("JOBS")) {
+                            toolbar.setTitle("JOBS");
+                            openFragment(new JobsFragment(), "JOBS");
+                        }
                         return true;
 
                     case R.id.nav_Training:
-                        toolbar.setTitle("Training");
+                        toolbar.setTitle("TRAINING");
                         return true;
 
                     case R.id.nav_Profile:
-                        toolbar.setTitle("Profile");
+                        toolbar.setTitle("PROFILE");
                         return true;
 
                     case R.id.nav_Services:
-                        toolbar.setTitle("Services");
+                        toolbar.setTitle("SERVICES");
                         return true;
                 }
                 return false;
@@ -82,6 +101,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
+
+            case android.R.id.home:
+                BottomSheetProductsAndServices sheet = new BottomSheetProductsAndServices();
+                sheet.show(getSupportFragmentManager(), "BottomSheetDialog");
+                return true;
+
             case R.id.nav_job_seeker:
                 return true;
 
@@ -91,29 +116,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void fragmentJobs() {
-        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-
-        // Set up the ViewPager with the sections adapter.
-        ViewPager mViewPager = findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
-
-        final TabLayout tabLayout = findViewById(R.id.tabs);
-        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
-    }
-
-    private void openFragment(final Fragment fragment) {
+    private void openFragment(final Fragment fragment, final String CURRENT_FRAGMENT) {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-
-        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_right, R.anim.pop_enter, R.anim.pop_exit);
         transaction.disallowAddToBackStack(); //to remove back fragment
-
         transaction.replace(R.id.fragment_container, fragment).commit();
         fragmentManager.executePendingTransactions();
-        //activeFragment = fragmentName;
+
+        ACTIVE_FRAGMENT = CURRENT_FRAGMENT;
+
     }
 
 }

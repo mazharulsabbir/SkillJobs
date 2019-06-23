@@ -9,8 +9,10 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +20,7 @@ import java.util.List;
 import skill.jobs.R;
 import skill.jobs.RecyclerView.Jobs;
 import skill.jobs.RecyclerView.QuickAdapter;
+import skill.jobs.SectionsPagerAdapter;
 
 public class JobsFragment extends Fragment {
     /**
@@ -50,19 +53,26 @@ public class JobsFragment extends Fragment {
 
         rootView = inflater.inflate(R.layout.fragment_jobs, container, false);
 
+        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
+
+        // Set up the ViewPager with the sections adapter.
+        ViewPager mViewPager = rootView.findViewById(R.id.container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        final TabLayout tabLayout = rootView.findViewById(R.id.tabs);
+        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+
         return rootView;
     }
 
     @Override
     public void onStart() {
-        initView();
-        initData();
-        initAdapter();
         super.onStart();
     }
 
     private void initView() {
-        mRecyclerView = rootView.findViewById(R.id.recycler_view_jobs_container);
+        mRecyclerView = rootView.findViewById(R.id.recycler_view_feature_job);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
@@ -77,12 +87,12 @@ public class JobsFragment extends Fragment {
             public void run() {
                 mRecyclerView.setAdapter(homeAdapter);
             }
-        }, 300);
+        }, 200);
     }
 
     private void initData() {
         jobsList = new ArrayList<>();
-        for (int i = 0; i < 50; i++) {
+        for (int i = 1; i <= 10; i++) {
             Jobs jobs = new Jobs("Company " + i,
                     "Vacancy " + i,
                     "Location " + i,
@@ -90,7 +100,6 @@ public class JobsFragment extends Fragment {
             jobsList.add(jobs);
         }
     }
-
 
 
 }

@@ -17,15 +17,12 @@ import skill.jobs.R;
 public class TrainingFragment extends Fragment {
 
     View view;
-    private TextView previous_price;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.fragment_training, container, false);
-        previous_price= view.findViewById(R.id.previous_price_upcomming_course);
+        TextView previous_price = view.findViewById(R.id.previous_price_upcomming_course);
         previous_price.setPaintFlags(previous_price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-
-
 
         return  view;
     }

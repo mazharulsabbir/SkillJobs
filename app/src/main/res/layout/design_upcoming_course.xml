@@ -17,8 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_weight="2"
-        app:srcCompat="@drawable/cover" />
-
+        android:src="@drawable/cover" />
 
     <TextView
         android:id="@+id/tv_running_course_title"

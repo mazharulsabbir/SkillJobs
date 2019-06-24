@@ -144,7 +144,7 @@
                 app:layout_constraintStart_toStartOf="@+id/imageView8"
                 app:layout_constraintTop_toBottomOf="@+id/imageView8" />
 
-            <!--SECTION: E-LEARNING-->
+            <!--SECTION: VIDEO RESUME-->
             <ImageView
                 android:id="@+id/imageView9"
                 android:layout_width="wrap_content"
@@ -159,7 +159,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="E-LEARNING"
+                android:text="VIDEO RESUME"
                 app:layout_constraintEnd_toEndOf="@+id/imageView9"
                 app:layout_constraintStart_toStartOf="@+id/imageView9"
                 app:layout_constraintTop_toBottomOf="@+id/imageView9" />

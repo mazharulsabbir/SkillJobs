@@ -17,6 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import skill.jobs.Fragment.BottomSheetProductsAndServices;
 import skill.jobs.Fragment.DashboardFragment;
 import skill.jobs.Fragment.JobsFragment;
+import skill.jobs.Fragment.TrainingFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -69,7 +70,10 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.nav_Training:
-                        toolbar.setTitle("TRAINING");
+                        if (!ACTIVE_FRAGMENT.equals("TRAINING")) {
+                            toolbar.setTitle("TRAINING");
+                            openFragment(new TrainingFragment(), "TRAINING");
+                        }
                         return true;
 
                     case R.id.nav_Profile:

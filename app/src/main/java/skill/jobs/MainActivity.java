@@ -1,5 +1,6 @@
 package skill.jobs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.nav_Profile:
+                        startActivity(new Intent(MainActivity.this,JobSeekerActivity.class));
                         toolbar.setTitle("PROFILE");
                         return true;
 

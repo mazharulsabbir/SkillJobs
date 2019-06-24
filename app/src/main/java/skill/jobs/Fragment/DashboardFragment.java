@@ -122,7 +122,7 @@ public class DashboardFragment extends Fragment {
                 setEmptyView(mFeatureJobsAdapter);
 
             }
-        }, 500);
+        }, 200);
     }
 
     @SuppressWarnings("unchecked")
@@ -141,7 +141,7 @@ public class DashboardFragment extends Fragment {
                 setEmptyView(mTrendingCoursesAdapter);
 
             }
-        }, 500);
+        }, 200);
     }
 
     @SuppressWarnings("unchecked")
@@ -159,7 +159,7 @@ public class DashboardFragment extends Fragment {
                 setEmptyView(mFeatureJobsAdapter);
 
             }
-        }, 500);
+        }, 200);
     }
 
     private void setEmptyView(BaseQuickAdapter adapter) {

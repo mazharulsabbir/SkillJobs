@@ -10,20 +10,22 @@
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:elevation="8dp"
         app:tabMode="scrollable">
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tab_text_1" />
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItem2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tab_text_2" />
 
         <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabItem3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tab_text_3" />
@@ -48,7 +50,7 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </LinearLayout>

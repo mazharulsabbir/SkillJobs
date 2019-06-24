@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                             toolbar.setTitle("JOBS");
                             openFragment(new JobsFragment(), "JOBS");
                         }
+
                         return true;
 
                     case R.id.nav_Training:
@@ -122,7 +123,8 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.disallowAddToBackStack(); //to remove back fragment
-        transaction.replace(R.id.fragment_container, fragment).commit();
+        transaction.replace(R.id.fragment_container, fragment)
+                .commit();
         fragmentManager.executePendingTransactions();
 
         ACTIVE_FRAGMENT = CURRENT_FRAGMENT;

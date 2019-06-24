@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home:
                 BottomSheetProductsAndServices sheet = new BottomSheetProductsAndServices();
                 sheet.show(getSupportFragmentManager(), "BottomSheetDialog");
+
                 return true;
 
             case R.id.nav_job_seeker:

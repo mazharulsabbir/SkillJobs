@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
-    app:layout_constraintVertical_weight="4"
-    >
+    app:layout_constraintVertical_weight="4">
 
 
     <ImageView
@@ -16,18 +15,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_nothing_found"
         app:layout_constraintVertical_weight="2"
-        />
+        app:srcCompat="@drawable/ic_nothing_found" />
 
 
     <TextView
         android:id="@+id/textView9"
-        android:fontFamily="@font/open_sans_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/open_sans_regular"
         android:text="Upcoming Course Titile"
         android:textColor="@color/colorPrimary"
         android:textSize="24sp"
@@ -43,6 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:drawableLeft="@drawable/ic_date_black_24dp"
+
+        android:fontFamily="@font/open_sans_regular"
         android:text=" Registration last date:"
         app:layout_constraintEnd_toEndOf="@+id/textView9"
         app:layout_constraintHorizontal_bias="0.0"
@@ -55,7 +55,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+
         android:drawableLeft="@drawable/ic_date_black_24dp"
+        android:fontFamily="@font/open_sans_regular"
         android:text="Class start date:"
         app:layout_constraintEnd_toEndOf="@+id/textView10"
         app:layout_constraintHorizontal_bias="0.0"
@@ -69,6 +71,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:drawableLeft="@drawable/ic_watch_later_black_24dp"
+        android:fontFamily="@font/open_sans_regular"
         android:text="Total Hours:"
         app:layout_constraintEnd_toEndOf="@+id/textView12"
         app:layout_constraintHorizontal_bias="0.0"
@@ -81,6 +84,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:fontFamily="@font/open_sans_regular"
+
         android:text="2019-06-20"
         app:layout_constraintBottom_toBottomOf="@+id/textView10"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,8 +99,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:fontFamily="@font/open_sans_regular"
         android:text="2019-06-20"
         app:layout_constraintBottom_toBottomOf="@+id/textView12"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,11 +118,56 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:fontFamily="@font/open_sans_regular"
         android:text="80"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView14"
         app:layout_constraintTop_toTopOf="@+id/textView14"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/previous_price_upcomming_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/open_sans_regular"
+        android:text="TK 5000"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/open_sans_regular"
+        android:text="TK 5000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/previous_price_upcomming_course"
+        app:layout_constraintStart_toEndOf="@+id/previous_price_upcomming_course"
+        app:layout_constraintTop_toTopOf="@+id/previous_price_upcomming_course" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/open_sans_regular"
+        android:text="Enroll Now"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView30"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView30" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

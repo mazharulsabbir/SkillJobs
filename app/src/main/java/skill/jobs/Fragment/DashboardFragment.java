@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,18 +29,28 @@ import java.util.List;
 import skill.jobs.LoginActivity;
 import skill.jobs.R;
 import skill.jobs.RecyclerView.Jobs;
-import skill.jobs.RecyclerView.QuickAdapter;
+import skill.jobs.RecyclerView.JobsQuickAdapter;
+import skill.jobs.RecyclerView.TrendingCourseQuickAdapter;
+import skill.jobs.RecyclerView.TrendingCourses;
 import skill.jobs.RegistrationActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class DashboardFragment extends Fragment {
+    public static final int SLIDEIN_LEFT = 0x00000004;
+    private static final String TAG = "DashboardFragment";
+    private View view;
+    private RecyclerView mRecyclerViewFeatureJobs;
+    private RecyclerView mRecyclerViewTrendingCourses;
+    private RecyclerView mRecyclerViewPartners;
 
-    View view;
-    private RecyclerView mRecyclerView;
     private List<Jobs> jobsList;
-    private BaseQuickAdapter homeAdapter;
+    private List<TrendingCourses> courses;
+
+    private BaseQuickAdapter mFeatureJobsAdapter;
+    private BaseQuickAdapter mTrendingCoursesAdapter;
+    private BaseQuickAdapter mPartnersAdapter;
 
 
     public DashboardFragment() {
@@ -52,21 +63,23 @@ public class DashboardFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        stringUrlDesign();
+
         return view;
     }
 
     @Override
     public void onStart() {
-        initData();
-        initView();
-        initAdapter();
+        initSampleData();
+        initRecyclerViews();
+        featureJobsAdapter();
 
-        stringUrlDesign();
+        trendingCourseAdapter();
 
         super.onStart();
     }
 
-    private void initData() {
+    private void initSampleData() {
         jobsList = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
             Jobs jobs = new Jobs("Company " + i,
@@ -75,25 +88,86 @@ public class DashboardFragment extends Fragment {
                     "Dead Line " + i, i);
             jobsList.add(jobs);
         }
+
+        courses = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            TrendingCourses course = new TrendingCourses("Title ", "Duration", "Fees");
+            courses.add(course);
+        }
     }
 
-    private void initView() {
-        mRecyclerView = view.findViewById(R.id.recycler_view_feature_job);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    private void initRecyclerViews() {
+        mRecyclerViewFeatureJobs = view.findViewById(R.id.recycler_view_feature_job);
+        mRecyclerViewTrendingCourses = view.findViewById(R.id.recycler_view_trending_course);
+        mRecyclerViewPartners = view.findViewById(R.id.recycler_view_partners);
+
+        mRecyclerViewFeatureJobs.setLayoutManager(new LinearLayoutManager(getContext()));
+        mRecyclerViewTrendingCourses.setLayoutManager(new LinearLayoutManager(getContext()));
+        mRecyclerViewPartners.setLayoutManager(new GridLayoutManager(getContext(), 3));
+
     }
 
     @SuppressWarnings("unchecked")
-    private void initAdapter() {
-        homeAdapter = new QuickAdapter(jobsList);
-        View errorView = getLayoutInflater().inflate(R.layout.example_empty_jobs, (ViewGroup) mRecyclerView.getParent(), false);
-        homeAdapter.setEmptyView(errorView);
+    private void featureJobsAdapter() {
+        jobsList.clear();
+        mFeatureJobsAdapter = new JobsQuickAdapter(R.layout.example_job, jobsList);
+        mFeatureJobsAdapter.isFirstOnly(false);
+        mFeatureJobsAdapter.openLoadAnimation();
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                mRecyclerView.setAdapter(homeAdapter);
+
+                mRecyclerViewFeatureJobs.setAdapter(mFeatureJobsAdapter);
+                setEmptyView(mFeatureJobsAdapter);
+
             }
-        }, 200);
+        }, 500);
+    }
+
+    @SuppressWarnings("unchecked")
+    private void trendingCourseAdapter() {
+
+        courses.clear();
+        mTrendingCoursesAdapter = new TrendingCourseQuickAdapter(R.layout.example_trending_course, courses);
+        mTrendingCoursesAdapter.isFirstOnly(false);
+        mTrendingCoursesAdapter.openLoadAnimation();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                mRecyclerViewTrendingCourses.setAdapter(mTrendingCoursesAdapter);
+                setEmptyView(mTrendingCoursesAdapter);
+
+            }
+        }, 500);
+    }
+
+    @SuppressWarnings("unchecked")
+    private void partnersAdapter() {
+        jobsList.clear();
+        mFeatureJobsAdapter = new JobsQuickAdapter(R.layout.example_job, jobsList);
+        mFeatureJobsAdapter.isFirstOnly(false);
+        mFeatureJobsAdapter.openLoadAnimation();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                mRecyclerViewFeatureJobs.setAdapter(mFeatureJobsAdapter);
+                setEmptyView(mFeatureJobsAdapter);
+
+            }
+        }, 500);
+    }
+
+    private void setEmptyView(BaseQuickAdapter adapter) {
+        View errorView = getLayoutInflater().inflate(
+                R.layout.example_empty_jobs, (ViewGroup) mRecyclerViewFeatureJobs.getParent(), false);
+        adapter.setEmptyView(errorView);
+
+
     }
 
     private void stringUrlDesign() {

@@ -19,7 +19,7 @@ import java.util.List;
 
 import skill.jobs.R;
 import skill.jobs.RecyclerView.Jobs;
-import skill.jobs.RecyclerView.QuickAdapter;
+import skill.jobs.RecyclerView.JobsQuickAdapter;
 import skill.jobs.SectionsPagerAdapter;
 
 public class JobsFragment extends Fragment {
@@ -78,7 +78,7 @@ public class JobsFragment extends Fragment {
 
     @SuppressWarnings("unchecked")
     private void initAdapter() {
-        homeAdapter = new QuickAdapter(jobsList);
+        homeAdapter = new JobsQuickAdapter(R.layout.example_job, jobsList);
         View errorView = getLayoutInflater().inflate(R.layout.example_empty_jobs, (ViewGroup) mRecyclerView.getParent(), false);
         homeAdapter.setEmptyView(errorView);
 

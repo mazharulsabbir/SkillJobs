@@ -7,9 +7,9 @@ import java.util.List;
 
 import skill.jobs.R;
 
-public class QuickAdapter extends BaseQuickAdapter<Jobs, BaseViewHolder> {
-    public QuickAdapter(List<Jobs> jobs) {
-        super(R.layout.example_job, jobs);
+public class JobsQuickAdapter extends BaseQuickAdapter<Jobs, BaseViewHolder> {
+    public JobsQuickAdapter(int view, List<Jobs> jobs) {
+        super(view, jobs);
     }
 
     @Override

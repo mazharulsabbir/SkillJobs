@@ -16,7 +16,7 @@ import skill.jobs.R;
 
 public class TrainingFragment extends Fragment {
 
-    View view;
+    private View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

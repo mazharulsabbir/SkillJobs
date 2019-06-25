@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.FeatureJobsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_feature_job"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Blank Fragment" />
+        android:layout_height="match_parent"
+        android:overScrollMode="never" />
 
 </LinearLayout>

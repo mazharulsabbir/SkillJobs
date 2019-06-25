@@ -1,28 +1,37 @@
 package skill.jobs.RecyclerView;
 
-public class Jobs {
+public class JobsContainerHelper {
     int vector;
-    String companyName, vacancyPostName, companyLocation, deadLine;
-    Integer salary;
+    String companyName, vacancyPostName, companyLocation, deadLine, experience, jobType, salary;
 
-    public Jobs() {
+
+    public JobsContainerHelper() {
     }
 
-    public Jobs(String companyName, String vacancyPostName, String companyLocation, String deadLine, int salary) {
+    public JobsContainerHelper(int vector, String companyName, String vacancyPostName, String companyLocation, String deadLine, String experience, String jobType, String salary) {
+        this.vector = vector;
         this.companyName = companyName;
         this.vacancyPostName = vacancyPostName;
         this.companyLocation = companyLocation;
         this.deadLine = deadLine;
+        this.experience = experience;
+        this.jobType = jobType;
         this.salary = salary;
     }
 
-    public String getCompanyName() {
+    public int getVector() {
+        return vector;
+    }
 
+    public void setVector(int vector) {
+        this.vector = vector;
+    }
+
+    public String getCompanyName() {
         return companyName;
     }
 
     public void setCompanyName(String companyName) {
-
         this.companyName = companyName;
     }
 
@@ -50,11 +59,27 @@ public class Jobs {
         this.deadLine = deadLine;
     }
 
-    public Integer getSalary() {
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience;
+    }
+
+    public String getJobType() {
+        return jobType;
+    }
+
+    public void setJobType(String jobType) {
+        this.jobType = jobType;
+    }
+
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(Integer salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 }

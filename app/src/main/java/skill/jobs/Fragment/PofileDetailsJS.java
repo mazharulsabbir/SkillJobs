@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import skill.jobs.R;
@@ -19,6 +20,7 @@ import skill.jobs.R;
 public class PofileDetailsJS extends Fragment {
     ImageView pro_I_edit;
     View view;
+    boolean pro_edit_flag=true;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,10 +39,20 @@ public class PofileDetailsJS extends Fragment {
     }
 
 private void ProfileInformationEditJobSeeker(){
-        Fragment fragment= new ProfileEditJobseekerFragment();
-    FragmentManager fm = getFragmentManager();
-    FragmentTransaction fragmentTransaction = fm.beginTransaction();
-    fragmentTransaction.add(R.id.js_profile_edit_container,fragment).commit();
+    FrameLayout fr=view.findViewById(R.id.js_profile_edit_container);
+        if (pro_edit_flag){
+            fr.setVisibility(View.VISIBLE);
+            Fragment fragment = new ProfileEditJobseekerFragment();
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fm.beginTransaction();
+            fragmentTransaction.add(R.id.js_profile_edit_container, fragment).commit();
+            pro_edit_flag=false;
+        }else {
+
+
+            fr.setVisibility(View.GONE);
+            pro_edit_flag=true;
+        }
 
 }
 

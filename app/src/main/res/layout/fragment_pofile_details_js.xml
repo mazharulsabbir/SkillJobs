@@ -27,6 +27,7 @@
             android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="Personal Information"
+            android:fontFamily="@font/open_sans_regular"
             android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold"
             android:transitionName="txt_headings"

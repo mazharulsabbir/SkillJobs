@@ -12,4 +12,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="marital_array">
+        <item>Marital Status</item>
+        <item>Married</item>
+        <item>Unmarried</item>
+        <item>Divorced</item>
+        <item>Window</item>
+    </string-array>
 </resources>

@@ -36,4 +36,7 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.45'
     //Circle Image View
     implementation 'com.mikhaellopez:circularimageview:3.2.0'
+
+    //country code picker
+    implementation 'com.hbb20:ccp:2.2.9'
 }

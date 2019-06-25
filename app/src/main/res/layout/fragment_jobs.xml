@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <com.google.android.material.tabs.TabLayout
+        app:tabGravity="fill"
         android:id="@+id/tabs"
         style="@style/Widget.Design.AppBarLayout"
         android:layout_width="match_parent"

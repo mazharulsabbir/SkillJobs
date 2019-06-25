@@ -125,24 +125,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/materialButton2" />
 
+        <!--SECTION: FEATURE JOBS..-->
+
         <View
             android:id="@+id/view2"
             android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/darker_gray"
+            android:layout_height="14dp"
+            android:layout_marginTop="32dp"
+            android:background="#CCCCCC"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-
-        <!--SECTION: FEATURE JOBS..-->
 
         <TextView
             android:id="@+id/textView23"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:text="FEATURE JOBS"
             android:textColor="@color/colorPrimary"
@@ -167,12 +166,22 @@
 
         <!--SECTION: ABOUT SKILL JOBS..-->
 
+        <View
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="32dp"
+            android:background="#CCCCCC"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_feature_job" />
+
         <TextView
             android:id="@+id/textView24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:text="ABOUT SKILL JOBS"
             android:textColor="@color/colorPrimary"
@@ -180,7 +189,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recycler_view_feature_job" />
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
 
         <TextView
             android:id="@+id/textView25"
@@ -219,12 +228,22 @@
             app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
         <!--SECTION: TRENDING COURSES..-->
+        <View
+            android:id="@+id/view4"
+            android:layout_width="0dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="32dp"
+            android:background="@color/color_view_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/learn_more_about_skill_jobs" />
+
         <TextView
             android:id="@+id/textView27"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:text="TRENDING COURSES"
             android:textColor="@color/colorPrimary"
@@ -232,7 +251,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/learn_more_about_skill_jobs" />
+            app:layout_constraintTop_toBottomOf="@+id/view4" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_trending_course"
@@ -257,12 +276,23 @@
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_trending_course" />
 
         <!--SECTION: PARTNERS..-->
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="0dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="32dp"
+            android:background="@color/color_view_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_all_course" />
+
         <TextView
             android:id="@+id/textView28"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:text="PARTNERS.."
             android:textColor="@color/colorPrimary"
@@ -270,7 +300,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view_all_course" />
+            app:layout_constraintTop_toBottomOf="@+id/view5" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_partners"
@@ -287,12 +317,23 @@
         </androidx.recyclerview.widget.RecyclerView>
 
         <!--SECTION: TOP HIRING COMPANIES-->
+
+        <View
+            android:id="@+id/view6"
+            android:layout_width="0dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="32dp"
+            android:background="@color/color_view_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_partners" />
+
         <TextView
             android:id="@+id/textView29"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:text="TOP HIRING COMPANIES"
             android:textColor="@color/colorPrimary"
@@ -300,7 +341,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recycler_view_partners" />
+            app:layout_constraintTop_toBottomOf="@+id/view6" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_top_hiring_company"

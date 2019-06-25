@@ -19,19 +19,20 @@
             android:background="#fff">
 
             <androidx.appcompat.widget.Toolbar
+                app:title="DASHBOARD"
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:theme="@style/ToolbarOverlayTheme"
-                app:layout_scrollFlags="scroll|enterAlways"/>
+                app:layout_scrollFlags="scroll|enterAlways" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
         <FrameLayout
-            android:paddingBottom="60dp"
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="60dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView

@@ -38,8 +38,6 @@ import skill.jobs.RegistrationActivity;
  * A simple {@link Fragment} subclass.
  */
 public class DashboardFragment extends Fragment {
-    public static final int SLIDEIN_LEFT = 0x00000004;
-    private static final String TAG = "DashboardFragment";
     private View view;
     private RecyclerView mRecyclerViewFeatureJobs;
     private RecyclerView mRecyclerViewTrendingCourses;
@@ -81,16 +79,16 @@ public class DashboardFragment extends Fragment {
 
     private void initSampleData() {
         jobsList = new ArrayList<>();
-        for (int i = 1; i <= 10; i++) {
-            Jobs jobs = new Jobs("Company " + i,
-                    "Vacancy " + i,
-                    "Location " + i,
-                    "Dead Line " + i, i);
+        for (int i = 1; i <= 20; i++) {
+            Jobs jobs = new Jobs("Company ",
+                    "Vacancy ",
+                    "Location ",
+                    "Dead Line ", i);
             jobsList.add(jobs);
         }
 
         courses = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             TrendingCourses course = new TrendingCourses("Title ", "Duration", "Fees");
             courses.add(course);
         }
@@ -101,6 +99,11 @@ public class DashboardFragment extends Fragment {
         mRecyclerViewTrendingCourses = view.findViewById(R.id.recycler_view_trending_course);
         mRecyclerViewPartners = view.findViewById(R.id.recycler_view_partners);
 
+        //horizontal recycler view
+//        LinearLayoutManager layoutManager
+//                = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+
+
         mRecyclerViewFeatureJobs.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerViewTrendingCourses.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerViewPartners.setLayoutManager(new GridLayoutManager(getContext(), 3));
@@ -109,7 +112,7 @@ public class DashboardFragment extends Fragment {
 
     @SuppressWarnings("unchecked")
     private void featureJobsAdapter() {
-        jobsList.clear();
+        //jobsList.clear();
         mFeatureJobsAdapter = new JobsQuickAdapter(R.layout.example_job, jobsList);
         mFeatureJobsAdapter.isFirstOnly(false);
         mFeatureJobsAdapter.openLoadAnimation();
@@ -127,8 +130,7 @@ public class DashboardFragment extends Fragment {
 
     @SuppressWarnings("unchecked")
     private void trendingCourseAdapter() {
-
-        courses.clear();
+        //courses.clear();
         mTrendingCoursesAdapter = new TrendingCourseQuickAdapter(R.layout.example_trending_course, courses);
         mTrendingCoursesAdapter.isFirstOnly(false);
         mTrendingCoursesAdapter.openLoadAnimation();
@@ -146,7 +148,7 @@ public class DashboardFragment extends Fragment {
 
     @SuppressWarnings("unchecked")
     private void partnersAdapter() {
-        jobsList.clear();
+        //jobsList.clear();
         mFeatureJobsAdapter = new JobsQuickAdapter(R.layout.example_job, jobsList);
         mFeatureJobsAdapter.isFirstOnly(false);
         mFeatureJobsAdapter.openLoadAnimation();

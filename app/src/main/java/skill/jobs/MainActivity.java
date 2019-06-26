@@ -19,6 +19,7 @@ import skill.jobs.Fragment.BottomSheetProductsAndServices;
 import skill.jobs.Fragment.DashboardFragment;
 import skill.jobs.Fragment.JobsFragment;
 import skill.jobs.Fragment.TrainingFragment;
+import skill.jobs.Fragment.WelcomeProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -79,8 +80,10 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.nav_Profile:
-                        startActivity(new Intent(MainActivity.this,JobSeekerActivity.class));
-                        toolbar.setTitle("PROFILE");
+                        if (!ACTIVE_FRAGMENT.equals("PROFILE")) {
+                            toolbar.setTitle("PROFILE");
+                            openFragment(new WelcomeProfileFragment(), " CHOOSE A PROFILE");
+                        }
                         return true;
 
                     case R.id.nav_Services:

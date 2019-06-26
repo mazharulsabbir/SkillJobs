@@ -20,7 +20,7 @@ import skill.jobs.R;
 public class PofileDetailsJS extends Fragment {
     ImageView pro_I_edit;
     View view;
-    boolean pro_edit_flag=true;
+    boolean pro_edit_flag=true,pro_edit_open=true;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,18 +35,29 @@ public class PofileDetailsJS extends Fragment {
             }
         });
 
+
+
+
+
+
         return view;
     }
 
 private void ProfileInformationEditJobSeeker(){
     FrameLayout fr=view.findViewById(R.id.js_profile_edit_container);
+
         if (pro_edit_flag){
+            if (pro_edit_open) {
+
+                //profile edit fragment open
+                Fragment fragment = new ProfileEditJobseekerFragment();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.add(R.id.js_profile_edit_container, fragment).commit();
+                pro_edit_open=false;
+            }
             fr.setVisibility(View.VISIBLE);
-            Fragment fragment = new ProfileEditJobseekerFragment();
-            FragmentManager fm = getFragmentManager();
-            FragmentTransaction fragmentTransaction = fm.beginTransaction();
-            fragmentTransaction.add(R.id.js_profile_edit_container, fragment).commit();
-            pro_edit_flag=false;
+            pro_edit_flag = false;
         }else {
 
 

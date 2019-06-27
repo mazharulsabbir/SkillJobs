@@ -72,7 +72,7 @@
             android:queryHint="Skills"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" >
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         </SearchView>
 
@@ -92,10 +92,9 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="top|left"
                 android:fontFamily="@font/open_sans_regular"
-                android:inputType="textMultiLine"
-                />
+                android:gravity="top|left"
+                android:inputType="textMultiLine" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -105,8 +104,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/open_sans_regular"
             android:layout_marginEnd="8dp"
+            android:fontFamily="@font/open_sans_regular"
             android:text="Activation"
             android:textColor="#000000"
             android:textSize="18sp"
@@ -167,12 +166,75 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="8dp"
+            android:weightSum="6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button">
-            <TableRow>
+
+            <TableRow android:background="#f1f1f1">
+
                 <TextView
-                    />
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight=".5"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="#"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1.5"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="Agent Title"
+
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="Skills"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="Speech"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="Status"
+
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="1dp"
+                    android:layout_weight="1"
+
+                    android:fontFamily="@font/open_sans_regular"
+                    android:text="Action"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
             </TableRow>
 
         </TableLayout>

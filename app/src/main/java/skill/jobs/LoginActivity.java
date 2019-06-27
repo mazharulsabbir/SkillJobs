@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         TextView textView = findViewById(R.id.textView3);
+        TextView skipLogin = findViewById(R.id.skip_login);
+        skipLogin.setOnClickListener(this);
 
         String text = "Login or ";
 
@@ -75,6 +77,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void btnSignInClicked(View view) {
-        startActivity(new Intent(this, MainActivity.class));
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.skip_login:
+                startActivity(new Intent(this, MainActivity.class));
+                break;
+        }
     }
 }

@@ -3,14 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/Background_color_official"
     android:layout_height="wrap_content"
-    >
+    android:paddingBottom="8dp"
+    android:paddingTop="4dp"
+    android:background="@color/Background_color_official">
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,14 +23,13 @@
 
     <TextView
         android:id="@+id/tv_running_course_title"
+        style="@style/TextAppearance.AppCompat.Medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/open_sans_regular"
-        android:text="Running Course Titile"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
+        android:text="Running Course Title"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -34,12 +37,12 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
-        android:drawablePadding="8dp"
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:drawableLeft="@drawable/ic_watch_later_black_24dp"
+        android:drawablePadding="8dp"
         android:fontFamily="@font/open_sans_regular"
         android:text="Total Hours:"
         app:layout_constraintStart_toStartOf="@+id/tv_running_course_title"

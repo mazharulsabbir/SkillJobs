@@ -1,6 +1,5 @@
 package skill.jobs;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -82,12 +81,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_Profile:
                         if (!ACTIVE_FRAGMENT.equals("PROFILE")) {
                             toolbar.setTitle("PROFILE");
-                            openFragment(new WelcomeProfileFragment(), " CHOOSE A PROFILE");
+                            openFragment(new WelcomeProfileFragment(), "PROFILE");
                         }
-                        return true;
-
-                    case R.id.nav_Services:
-                        toolbar.setTitle("SERVICES");
                         return true;
                 }
                 return false;
@@ -95,8 +90,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.navigation_view);
-        BadgeDrawable badge = bottomNavigationView.showBadge(R.id.nav_jobs);
+        BadgeDrawable badge = bottomNavigation.showBadge(R.id.nav_jobs);
         badge.setNumber(1000);
         badge.setMaxCharacterCount(4);
     }

@@ -36,7 +36,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:id="@+id/nav_view_JS"
-        app:headerLayout="@layout/nav_header"
         app:menu="@menu/jobseeker_nav">
 
     </com.google.android.material.navigation.NavigationView>

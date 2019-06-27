@@ -37,6 +37,7 @@ public class WelcomeProfileFragment extends Fragment {
         videoview =view.findViewById(R.id.videoView);
 
 
+
         JobSeekerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

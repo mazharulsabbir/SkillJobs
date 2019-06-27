@@ -303,6 +303,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="top|left"
                 android:fontFamily="@font/open_sans_regular"
                 android:inputType="textMultiLine"
                 android:textSize="@dimen/text_size_small" />
@@ -387,6 +388,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/open_sans_regular"
+                android:gravity="top|left"
                 android:inputType="textMultiLine"
                 android:textSize="@dimen/text_size_small" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -541,6 +543,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="@font/open_sans_regular"
+                android:gravity="top|left"
                 android:inputType="textMultiLine"
                 android:textSize="@dimen/text_size_small"
                 />

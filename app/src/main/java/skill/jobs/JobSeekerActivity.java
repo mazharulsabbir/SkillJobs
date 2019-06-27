@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 
+import skill.jobs.Fragment.JobAgentFragment;
 import skill.jobs.Fragment.PofileDetailsJS;
 import skill.jobs.Fragment.ProfileImageJS;
 
@@ -43,6 +44,10 @@ public class JobSeekerActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_Container,new ProfileImageJS()).commit();
                         break;
 
+
+                    case R.id.nav_CreateJobAgent_JS:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_Container,new JobAgentFragment()).commit();
+                        break;
 
                 }
                 drawerLayout.closeDrawer(GravityCompat.START);

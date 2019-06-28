@@ -15,6 +15,7 @@ import com.google.android.material.navigation.NavigationView;
 import skill.jobs.Fragment.JobAgentFragment;
 import skill.jobs.Fragment.PofileDetailsJS;
 import skill.jobs.Fragment.ProfileImageJsFragment;
+import skill.jobs.Fragment.UploadCvFragment;
 
 public class JobSeekerActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -45,6 +46,11 @@ public class JobSeekerActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_CreateJobAgent_JS:
                         getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_Container,new JobAgentFragment()).commit();
+                        break;
+
+
+                    case R.id.nav_OploadCV_JS:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_Container,new UploadCvFragment()).commit();
                         break;
 
                 }

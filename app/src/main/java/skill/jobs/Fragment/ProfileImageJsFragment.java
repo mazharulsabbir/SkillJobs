@@ -44,11 +44,7 @@ public class ProfileImageJsFragment extends Fragment {
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
     }
 
-    @Override
-    public void onStart() {
-        setupTabView();
-        super.onStart();
-    }
+
 
     @Override
     public void onPause() {
@@ -64,6 +60,8 @@ public class ProfileImageJsFragment extends Fragment {
 
         @Override
         public Fragment getItem(int position) {
+
+
             switch (position) {
                 case 0:
                     fragment = new UploadProfilePictureFragment();

@@ -30,11 +30,7 @@ public class JobsFragment extends Fragment {
         return rootView;
     }
 
-    @Override
-    public void onStart() {
-        setupTabView();
-        super.onStart();
-    }
+
 
     private void setupTabView() {
         SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());

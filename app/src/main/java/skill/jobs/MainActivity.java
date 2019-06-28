@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -149,6 +150,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openFragment(final Fragment fragment, final String CURRENT_FRAGMENT) {
+        AppBarLayout topAppBar = findViewById(R.id.appBarLayoutTop);
+        getSupportActionBar().setElevation(8);
+
+        if (CURRENT_FRAGMENT.equals("JOBS"))
+            topAppBar.setTargetElevation(0f);
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.disallowAddToBackStack(); //to remove back fragment

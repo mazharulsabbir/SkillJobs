@@ -53,19 +53,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View v) {
                 Button btnRegistration = findViewById(R.id.btRegistration);
-                ImageView appLogo = findViewById(R.id.imageView);
+                //ImageView appLogo = findViewById(R.id.imageView);
                 TextView txtPartner = findViewById(R.id.textView2);
                 TextView txtHeading = findViewById(R.id.txt_heading);
                 TextView textView = findViewById(R.id.textView3);
 
                 Intent sharedIntent = new Intent(LoginActivity.this, RegistrationActivity.class);
 
-                Pair[] pairs = new Pair[5];
+                Pair[] pairs = new Pair[4];
                 pairs[0] = new Pair<View, String>(textView, "txt_login_or_register");
-                pairs[1] = new Pair<View, String>(appLogo, "ic_app_logo");
-                pairs[2] = new Pair<View, String>(txtPartner, "txt_partner");
-                pairs[3] = new Pair<View, String>(btnRegistration, "btn_register");
-                pairs[4] = new Pair<View, String>(txtHeading, "txt_headings");
+                //pairs[1] = new Pair<View, String>(appLogo, "ic_app_logo");
+                pairs[1] = new Pair<View, String>(txtPartner, "txt_partner");
+                pairs[2] = new Pair<View, String>(btnRegistration, "btn_register");
+                pairs[3] = new Pair<View, String>(txtHeading, "txt_headings");
 
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
                     ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this, pairs);

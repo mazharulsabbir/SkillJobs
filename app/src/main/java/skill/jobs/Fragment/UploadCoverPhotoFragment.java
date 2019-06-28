@@ -12,14 +12,13 @@ import android.view.ViewGroup;
 
 import skill.jobs.R;
 
-
-public class ProfileImageJS extends Fragment {
+public class UploadCoverPhotoFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile_image_js, container, false);
+        return inflater.inflate(R.layout.fragment_upload_cover_photo, container, false);
     }
 
 }

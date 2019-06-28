@@ -14,7 +14,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import skill.jobs.Fragment.JobAgentFragment;
 import skill.jobs.Fragment.PofileDetailsJS;
-import skill.jobs.Fragment.ProfileImageJS;
+import skill.jobs.Fragment.ProfileImageJsFragment;
 
 public class JobSeekerActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
@@ -41,10 +41,8 @@ public class JobSeekerActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_Container,new PofileDetailsJS()).commit();
                         break;
                     case R.id.nav_ProfileImage_JS:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_Container,new ProfileImageJS()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_Container,new ProfileImageJsFragment()).commit();
                         break;
-
-
                     case R.id.nav_CreateJobAgent_JS:
                         getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_Container,new JobAgentFragment()).commit();
                         break;

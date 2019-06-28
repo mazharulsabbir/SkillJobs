@@ -160,6 +160,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
+
+
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -171,7 +173,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button">
 
-            <TableRow android:background="#f1f1f1">
+            <TableRow android:background="#f1f1f1"
+                >
 
                 <TextView
                     android:layout_width="fill_parent"

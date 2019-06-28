@@ -10,12 +10,11 @@ import android.text.style.StyleSpan;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +22,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         TextView textView = findViewById(R.id.textView3);
+
+        Button skipLogin = findViewById(R.id.skip_login);
+        skipLogin.setOnClickListener(this);
 
         String text = "Login or ";
 
@@ -51,19 +53,19 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Button btnRegistration = findViewById(R.id.btRegistration);
-                ImageView appLogo = findViewById(R.id.imageView);
+                //ImageView appLogo = findViewById(R.id.imageView);
                 TextView txtPartner = findViewById(R.id.textView2);
                 TextView txtHeading = findViewById(R.id.txt_heading);
                 TextView textView = findViewById(R.id.textView3);
 
                 Intent sharedIntent = new Intent(LoginActivity.this, RegistrationActivity.class);
 
-                Pair[] pairs = new Pair[5];
+                Pair[] pairs = new Pair[4];
                 pairs[0] = new Pair<View, String>(textView, "txt_login_or_register");
-                pairs[1] = new Pair<View, String>(appLogo, "ic_app_logo");
-                pairs[2] = new Pair<View, String>(txtPartner, "txt_partner");
-                pairs[3] = new Pair<View, String>(btnRegistration, "btn_register");
-                pairs[4] = new Pair<View, String>(txtHeading, "txt_headings");
+                //pairs[1] = new Pair<View, String>(appLogo, "ic_app_logo");
+                pairs[1] = new Pair<View, String>(txtPartner, "txt_partner");
+                pairs[2] = new Pair<View, String>(btnRegistration, "btn_register");
+                pairs[3] = new Pair<View, String>(txtHeading, "txt_headings");
 
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
                     ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this, pairs);
@@ -75,6 +77,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void btnSignInClicked(View view) {
-        startActivity(new Intent(this, MainActivity.class));
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.skip_login:
+                startActivity(new Intent(this, MainActivity.class));
+                break;
+        }
     }
 }

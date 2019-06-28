@@ -2,39 +2,33 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
     android:layout_marginBottom="4dp"
+    android:paddingBottom="8dp"
+    android:paddingTop="8dp"
     android:orientation="vertical">
 
     <ImageView
-        android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="150dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/background_image_dashboard_top" />
-
-    <View
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="4dp"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
 
     <TextView
         android:id="@+id/course_title"
         style="@style/TextAppearance.AppCompat.Medium"
-        android:text="Title:"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Title:" />
 
     <TextView
         android:id="@+id/course_duration"
-        android:text="Duration:"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Duration:" />
+
     <TextView
         android:id="@+id/course_fees"
-        android:text="Fees:"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"
+        android:text="Fees:" />
 </LinearLayout>

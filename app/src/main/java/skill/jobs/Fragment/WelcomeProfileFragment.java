@@ -1,13 +1,7 @@
 package skill.jobs.Fragment;
 
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,25 +10,28 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.VideoView;
 
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+
 import skill.jobs.JobSeekerActivity;
 import skill.jobs.R;
 
 
 public class WelcomeProfileFragment extends Fragment {
-    CardView JobSeekerButton, EmployeeButton;
-    VideoView videoview;
+    private CardView JobSeekerButton, EmployeeButton;
+    private VideoView videoview;
     View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view= inflater.inflate(R.layout.fragment_welcome_profile, container, false);
+        view = inflater.inflate(R.layout.fragment_welcome_profile, container, false);
 
-        JobSeekerButton=view.findViewById(R.id.btJobseekerchoice);
-        EmployeeButton=view.findViewById(R.id.btemployerchoice);
+        JobSeekerButton = view.findViewById(R.id.btJobseekerchoice);
+        EmployeeButton = view.findViewById(R.id.btemployerchoice);
         //video
-        videoview =view.findViewById(R.id.videoView);
+        videoview = view.findViewById(R.id.videoView);
 
 
 
@@ -48,7 +45,7 @@ public class WelcomeProfileFragment extends Fragment {
                         startActivity(new Intent(getActivity(), JobSeekerActivity.class));
 
                     }
-                }, 100);
+                }, 200);
 
             }
         });

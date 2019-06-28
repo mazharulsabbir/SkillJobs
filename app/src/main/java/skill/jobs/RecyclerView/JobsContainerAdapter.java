@@ -21,6 +21,10 @@ public class JobsContainerAdapter extends BaseQuickAdapter<JobsContainerHelper, 
                 .setText(R.id.job_location, jobs.getCompanyLocation())
                 .setText(R.id.job_experience, jobs.getExperience())
                 .setText(R.id.job_salary, jobs.getSalary())
-                .setText(R.id.job_dead_line, jobs.getDeadLine());
+                .setText(R.id.job_dead_line, jobs.getDeadLine())
+                .addOnClickListener(R.id.menu_share_job)
+                .addOnClickListener(R.id.menu_favorite)
+                .addOnClickListener(R.id.menu_not_favorite);//favorite
+
     }
 }

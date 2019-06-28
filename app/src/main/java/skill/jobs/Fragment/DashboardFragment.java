@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -112,35 +113,42 @@ public class DashboardFragment extends Fragment {
 
     @SuppressWarnings("unchecked")
     private void featureJobsAdapter() {
-        //jobsList.clear();
+
         mFeatureJobsAdapter = new JobsQuickAdapter(R.layout.example_job, jobsList);
         mFeatureJobsAdapter.isFirstOnly(false);
         mFeatureJobsAdapter.openLoadAnimation();
+        setEmptyView(mFeatureJobsAdapter);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
 
                 mRecyclerViewFeatureJobs.setAdapter(mFeatureJobsAdapter);
-                setEmptyView(mFeatureJobsAdapter);
 
             }
         }, 200);
+
+        mFeatureJobsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Toast.makeText(getActivity(), "onItemClick" + position, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
     private void trendingCourseAdapter() {
-        //courses.clear();
+
         mTrendingCoursesAdapter = new TrendingCourseQuickAdapter(R.layout.example_trending_course, courses);
         mTrendingCoursesAdapter.isFirstOnly(false);
         mTrendingCoursesAdapter.openLoadAnimation();
+        setEmptyView(mTrendingCoursesAdapter);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
 
                 mRecyclerViewTrendingCourses.setAdapter(mTrendingCoursesAdapter);
-                setEmptyView(mTrendingCoursesAdapter);
 
             }
         }, 200);
@@ -168,8 +176,6 @@ public class DashboardFragment extends Fragment {
         View errorView = getLayoutInflater().inflate(
                 R.layout.example_empty_jobs, (ViewGroup) mRecyclerViewFeatureJobs.getParent(), false);
         adapter.setEmptyView(errorView);
-
-
     }
 
     private void stringUrlDesign() {

@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -45,7 +47,7 @@ public class FeatureJobsFragment extends Fragment {
         jobsList = new ArrayList<>();
         for (int i = 1; i <= 100; i++) {
             JobsContainerHelper jobs = new JobsContainerHelper(R.mipmap.ic_launcher,
-                    "Company Feature"+i,
+                    "Company Feature" + i,
                     "Vacancy ",
                     "Location ",
                     "Dead Line ",
@@ -62,6 +64,32 @@ public class FeatureJobsFragment extends Fragment {
         mFeatureJobsAdapter = new JobsContainerAdapter(R.layout.example_layout_jobs, jobsList);
         mFeatureJobsAdapter.isFirstOnly(false);
         mFeatureJobsAdapter.openLoadAnimation();
+
+        mFeatureJobsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Toast.makeText(getActivity(), "onItemClick" + position, Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        mFeatureJobsAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter, View v, int position) {
+                switch (v.getId()) {
+                    case R.id.menu_favorite:
+                        Toast.makeText(getContext(), "Removed from Favorite", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.menu_not_favorite:
+                        Toast.makeText(getContext(), "Added to Favorite", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.menu_share_job:
+                        Toast.makeText(getContext(), "Share", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
 
         new Handler().postDelayed(new Runnable() {
             @Override

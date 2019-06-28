@@ -168,7 +168,7 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/open_sans_regular"
         android:text="Enroll Now"
-        android:textAllCaps="false"
+        android:textAllCaps="true"
         android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView30"
         app:layout_constraintEnd_toEndOf="parent" />

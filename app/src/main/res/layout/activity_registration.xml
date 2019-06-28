@@ -5,7 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff"
-    android:padding="@dimen/layout_padding"
+    android:paddingStart="@dimen/layout_padding"
+    android:paddingTop="8dp"
+    android:paddingEnd="@dimen/layout_padding"
+    android:paddingBottom="@dimen/layout_padding"
     tools:context=".RegistrationActivity">
 
     <LinearLayout
@@ -21,9 +24,10 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
+                android:layout_width="180dp"
+                android:scaleType="centerCrop"
                 android:layout_height="52dp"
-                android:src="@drawable/skill_jobs_logo_small"
+                android:src="@drawable/logo"
                 android:transitionName="ic_app_logo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

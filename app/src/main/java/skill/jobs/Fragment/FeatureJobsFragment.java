@@ -3,14 +3,11 @@ package skill.jobs.Fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.view.menu.MenuBuilder;
-import androidx.appcompat.view.menu.MenuPopupHelper;
-import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,7 +21,7 @@ import skill.jobs.R;
 import skill.jobs.RecyclerView.JobsContainerAdapter;
 import skill.jobs.RecyclerView.JobsContainerHelper;
 
-public class FeatureJobsFragment extends Fragment{
+public class FeatureJobsFragment extends Fragment {
     private View view;
     private RecyclerView mRecyclerViewFeatureJobs;
     private List<JobsContainerHelper> jobsList;
@@ -79,25 +76,18 @@ public class FeatureJobsFragment extends Fragment{
         mFeatureJobsAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View v, int position) {
-                PopupMenu popup = new PopupMenu(getContext(), v);
-                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.menu_save_job:
-                                Toast.makeText(getContext(), "Save clicked", Toast.LENGTH_SHORT).show();
-                                return true;
-                            case R.id.menu_share_job:
-                                Toast.makeText(getContext(), "Share clicked", Toast.LENGTH_SHORT).show();
-                                return true;
-                            default:
-                                return false;
-                        }
-                    }
-                });
+                switch (v.getId()) {
+                    case R.id.menu_favorite:
+                        Toast.makeText(getContext(), "Removed from Favorite", Toast.LENGTH_SHORT).show();
+                        break;
 
-                popup.inflate(R.menu.popup_menu_jobs);
-                popup.show();
+                    case R.id.menu_not_favorite:
+                        Toast.makeText(getContext(), "Added to Favorite", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.menu_share_job:
+                        Toast.makeText(getContext(), "Share", Toast.LENGTH_SHORT).show();
+                        break;
+                }
             }
         });
 

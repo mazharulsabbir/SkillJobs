@@ -28,10 +28,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:text="Company Name"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/menu_show_more"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
@@ -104,14 +102,47 @@
         app:layout_constraintTop_toBottomOf="@+id/job_dead_line" />
 
     <TextView
-        android:id="@+id/menu_show_more"
+        android:id="@+id/menu_favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:drawableEnd="@drawable/ic_more_vert_black_24dp"
+        android:visibility="invisible"
+        android:drawableEnd="@drawable/ic_favorite_red"
         android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/menu_not_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:drawableEnd="@drawable/ic_favorite_border_black_20dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="2dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#FF727374"
+        app:layout_constraintBottom_toBottomOf="@+id/menu_favorite"
+        app:layout_constraintEnd_toStartOf="@+id/menu_favorite"
+        app:layout_constraintTop_toTopOf="@+id/menu_favorite" />
+
+    <TextView
+        android:id="@+id/menu_share_job"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:drawableEnd="@drawable/ic_share_black_24dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/view7" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

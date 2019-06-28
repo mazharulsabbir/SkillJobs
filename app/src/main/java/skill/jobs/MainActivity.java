@@ -1,5 +1,6 @@
 package skill.jobs;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,7 +15,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private String ACTIVE_FRAGMENT = "";
 
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
                 switch (item.getItemId()) {
                     case R.id.nav_Dashboard:
                         if (!ACTIVE_FRAGMENT.equals("DASHBOARD")) {
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.nav_jobs:
+
                         if (!ACTIVE_FRAGMENT.equals("JOBS")) {
                             toolbar.setTitle("JOBS");
                             openFragment(new JobsFragment(), "JOBS");
@@ -149,12 +152,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressLint("NewApi")
     private void openFragment(final Fragment fragment, final String CURRENT_FRAGMENT) {
-        AppBarLayout topAppBar = findViewById(R.id.appBarLayoutTop);
-        getSupportActionBar().setElevation(8);
-
-        if (CURRENT_FRAGMENT.equals("JOBS"))
-            topAppBar.setTargetElevation(0f);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -162,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.fragment_container, fragment)
                 .commit();
         fragmentManager.executePendingTransactions();
+
 
         ACTIVE_FRAGMENT = CURRENT_FRAGMENT;
 

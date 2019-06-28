@@ -12,11 +12,11 @@
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayoutTop"
-            app:liftOnScroll="true"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            android:background="#fff">
+            android:background="#fff"
+            app:liftOnScroll="true">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"

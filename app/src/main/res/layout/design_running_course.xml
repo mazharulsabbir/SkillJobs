@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="8dp"
+    android:background="@color/Background_color_official"
     android:paddingTop="4dp"
-    android:background="@color/Background_color_official">
+    android:paddingBottom="8dp">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -41,10 +41,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:drawableLeft="@drawable/ic_watch_later_black_24dp"
+        android:drawableStart="@drawable/ic_watch_later_black_24dp"
         android:drawablePadding="8dp"
         android:fontFamily="@font/open_sans_regular"
         android:text="Total Hours:"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="@+id/tv_running_course_title"
         app:layout_constraintTop_toBottomOf="@+id/tv_running_course_title"
         tools:ignore="MissingConstraints" />
@@ -52,16 +53,12 @@
     <TextView
         android:id="@+id/tv_running_course_hours"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:fontFamily="@font/open_sans_regular"
         android:text="80"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintHorizontal_bias="0.0"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/textView14"
         app:layout_constraintStart_toEndOf="@+id/textView14"
         app:layout_constraintTop_toTopOf="@+id/textView14"
         app:layout_constraintVertical_bias="0.0" />

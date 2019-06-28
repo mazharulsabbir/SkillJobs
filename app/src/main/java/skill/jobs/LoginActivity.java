@@ -10,7 +10,6 @@ import android.text.style.StyleSpan;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,7 +22,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         TextView textView = findViewById(R.id.textView3);
-        TextView skipLogin = findViewById(R.id.skip_login);
+
+        Button skipLogin = findViewById(R.id.skip_login);
         skipLogin.setOnClickListener(this);
 
         String text = "Login or ";

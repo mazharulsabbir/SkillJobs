@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nestedScrollView3"
     android:layout_width="match_parent"
-
     android:layout_height="match_parent"
     tools:context=".Fragment.WelcomeProfileFragment">
 
@@ -16,46 +15,11 @@
 
 
         <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/open_sans_regular"
-            android:padding="@dimen/dp_4"
-            android:text="Welcome to Skill Jobs"
-            android:textColor="@color/colorPrimary"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/open_sans_regular"
-            android:text="We help to build your career"
-            app:layout_constraintEnd_toEndOf="@+id/textView9"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textView9"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-        <View
-            android:id="@+id/view7"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/color_view_color"
-            app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-        <TextView
             android:id="@+id/textView46"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="90dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="I WOULD LIKE TO BE A"
@@ -64,7 +28,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view7" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <LinearLayout
@@ -87,7 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="4dp"
             android:layout_weight="1"
             android:padding="2dp"
             app:layout_constraintBottom_toBottomOf="@+id/btemployerchoice"
@@ -136,7 +100,7 @@
             android:id="@+id/btemployerchoice"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"

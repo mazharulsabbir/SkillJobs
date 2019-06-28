@@ -11,8 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".JobSeekerActivity"></activity>
-        <activity android:name=".RegistrationActivity" />
+        <activity
+            android:name=".JobSeekerActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".RegistrationActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/SplashScreenTheme">
@@ -22,8 +26,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

@@ -4,7 +4,8 @@
     android:id="@+id/layout_bottom_sheet"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:paddingBottom="20dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -43,11 +44,13 @@
             <!--SECTION: INTERNSHIP-->
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="45dp"
-                android:src="@mipmap/ic_launcher"
+                android:scaleType="fitXY"
+
+                android:src="@drawable/employee"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/appBarLayout2" />
 
@@ -63,12 +66,13 @@
             <!--SECTION: E-RECRUITMENT-->
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="16dp"
-                android:src="@mipmap/ic_launcher"
+                android:scaleType="fitXY"
+                android:src="@drawable/networking"
                 app:layout_constraintEnd_toStartOf="@+id/imageView6"
                 app:layout_constraintStart_toEndOf="@+id/imageView4"
                 app:layout_constraintTop_toBottomOf="@+id/appBarLayout2" />
@@ -85,11 +89,12 @@
             <!--SECTION: E-LEARNING-->
             <ImageView
                 android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="32dp"
-                android:src="@mipmap/ic_launcher"
+                android:scaleType="fitXY"
+                android:src="@drawable/book"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/appBarLayout2" />
 
@@ -105,11 +110,12 @@
             <!--SECTION: CAREER DOCTOR-->
             <ImageView
                 android:id="@+id/imageView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="45dp"
-                android:src="@mipmap/ic_launcher"
+                android:scaleType="fitXY"
+                android:src="@drawable/doctor"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
@@ -125,12 +131,13 @@
             <!--SECTION: SKILLED FACE-->
             <ImageView
                 android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="16dp"
-                android:src="@mipmap/ic_launcher"
+                android:scaleType="fitXY"
+                android:src="@drawable/idea"
                 app:layout_constraintEnd_toStartOf="@+id/imageView7"
                 app:layout_constraintStart_toEndOf="@+id/imageView9"
                 app:layout_constraintTop_toBottomOf="@+id/imageView5" />
@@ -147,11 +154,12 @@
             <!--SECTION: VIDEO RESUME-->
             <ImageView
                 android:id="@+id/imageView9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="32dp"
-                android:src="@mipmap/ic_launcher"
+                android:scaleType="fitXY"
+                android:src="@drawable/cv"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 

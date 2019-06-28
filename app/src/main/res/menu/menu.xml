@@ -6,22 +6,16 @@
         android:id="@+id/search_job"
         android:icon="@drawable/ic_search_black_24dp"
         android:title="SEARCH JOB"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom" />
 
-    <item
-        android:id="@+id/nav_job_seeker"
-        android:title="Job Seeker" />
-
-    <item android:title="Employer" />
-
-    <item android:title="Contact Us" />
 
     <item android:title="About Us" />
 
-    <item android:title="Product &amp; Service" />
-
-    <item android:title="Terms &amp; Condition" />
+    <item android:title="Contact Us" />
 
     <item android:title="Privacy Policy" />
+
+    <item android:title="Terms &amp; Condition" />
 
 </menu>

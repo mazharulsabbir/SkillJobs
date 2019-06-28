@@ -1,21 +1,26 @@
 package skill.jobs;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.EditorInfo;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import skill.jobs.Fragment.BottomSheetProductsAndServices;
 import skill.jobs.Fragment.DashboardFragment;
+import skill.jobs.Fragment.FavoriteJobsFragment;
 import skill.jobs.Fragment.JobsFragment;
 import skill.jobs.Fragment.TrainingFragment;
 import skill.jobs.Fragment.WelcomeProfileFragment;
@@ -32,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -51,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
             fragmentManager.executePendingTransactions();
         }
 
-
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -68,7 +71,14 @@ public class MainActivity extends AppCompatActivity {
                             toolbar.setTitle("JOBS");
                             openFragment(new JobsFragment(), "JOBS");
                         }
+                        return true;
 
+                    case R.id.nav_favorite_jobs:
+                        if (!ACTIVE_FRAGMENT.equals("FAV_JOBS")) {
+                            toolbar.setTitle("FAVORITES");
+                            openFragment(new FavoriteJobsFragment(), "FAV_JOBS");
+
+                        }
                         return true;
 
                     case R.id.nav_Training:
@@ -98,7 +108,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
+
+        MenuItem searchItem = menu.findItem(R.id.search_job);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+
+        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                return false;
+            }
+        });
+        return true;
     }
 
     @Override
@@ -109,11 +137,8 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home:
                 BottomSheetProductsAndServices sheet = new BottomSheetProductsAndServices();
                 sheet.show(getSupportFragmentManager(), "BottomSheetDialog");
-
                 return true;
 
-            case R.id.nav_job_seeker:
-                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -122,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openFragment(final Fragment fragment, final String CURRENT_FRAGMENT) {
-
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.disallowAddToBackStack(); //to remove back fragment

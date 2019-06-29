@@ -24,7 +24,7 @@
                 android:layout_height="match_parent"
                 android:theme="@style/ToolbarOverlayTheme"
                 app:layout_scrollFlags="scroll|enterAlways"
-                app:title="DASHBOARD" />
+                app:title="Search Result" />
 
         </com.google.android.material.appbar.AppBarLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

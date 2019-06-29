@@ -57,7 +57,6 @@ public class FullTimeJobsFragment extends Fragment {
 
     @SuppressWarnings("unchecked")
     private void featureJobsAdapter() {
-        //jobsList.clear();
         mFeatureJobsAdapter = new JobsContainerAdapter(R.layout.example_layout_jobs, jobsList);
         mFeatureJobsAdapter.isFirstOnly(false);
         mFeatureJobsAdapter.openLoadAnimation();

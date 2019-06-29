@@ -10,21 +10,20 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/dp_4">
+        android:layout_height="match_parent">
 
 
         <TextView
             android:id="@+id/textView46"
+            style="@style/TextAppearance.AppCompat.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
-            android:text="I WOULD LIKE TO BE A"
-            android:textColor="#000000"
-            android:textSize="18sp"
+            android:text="I would like to be a /an"
+            android:textAllCaps="true"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +34,6 @@
             android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:orientation="horizontal"
             android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +48,7 @@
             android:id="@+id/btJobseekerchoice"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
             android:layout_marginEnd="4dp"
             android:layout_weight="1"
             android:padding="2dp"
@@ -70,6 +68,7 @@
                     android:id="@+id/textView52"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/job"
                     android:fontFamily="@font/open_sans_regular"
                     android:text="Job Seeker"
                     android:textAlignment="center"
@@ -102,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="4dp"
             android:layout_weight="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline2"
@@ -119,6 +118,7 @@
                     android:id="@+id/textView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/company"
                     android:fontFamily="@font/open_sans_regular"
                     android:text="Employer"
                     android:textAlignment="center"
@@ -148,7 +148,7 @@
 
         <TextView
             android:id="@+id/textView77"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
@@ -160,9 +160,11 @@
 
         <TextView
             android:id="@+id/textView78"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Skill.Jobs is for job seekers, work as a hub for them and advocate for the job seekers to find scope and placement opportunity for Job seekers!"
             android:textStyle="bold"
@@ -173,8 +175,8 @@
         <TextView
             android:id="@+id/textView79"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="192dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="50dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="JOB SEEKER"
             android:textColor="@color/colorPrimary"
@@ -182,13 +184,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/color_view_color"
-            app:layout_constraintTop_toBottomOf="@+id/textView79" />
+            app:layout_constraintTop_toBottomOf="@+id/btJobseekerchoice" />
 
         <VideoView
             android:id="@+id/videoView"

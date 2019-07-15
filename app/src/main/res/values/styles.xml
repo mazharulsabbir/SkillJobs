@@ -16,7 +16,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/white</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@drawable/luncher_background</item>
+        <item name="android:windowBackground">@drawable/splash_screen</item>
         <item name="android:fontFamily">@font/open_sans_regular</item>
 
     </style>

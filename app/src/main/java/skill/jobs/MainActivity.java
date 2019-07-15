@@ -2,6 +2,7 @@ package skill.jobs;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -145,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
                 sheet.show(getSupportFragmentManager(), "BottomSheetDialog");
                 return true;
 
-
             default:
                 return super.onOptionsItemSelected(item);
 
@@ -161,7 +161,6 @@ public class MainActivity extends AppCompatActivity {
         transaction.replace(R.id.fragment_container, fragment)
                 .commit();
         fragmentManager.executePendingTransactions();
-
 
         ACTIVE_FRAGMENT = CURRENT_FRAGMENT;
 

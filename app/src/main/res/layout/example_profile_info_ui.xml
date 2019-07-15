@@ -34,7 +34,6 @@
             android:background="@drawable/round_corner"
             android:padding="2dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_settings_black_24dp"
             app:layout_constraintStart_toStartOf="@+id/tv_title"
             app:layout_constraintTop_toTopOf="@+id/tv_info" />
 

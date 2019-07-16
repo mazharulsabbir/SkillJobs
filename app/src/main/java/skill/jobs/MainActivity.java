@@ -2,7 +2,6 @@ package skill.jobs;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,7 +23,7 @@ import skill.jobs.Fragment.DashboardFragment;
 import skill.jobs.Fragment.FavoriteJobsFragment;
 import skill.jobs.Fragment.JobsFragment;
 import skill.jobs.Fragment.TrainingFragment;
-import skill.jobs.Fragment.WelcomeProfileFragment;
+import skill.jobs.Fragment.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -95,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_Profile:
                         if (!ACTIVE_FRAGMENT.equals("PROFILE")) {
                             toolbar.setTitle("PROFILE");
-                            openFragment(new WelcomeProfileFragment(), "PROFILE");
+                            openFragment(new ProfileFragment(), "PROFILE");
                         }
                         return true;
                 }

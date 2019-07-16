@@ -1,6 +1,7 @@
 package skill.jobs.Fragment;
 
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,11 +11,12 @@ import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -27,6 +29,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import skill.jobs.JobInfoViewerActivity;
 import skill.jobs.LoginActivity;
 import skill.jobs.R;
 import skill.jobs.RecyclerView.Jobs;
@@ -131,7 +134,22 @@ public class DashboardFragment extends Fragment {
         mFeatureJobsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Toast.makeText(getActivity(), "onItemClick" + position, Toast.LENGTH_SHORT).show();
+//                ImageView companyLogo = view.findViewById(R.id.imageView2);
+//                TextView companyName = view.findViewById(R.id.job_company_name);
+//                Intent sharedIntent = new Intent(getActivity(), JobInfoViewerActivity.class);
+//
+//                Pair[] pairs = new Pair[2];
+//                pairs[0] = new Pair<View, String>(companyLogo, "company_logo");
+//                pairs[1] = new Pair<View, String>(companyName, "company_name");
+//
+//                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+//                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(getActivity(), pairs);
+//                    startActivity(sharedIntent, options.toBundle());
+//
+//                } else {
+//                    startActivity(new Intent(getActivity(), JobInfoViewerActivity.class));
+//                }
+                startActivity(new Intent(getActivity(), JobInfoViewerActivity.class));
             }
         });
     }

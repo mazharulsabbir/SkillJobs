@@ -17,7 +17,7 @@ import skill.jobs.JobSeekerActivity;
 import skill.jobs.R;
 
 
-public class WelcomeProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment {
     private CardView JobSeekerButton, EmployeeButton;
     View view;
 
@@ -29,8 +29,6 @@ public class WelcomeProfileFragment extends Fragment {
 
         JobSeekerButton = view.findViewById(R.id.btJobseekerchoice);
         EmployeeButton = view.findViewById(R.id.btemployerchoice);
-
-
 
         JobSeekerButton.setOnClickListener(new View.OnClickListener() {
             @Override

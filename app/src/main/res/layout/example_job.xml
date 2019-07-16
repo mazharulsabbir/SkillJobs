@@ -14,18 +14,20 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:transitionName="company_logo"
             android:id="@+id/imageView2"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:background="#DDDDDD"
+            android:background="@drawable/rectangle_shape_outline"
             android:padding="8dp"
-            android:src="@drawable/jobs"
+            android:src="@drawable/logo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:transitionName="company_name"
             android:id="@+id/job_company_name"
             style="@style/Base.TextAppearance.AppCompat.Medium"
             android:layout_width="0dp"

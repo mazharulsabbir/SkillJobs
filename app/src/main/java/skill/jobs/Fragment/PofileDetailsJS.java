@@ -1,11 +1,13 @@
 package skill.jobs.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
@@ -27,11 +29,21 @@ public class PofileDetailsJS extends Fragment {
     View view;
     boolean pro_edit_flag = true, pro_edit_open = true;
 
+    private int drawables[] = {R.drawable.ic_my_location_black_24dp, R.drawable.ic_phone_black_24dp, R.drawable.ic_date_black_24dp,
+            R.drawable.ic_gender, R.drawable.ic_marriage_ring, R.drawable.ic_nationality,
+            R.drawable.ic_expected_salary, R.drawable.ic_national_id, R.drawable.ic_passport,
+            R.drawable.ic_date_black_24dp, R.drawable.ic_present_address, R.drawable.ic_parmanent_address,
+            R.drawable.ic_male, R.drawable.ic_female};
+
+    private String title[] = {"Lives In", "Contact No", "Birth Date", "Gender", "Marital Status",
+            "Nationality", "Expected Salary", "National ID", "Passport No",
+            "Birth Certificate", "Present Address", "Permanent Address", "Father Name", "Mother Name"};
+
     private RecyclerView mRecyclerViewProfileInfo;
     private List<ProfileInformationHelper> info;
     private BaseQuickAdapter mProfileInformation;
     private NestedScrollView mNestedScrollView;
-    private ProfileInformationHelper helper;
+    private ProfileInformationHelper profileInformationHelper;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,8 +58,13 @@ public class PofileDetailsJS extends Fragment {
         initSampleData();
         featureJobsAdapter();
 
-        mNestedScrollView.fullScroll(View.FOCUS_UP);
-        mNestedScrollView.smoothScrollTo(0,0);
+        TextView mEditProfile = view.findViewById(R.id.edit_profile);
+        mEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), EditJobSeekerProfile.class));
+            }
+        });
 
         return view;
     }
@@ -55,47 +72,16 @@ public class PofileDetailsJS extends Fragment {
     private void initSampleData() {
         info = new ArrayList<>();
 
-        helper = new ProfileInformationHelper(R.drawable.ic_my_location_black_24dp, "Lives In", "Dhaka, Bangladesh");
-        info.add(0, helper);
+        String mUserInfo[] = {"Dhaka, Bangladesh", "01825632294", "1999-02-12", "Male", "Unmarried", "Bangladeshi",
+                "-", "1954886790", "-", "-", "103 Central Bashabo, Khilgaon, District: Dhaka, Post Code: 1219, Bangladesh",
+                "Sakhipur 4 no ward, Tangail, Post Code: 1950, Dhaka , Bangladesh",
+                "Md. Lutfar Rahman", "Mazeda"
+        };
 
-        helper = new ProfileInformationHelper(R.drawable.ic_phone_black_24dp, "Contact No", "01825632294");
-        info.add(1, helper);
-
-        helper = new ProfileInformationHelper(R.drawable.ic_date_black_24dp, "Birth Date", "1999-02-12");
-        info.add(2, helper);
-
-        helper = new ProfileInformationHelper(R.drawable.ic_settings_black_24dp, "Gender", "Male");
-        info.add(3, helper);
-
-        helper = new ProfileInformationHelper(R.drawable.ic_settings_black_24dp, "Marital Status", "Unmarried");
-        info.add(4, helper);
-
-        helper = new ProfileInformationHelper(R.drawable.ic_settings_black_24dp, "Nationality", "Bangladesh");
-        info.add(5, helper);
-
-        helper = new ProfileInformationHelper(R.drawable.ic_settings_black_24dp, "Expected Salary", "-");
-        info.add(6, helper);
-
-        helper = new ProfileInformationHelper(R.drawable.ic_settings_black_24dp, "National ID", "1954886790");
-        info.add(7, helper);
-
-        helper = new ProfileInformationHelper(R.drawable.ic_settings_black_24dp, "Passport No", "-");
-        info.add(8, helper);
-
-        helper = new ProfileInformationHelper(R.drawable.ic_date_black_24dp, "Birth Certificate", "-");
-        info.add(9, helper);
-
-        helper = new ProfileInformationHelper(R.drawable.ic_settings_black_24dp, "Present Address", "103 Central Bashabo, Khilgaon, District: Dhaka, Post Code: 1219, Bangladesh");
-        info.add(10, helper);
-
-        helper = new ProfileInformationHelper(R.drawable.ic_settings_black_24dp, "Permanent Address", "Sakhipur 4 no ward, Tangail, Post Code: 1950, Dhaka , Bangladesh");
-        info.add(11, helper);
-
-        helper = new ProfileInformationHelper(R.drawable.ic_settings_black_24dp, "Father Name", "Md. Lutfar Rahman");
-        info.add(12, helper);
-
-        helper = new ProfileInformationHelper(R.drawable.ic_settings_black_24dp, "Mother Name", "Mazeda");
-        info.add(13, helper);
+        for (int i = 0; i < mUserInfo.length; i++) {
+            profileInformationHelper = new ProfileInformationHelper(drawables[i], title[i], mUserInfo[i]);
+            info.add(i, profileInformationHelper);
+        }
     }
 
     @SuppressWarnings("unchecked")

@@ -19,19 +19,16 @@ import skill.jobs.R;
 
 public class WelcomeProfileFragment extends Fragment {
     private CardView JobSeekerButton, EmployeeButton;
-    private VideoView videoview;
     View view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_welcome_profile, container, false);
+        view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         JobSeekerButton = view.findViewById(R.id.btJobseekerchoice);
         EmployeeButton = view.findViewById(R.id.btemployerchoice);
-        //video
-        videoview = view.findViewById(R.id.videoView);
 
 
 

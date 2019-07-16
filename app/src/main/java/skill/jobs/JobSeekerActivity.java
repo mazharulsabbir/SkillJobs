@@ -57,17 +57,6 @@ public class JobSeekerActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreatePanelMenu(int featureId, @NonNull Menu menu) {
-        getMenuInflater().inflate(R.menu.job_seeker_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START))
             drawerLayout.closeDrawer(GravityCompat.START);

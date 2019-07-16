@@ -1,34 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="4dp"
-    android:paddingBottom="8dp"
-    android:paddingTop="8dp"
-    android:orientation="vertical">
+    android:layout_marginStart="2dp"
+    android:layout_marginEnd="2dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="8dp">
 
-    <ImageView
+    <LinearLayout
+        android:paddingTop="2dp"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/background_image_dashboard_top" />
-
-    <TextView
-        android:id="@+id/course_title"
-        style="@style/TextAppearance.AppCompat.Medium"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Title:" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="vertical"
+        android:paddingBottom="8dp">
 
-    <TextView
-        android:id="@+id/course_duration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Duration:" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background_image_dashboard_top" />
 
-    <TextView
-        android:id="@+id/course_fees"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fees:" />
-</LinearLayout>
+        <TextView
+            android:id="@+id/course_title"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="Title:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/course_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="Duration:" />
+
+        <TextView
+            android:id="@+id/course_fees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="Fees:" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

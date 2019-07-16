@@ -1,83 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:foreground="?attr/selectableItemBackground"
     android:orientation="vertical"
+    app:cardCornerRadius="0dp"
     tools:ignore="UnusedAttribute">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="#DDDDDD"
-        android:padding="8dp"
-        android:src="@drawable/jobs"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/job_company_name"
-        style="@style/Base.TextAppearance.AppCompat.Medium"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:text="Company Name"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="#DDDDDD"
+            android:padding="8dp"
+            android:src="@drawable/jobs"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/job_vacancy_name"
-        style="@style/Base.TextAppearance.AppCompat.Medium"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Vacancy Name"
-        app:layout_constraintStart_toStartOf="@+id/job_company_name"
-        app:layout_constraintTop_toBottomOf="@+id/job_company_name" />
+        <TextView
+            android:id="@+id/job_company_name"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="Company Name"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
-    <TextView
-        android:id="@+id/job_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:text="Location"
-        app:layout_constraintStart_toStartOf="@+id/job_vacancy_name"
-        app:layout_constraintTop_toBottomOf="@+id/job_vacancy_name" />
+        <TextView
+            android:id="@+id/job_vacancy_name"
+            style="@style/Base.TextAppearance.AppCompat.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="Vacancy Name"
+            app:layout_constraintStart_toStartOf="@+id/job_company_name"
+            app:layout_constraintTop_toBottomOf="@+id/job_company_name" />
 
-    <TextView
-        android:id="@+id/job_salary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Total Vacancy"
-        app:layout_constraintStart_toStartOf="@+id/job_location"
-        app:layout_constraintTop_toBottomOf="@+id/job_location" />
+        <TextView
+            android:id="@+id/job_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/open_sans_regular"
+            android:gravity="center"
+            android:text="Location"
+            app:layout_constraintStart_toStartOf="@+id/job_vacancy_name"
+            app:layout_constraintTop_toBottomOf="@+id/job_vacancy_name" />
 
-    <TextView
-        android:id="@+id/job_dead_line"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Dead Line"
-        app:layout_constraintStart_toStartOf="@+id/job_salary"
-        app:layout_constraintTop_toBottomOf="@+id/job_salary" />
+        <TextView
+            android:id="@+id/job_salary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_regular"
+            android:gravity="center"
+            android:text="Total Vacancy"
+            app:layout_constraintStart_toStartOf="@+id/job_location"
+            app:layout_constraintTop_toBottomOf="@+id/job_location" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/job_location"
-        app:layout_constraintTop_toBottomOf="@+id/job_dead_line" />
+        <TextView
+            android:id="@+id/job_dead_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_regular"
+            android:gravity="center"
+            android:text="Dead Line"
+            app:layout_constraintStart_toStartOf="@+id/job_salary"
+            app:layout_constraintTop_toBottomOf="@+id/job_salary" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/job_location"
+            app:layout_constraintTop_toBottomOf="@+id/job_dead_line" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

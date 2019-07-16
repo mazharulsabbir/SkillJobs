@@ -19,6 +19,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import skill.jobs.EditJobSeekerProfile;
 import skill.jobs.R;
 import skill.jobs.RecyclerView.ProfileInformationAdapter;
 import skill.jobs.RecyclerView.ProfileInformationHelper;

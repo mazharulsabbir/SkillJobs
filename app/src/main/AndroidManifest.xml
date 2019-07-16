@@ -29,7 +29,7 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".Fragment.EditJobSeekerProfile" />
+        <activity android:name=".EditJobSeekerProfile" />
     </application>
 
 </manifest>

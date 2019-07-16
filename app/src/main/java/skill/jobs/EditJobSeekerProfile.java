@@ -1,4 +1,4 @@
-package skill.jobs.Fragment;
+package skill.jobs;
 
 import android.os.Bundle;
 import android.view.MenuItem;

@@ -107,7 +107,8 @@
 
                 <com.google.android.material.button.MaterialButton
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
+                    android:minWidth="120dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="2dp"
                     android:fontFamily="@font/open_sans_regular"
@@ -121,7 +122,8 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btRegistration"
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
+                    android:minWidth="120dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/open_sans_regular"
                     android:text="REGISTER"

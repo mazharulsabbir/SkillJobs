@@ -1,7 +1,6 @@
-package skill.jobs;
+package skill.jobs.JobSeeker;
 
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -14,9 +13,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 
 import skill.jobs.Fragment.JobAgentFragment;
-import skill.jobs.Fragment.PofileDetailsJS;
-import skill.jobs.Fragment.ProfileImageJsFragment;
+import skill.jobs.JobSeeker.Fragment.PofileDetailsJS;
 import skill.jobs.Fragment.UploadCvFragment;
+import skill.jobs.R;
 
 public class JobSeekerActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;

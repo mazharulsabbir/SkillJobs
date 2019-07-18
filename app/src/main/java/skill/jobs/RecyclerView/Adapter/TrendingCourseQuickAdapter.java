@@ -1,4 +1,4 @@
-package skill.jobs.RecyclerView;
+package skill.jobs.RecyclerView.Adapter;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -6,6 +6,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import java.util.List;
 
 import skill.jobs.R;
+import skill.jobs.RecyclerView.Helper.TrendingCourses;
 
 public class TrendingCourseQuickAdapter extends BaseQuickAdapter<TrendingCourses, BaseViewHolder> {
     public TrendingCourseQuickAdapter(int view, List<TrendingCourses> courses) {

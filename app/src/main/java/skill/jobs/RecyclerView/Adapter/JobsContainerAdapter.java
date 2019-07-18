@@ -1,4 +1,4 @@
-package skill.jobs.RecyclerView;
+package skill.jobs.RecyclerView.Adapter;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -6,6 +6,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import java.util.List;
 
 import skill.jobs.R;
+import skill.jobs.RecyclerView.Helper.JobsContainerHelper;
 
 public class JobsContainerAdapter extends BaseQuickAdapter<JobsContainerHelper, BaseViewHolder> {
     public JobsContainerAdapter(int view, List<JobsContainerHelper> jobs) {
@@ -24,7 +25,7 @@ public class JobsContainerAdapter extends BaseQuickAdapter<JobsContainerHelper, 
                 .setText(R.id.job_dead_line, jobs.getDeadLine())
                 .addOnClickListener(R.id.menu_share_job)
                 .addOnClickListener(R.id.menu_favorite)
-                .addOnClickListener(R.id.menu_not_favorite);//favorite
+                .addOnClickListener(R.id.menu_not_favorite);//ready to favorite
 
     }
 }

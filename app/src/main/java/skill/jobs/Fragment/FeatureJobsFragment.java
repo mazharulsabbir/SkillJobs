@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -18,8 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import skill.jobs.R;
-import skill.jobs.RecyclerView.JobsContainerAdapter;
-import skill.jobs.RecyclerView.JobsContainerHelper;
+import skill.jobs.RecyclerView.Adapter.JobsContainerAdapter;
+import skill.jobs.RecyclerView.Helper.JobsContainerHelper;
 
 public class FeatureJobsFragment extends Fragment {
     private View view;

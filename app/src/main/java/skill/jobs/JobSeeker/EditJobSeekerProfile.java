@@ -1,4 +1,4 @@
-package skill.jobs;
+package skill.jobs.JobSeeker;
 
 import android.os.Bundle;
 import android.view.MenuItem;

@@ -8,12 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.VideoView;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-import skill.jobs.JobSeekerActivity;
+import skill.jobs.JobSeeker.JobSeekerActivity;
 import skill.jobs.R;
 
 

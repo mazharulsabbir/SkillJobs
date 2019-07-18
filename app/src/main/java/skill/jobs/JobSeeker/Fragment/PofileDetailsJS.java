@@ -1,4 +1,4 @@
-package skill.jobs.Fragment;
+package skill.jobs.JobSeeker.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,10 +19,10 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import skill.jobs.EditJobSeekerProfile;
+import skill.jobs.JobSeeker.EditJobSeekerProfile;
 import skill.jobs.R;
-import skill.jobs.RecyclerView.ProfileInformationAdapter;
-import skill.jobs.RecyclerView.ProfileInformationHelper;
+import skill.jobs.RecyclerView.Adapter.ProfileInformationAdapter;
+import skill.jobs.RecyclerView.Helper.ProfileInformationHelper;
 
 
 public class PofileDetailsJS extends Fragment {

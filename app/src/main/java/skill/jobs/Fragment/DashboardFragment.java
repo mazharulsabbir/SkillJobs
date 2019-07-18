@@ -1,7 +1,6 @@
 package skill.jobs.Fragment;
 
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,11 +10,9 @@ import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,10 +29,10 @@ import java.util.List;
 import skill.jobs.JobInfoViewerActivity;
 import skill.jobs.LoginActivity;
 import skill.jobs.R;
-import skill.jobs.RecyclerView.Jobs;
-import skill.jobs.RecyclerView.JobsQuickAdapter;
-import skill.jobs.RecyclerView.TrendingCourseQuickAdapter;
-import skill.jobs.RecyclerView.TrendingCourses;
+import skill.jobs.RecyclerView.Helper.Jobs;
+import skill.jobs.RecyclerView.Adapter.JobsQuickAdapter;
+import skill.jobs.RecyclerView.Adapter.TrendingCourseQuickAdapter;
+import skill.jobs.RecyclerView.Helper.TrendingCourses;
 import skill.jobs.RegistrationActivity;
 
 /**
@@ -45,14 +42,12 @@ public class DashboardFragment extends Fragment {
     private View view;
     private RecyclerView mRecyclerViewFeatureJobs;
     private RecyclerView mRecyclerViewTrendingCourses;
-    private RecyclerView mRecyclerViewPartners;
 
     private List<Jobs> jobsList;
     private List<TrendingCourses> courses;
 
     private BaseQuickAdapter mFeatureJobsAdapter;
     private BaseQuickAdapter mTrendingCoursesAdapter;
-    private BaseQuickAdapter mPartnersAdapter;
 
 
     public DashboardFragment() {
@@ -101,7 +96,6 @@ public class DashboardFragment extends Fragment {
     private void initRecyclerViews() {
         mRecyclerViewFeatureJobs = view.findViewById(R.id.recycler_view_feature_job);
         mRecyclerViewTrendingCourses = view.findViewById(R.id.recycler_view_trending_course);
-        mRecyclerViewPartners = view.findViewById(R.id.recycler_view_partners);
 
         //horizontal recycler view
 //        LinearLayoutManager layoutManager
@@ -110,7 +104,6 @@ public class DashboardFragment extends Fragment {
 
         mRecyclerViewFeatureJobs.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerViewTrendingCourses.setLayoutManager(new LinearLayoutManager(getContext()));
-        mRecyclerViewPartners.setLayoutManager(new GridLayoutManager(getContext(), 3));
 
     }
 
@@ -134,21 +127,6 @@ public class DashboardFragment extends Fragment {
         mFeatureJobsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-//                ImageView companyLogo = view.findViewById(R.id.imageView2);
-//                TextView companyName = view.findViewById(R.id.job_company_name);
-//                Intent sharedIntent = new Intent(getActivity(), JobInfoViewerActivity.class);
-//
-//                Pair[] pairs = new Pair[2];
-//                pairs[0] = new Pair<View, String>(companyLogo, "company_logo");
-//                pairs[1] = new Pair<View, String>(companyName, "company_name");
-//
-//                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-//                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(getActivity(), pairs);
-//                    startActivity(sharedIntent, options.toBundle());
-//
-//                } else {
-//                    startActivity(new Intent(getActivity(), JobInfoViewerActivity.class));
-//                }
                 startActivity(new Intent(getActivity(), JobInfoViewerActivity.class));
             }
         });
@@ -167,24 +145,6 @@ public class DashboardFragment extends Fragment {
             public void run() {
 
                 mRecyclerViewTrendingCourses.setAdapter(mTrendingCoursesAdapter);
-
-            }
-        }, 200);
-    }
-
-    @SuppressWarnings("unchecked")
-    private void partnersAdapter() {
-        //jobsList.clear();
-        mFeatureJobsAdapter = new JobsQuickAdapter(R.layout.example_job, jobsList);
-        mFeatureJobsAdapter.isFirstOnly(false);
-        mFeatureJobsAdapter.openLoadAnimation();
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-                mRecyclerViewFeatureJobs.setAdapter(mFeatureJobsAdapter);
-                setEmptyView(mFeatureJobsAdapter);
 
             }
         }, 200);

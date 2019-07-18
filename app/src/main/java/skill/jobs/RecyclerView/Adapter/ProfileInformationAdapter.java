@@ -1,4 +1,4 @@
-package skill.jobs.RecyclerView;
+package skill.jobs.RecyclerView.Adapter;
 
 import androidx.annotation.Nullable;
 
@@ -8,6 +8,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import java.util.List;
 
 import skill.jobs.R;
+import skill.jobs.RecyclerView.Helper.ProfileInformationHelper;
 
 public class ProfileInformationAdapter extends BaseQuickAdapter<ProfileInformationHelper, BaseViewHolder>
 {

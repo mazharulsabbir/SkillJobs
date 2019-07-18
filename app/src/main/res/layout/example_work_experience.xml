@@ -16,7 +16,7 @@
         android:paddingBottom="8dp">
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/tv_org_name"
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -26,14 +26,14 @@
             android:text="Organization Name"
             android:textAllCaps="true"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/textView89"
+            app:layout_constraintEnd_toStartOf="@+id/tv_btn_more"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView89"
+            android:id="@+id/tv_btn_more"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView9"
+            app:layout_constraintTop_toTopOf="@+id/tv_org_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -43,34 +43,34 @@
             android:foreground="?attr/selectableItemBackground" />
 
         <TextView
-            android:id="@+id/textView84"
+            android:id="@+id/tv_position"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
             android:text="Position"
             android:textAllCaps="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_org_name" />
 
         <TextView
-            android:id="@+id/textView87"
+            android:id="@+id/tv_join_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
             android:text="Join Date"
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView84" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_position" />
 
         <TextView
-            android:id="@+id/textView88"
+            android:id="@+id/tv_resign_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
-            android:text="Regign Date"
+            android:text="Resign Date"
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView87" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_join_date" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

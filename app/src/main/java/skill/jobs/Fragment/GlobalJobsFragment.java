@@ -16,8 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import skill.jobs.R;
-import skill.jobs.RecyclerView.JobsContainerAdapter;
-import skill.jobs.RecyclerView.JobsContainerHelper;
+import skill.jobs.RecyclerView.Adapter.JobsContainerAdapter;
+import skill.jobs.RecyclerView.Helper.JobsContainerHelper;
 
 public class GlobalJobsFragment extends Fragment {
     private View view;

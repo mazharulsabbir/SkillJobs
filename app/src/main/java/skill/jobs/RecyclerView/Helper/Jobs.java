@@ -1,4 +1,4 @@
-package skill.jobs.RecyclerView;
+package skill.jobs.RecyclerView.Helper;
 
 public class Jobs {
     int vector;

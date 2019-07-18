@@ -14,7 +14,7 @@
         <activity android:name=".JobInfoViewerActivity"></activity>
         <activity android:name=".SearchResultActivity" />
         <activity
-            android:name=".JobSeekerActivity"
+            android:name=".JobSeeker.JobSeekerActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".RegistrationActivity" />
         <activity
@@ -30,7 +30,7 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".EditJobSeekerProfile" />
+        <activity android:name=".JobSeeker.EditJobSeekerProfile" />
     </application>
 
 </manifest>

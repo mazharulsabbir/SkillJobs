@@ -17,7 +17,7 @@
         android:paddingBottom="8dp">
 
         <TextView
-            android:id="@+id/tv_org_name"
+            android:id="@+id/tv_degree_level"
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
             app:layout_constraintTop_toTopOf="@+id/tv_org_name" />
 
         <TextView
-            android:id="@+id/tv_position"
+            android:id="@+id/tv_contact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
@@ -64,7 +64,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_position" />
 
         <TextView
-            android:id="@+id/textView85"
+            android:id="@+id/result_system"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
@@ -74,7 +74,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_resign_date" />
 
         <TextView
-            android:id="@+id/textView86"
+            android:id="@+id/result_achived"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -85,7 +85,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView85" />
 
         <TextView
-            android:id="@+id/tv_resign_date"
+            android:id="@+id/passing_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

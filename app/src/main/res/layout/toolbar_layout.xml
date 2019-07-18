@@ -13,6 +13,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:theme="@style/ToolbarOverlayTheme"
-        app:layout_scrollFlags="enterAlways|scroll|snap" />
+        app:layout_scrollFlags="enterAlways|scroll|snap">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/skill_jobs_toolbar_logo_small" />
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
 
 </com.google.android.material.appbar.AppBarLayout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"
@@ -16,11 +17,21 @@
         android:paddingStart="8dp"
         android:paddingBottom="8dp">
 
+        <ImageView
+            android:id="@+id/imageView19"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/rectangle_shape_outline"
+            android:src="@drawable/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_degree_level" />
+
         <TextView
-            android:id="@+id/tv_org_name"
+            android:id="@+id/tv_degree_level"
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/open_sans_regular"
@@ -28,7 +39,7 @@
             android:textAllCaps="true"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/tv_btn_more"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView19"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -41,69 +52,114 @@
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_org_name" />
+            app:layout_constraintTop_toTopOf="@+id/tv_degree_level" />
 
         <TextView
-            android:id="@+id/tv_position"
+            android:id="@+id/tv_degree_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
             android:text="degree title"
             android:textAllCaps="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_org_name" />
+            app:layout_constraintStart_toStartOf="@+id/tv_degree_level"
+            app:layout_constraintTop_toBottomOf="@+id/tv_degree_level" />
 
         <TextView
-            android:id="@+id/tv_join_date"
+            android:id="@+id/institution_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
             android:text="Institution name"
             android:textAllCaps="false"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_position" />
+            app:layout_constraintStart_toStartOf="@+id/tv_degree_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_degree_title" />
 
         <TextView
-            android:id="@+id/textView85"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/open_sans_regular"
-            android:text="Result system"
-            android:textAllCaps="false"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_resign_date" />
-
-        <TextView
-            android:id="@+id/textView86"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:fontFamily="@font/open_sans_regular"
-            android:text="Result achieved"
-            android:textAllCaps="false"
-            app:layout_constraintStart_toEndOf="@+id/textView85"
-            app:layout_constraintTop_toTopOf="@+id/textView85" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:fontFamily="@font/open_sans_regular"
-            android:text="Grade scale"
-            android:textAllCaps="false"
-            app:layout_constraintStart_toEndOf="@+id/textView86"
-            app:layout_constraintTop_toTopOf="@+id/textView86" />
-
-        <TextView
-            android:id="@+id/tv_resign_date"
+            android:id="@+id/passing_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
             android:text="Passing year"
             android:textAllCaps="false"
+            app:layout_constraintStart_toStartOf="@+id/institution_name"
+            app:layout_constraintTop_toBottomOf="@+id/institution_name" />
+
+        <TextView
+            android:id="@+id/result_system"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="Result system"
+            android:textAllCaps="false"
+            android:textSize="12sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_join_date" />
+            app:layout_constraintTop_toBottomOf="@+id/result_system_name" />
+
+        <TextView
+            android:id="@+id/result_achieved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="Result achieved"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/grade_scale"
+            app:layout_constraintStart_toEndOf="@+id/result_system"
+            app:layout_constraintTop_toTopOf="@+id/result_system" />
+
+        <TextView
+            android:id="@+id/grade_scale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="Grade scale"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/result_achieved" />
+
+        <TextView
+            android:id="@+id/result_system_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="grade"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/result_system"
+            app:layout_constraintStart_toStartOf="@+id/result_system"
+            app:layout_constraintTop_toBottomOf="@+id/passing_year" />
+
+        <TextView
+            android:id="@+id/result_achieved_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="3.7"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/result_achieved"
+            app:layout_constraintEnd_toEndOf="@+id/result_achieved"
+            app:layout_constraintStart_toStartOf="@+id/result_achieved" />
+
+        <TextView
+            android:id="@+id/grade_scale_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="1st Class"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/grade_scale"
+            app:layout_constraintEnd_toEndOf="@+id/grade_scale"
+            app:layout_constraintStart_toStartOf="@+id/grade_scale" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -2,10 +2,10 @@ package skill.jobs;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.inputmethod.EditorInfo;
 
 import androidx.annotation.NonNull;
@@ -16,7 +16,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -24,13 +23,14 @@ import skill.jobs.Fragment.BottomSheetProductsAndServices;
 import skill.jobs.Fragment.DashboardFragment;
 import skill.jobs.Fragment.FavoriteJobsFragment;
 import skill.jobs.Fragment.JobsFragment;
-import skill.jobs.Fragment.TrainingFragment;
 import skill.jobs.Fragment.ProfileFragment;
+import skill.jobs.Fragment.TrainingFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
     private String ACTIVE_FRAGMENT = "";
+    private BadgeDrawable badge;
+
 
     @SuppressLint("NewApi")
     @Override
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigation = findViewById(R.id.navigation_view);
 
         if (savedInstanceState == null) {
-            toolbar.setTitle("DASHBOARD");
             ACTIVE_FRAGMENT = "DASHBOARD";
 
             FragmentManager fragmentManager = getSupportFragmentManager();
@@ -65,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.nav_Dashboard:
                         if (!ACTIVE_FRAGMENT.equals("DASHBOARD")) {
-                            toolbar.setTitle("DASHBOARD");
                             openFragment(new DashboardFragment(), "DASHBOARD");
                         }
                         return true;
@@ -73,14 +71,12 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_jobs:
 
                         if (!ACTIVE_FRAGMENT.equals("JOBS")) {
-                            toolbar.setTitle("JOBS");
                             openFragment(new JobsFragment(), "JOBS");
                         }
                         return true;
 
                     case R.id.nav_favorite_jobs:
                         if (!ACTIVE_FRAGMENT.equals("FAV_JOBS")) {
-                            toolbar.setTitle("FAVORITES");
                             openFragment(new FavoriteJobsFragment(), "FAV_JOBS");
 
                         }
@@ -88,14 +84,12 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.nav_Training:
                         if (!ACTIVE_FRAGMENT.equals("TRAINING")) {
-                            toolbar.setTitle("TRAINING");
                             openFragment(new TrainingFragment(), "TRAINING");
                         }
                         return true;
 
                     case R.id.nav_Profile:
                         if (!ACTIVE_FRAGMENT.equals("PROFILE")) {
-                            toolbar.setTitle("PROFILE");
                             openFragment(new ProfileFragment(), "PROFILE");
                         }
                         return true;
@@ -104,10 +98,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-        BadgeDrawable badge = bottomNavigation.showBadge(R.id.nav_jobs);
-        badge.setNumber(1000);
+        badge = bottomNavigation.showBadge(R.id.nav_jobs);
+        badge.setNumber(120);
         badge.setMaxCharacterCount(4);
+        badge.setBackgroundColor(Color.BLUE);
+
     }
 
     @Override
@@ -119,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
         searchView.setMaxWidth(Integer.MAX_VALUE);
         searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        searchView.setQueryHint("Search..");
+        searchView.setQueryHint("Try, Android Developer");
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

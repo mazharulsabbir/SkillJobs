@@ -17,7 +17,7 @@
         android:paddingBottom="8dp">
 
         <TextView
-            android:id="@+id/tv_org_name"
+            android:id="@+id/tv_training_type"
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -41,30 +41,30 @@
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_org_name" />
+            app:layout_constraintTop_toTopOf="@+id/tv_training_type" />
 
         <TextView
-            android:id="@+id/tv_position"
+            android:id="@+id/tv_training_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
             android:text="Training title"
             android:textAllCaps="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_org_name" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_training_type" />
 
         <TextView
-            android:id="@+id/tv_join_date"
+            android:id="@+id/tv_training_duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
             android:text="Training Duration"
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_position" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_training_title" />
 
         <TextView
-            android:id="@+id/tv_resign_date"
+            android:id="@+id/tv_training_start_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -72,20 +72,20 @@
             android:text="Training Start Date"
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_join_date" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_training_duration" />
 
         <TextView
-            android:id="@+id/textView85"
+            android:id="@+id/tv_training_end_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
             android:text="Training End Date"
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_resign_date" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_training_start_date" />
 
         <TextView
-            android:id="@+id/textView86"
+            android:id="@+id/tv_training_certifications"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -93,7 +93,7 @@
             android:text="Training Certificate"
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView85" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_training_end_date" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

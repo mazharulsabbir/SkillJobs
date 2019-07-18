@@ -15,11 +15,21 @@
         android:paddingStart="8dp"
         android:paddingBottom="8dp">
 
+        <ImageView
+            android:id="@+id/imageView18"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/rectangle_shape_outline"
+            android:src="@drawable/logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_org_name" />
+
         <TextView
             android:id="@+id/tv_org_name"
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="@font/open_sans_regular"
@@ -27,7 +37,7 @@
             android:textAllCaps="true"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/tv_btn_more"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView18"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -49,7 +59,7 @@
             android:fontFamily="@font/open_sans_regular"
             android:text="Position"
             android:textAllCaps="true"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_org_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_org_name" />
 
         <TextView
@@ -59,7 +69,7 @@
             android:fontFamily="@font/open_sans_regular"
             android:text="Join Date"
             android:textAllCaps="false"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_position"
             app:layout_constraintTop_toBottomOf="@+id/tv_position" />
 
         <TextView
@@ -69,7 +79,7 @@
             android:fontFamily="@font/open_sans_regular"
             android:text="Resign Date"
             android:textAllCaps="false"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_join_date"
             app:layout_constraintTop_toBottomOf="@+id/tv_join_date" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

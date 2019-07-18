@@ -12,7 +12,6 @@
 
     <!-- Splash Screen theme. -->
     <style name="SplashScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/white</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -23,8 +22,6 @@
     <style name="BottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView">
         <item name="android:fitsSystemWindows">true</item>
         <item name="android:textSize">10sp</item>
-        <item name="android:fontFamily">@font/open_sans_regular</item>
-
     </style>
 
     <style name="ToolbarOverlayTheme" parent="ThemeOverlay.AppCompat.Light">

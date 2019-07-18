@@ -41,6 +41,7 @@
             android:text="0+"
             android:textColor="@android:color/white"
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/textView18"
             app:layout_constraintTop_toTopOf="@+id/imageView12" />
 
@@ -53,6 +54,7 @@
             android:fontFamily="@font/open_sans_regular"
             android:text="Full Time Job"
             android:textColor="@android:color/white"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView12"
             app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
@@ -74,6 +76,7 @@
             android:text="0+"
             android:textColor="@android:color/white"
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/textView20"
             app:layout_constraintTop_toTopOf="@+id/imageView14" />
 
@@ -85,6 +88,7 @@
             android:fontFamily="@font/open_sans_regular"
             android:text="Resumes"
             android:textColor="@android:color/white"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView14"
             app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
@@ -107,6 +111,7 @@
             android:text="0+"
             android:textColor="@android:color/white"
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/textView22"
             app:layout_constraintTop_toTopOf="@+id/imageView13" />
 
@@ -118,6 +123,7 @@
             android:fontFamily="@font/open_sans_regular"
             android:text="Effective Courses"
             android:textColor="@android:color/white"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView13"
             app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
@@ -130,6 +136,8 @@
             android:background="@color/colorPrimary"
             android:fontFamily="@font/open_sans_regular"
             android:text="ADD RESUME"
+            android:textAllCaps="true"
+            android:textStyle="bold"
             app:cornerRadius="16dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/imageView5" />
@@ -144,6 +152,8 @@
             android:fontFamily="@font/open_sans_regular"
             android:minWidth="118dp"
             android:text="POST JOBS"
+            android:textAllCaps="true"
+            android:textStyle="bold"
             app:cornerRadius="16dp"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/imageView5" />

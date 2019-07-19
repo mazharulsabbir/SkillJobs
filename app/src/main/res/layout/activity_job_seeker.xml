@@ -31,7 +31,7 @@
                     android:layout_height="match_parent"
                     android:theme="@style/ToolbarOverlayTheme"
                     app:layout_scrollFlags="scroll|enterAlways"
-                    app:title="PROFILE" />
+                    app:title="Profile" />
 
             </com.google.android.material.appbar.AppBarLayout>
 

@@ -2,6 +2,7 @@ package skill.jobs.RecyclerView.Adapter;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.chad.library.adapter.base.loadmore.LoadMoreView;
 
 import java.util.List;
 
@@ -28,4 +29,5 @@ public class JobsContainerAdapter extends BaseQuickAdapter<JobsContainerHelper, 
                 .addOnClickListener(R.id.menu_not_favorite);//ready to favorite
 
     }
+
 }

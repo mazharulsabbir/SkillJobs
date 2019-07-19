@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
-
             transaction.replace(R.id.fragment_container, new DashboardFragment()).commit();
             fragmentManager.executePendingTransactions();
         }
@@ -155,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.disallowAddToBackStack(); //to remove back fragment
+//        transaction.addToBackStack(CURRENT_FRAGMENT);
         transaction.replace(R.id.fragment_container, fragment)
                 .commit();
         fragmentManager.executePendingTransactions();

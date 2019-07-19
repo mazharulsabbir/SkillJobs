@@ -53,7 +53,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginStart="16dp"
-                    android:background="@drawable/rectangle_shape_outline"
+                    android:background="@drawable/rectangle_shape_filled"
                     android:scaleType="centerCrop"
                     android:src="@drawable/logo"
                     android:transitionName="company_logo"
@@ -69,6 +69,7 @@
                     android:fontFamily="@font/open_sans_regular"
                     android:text="Job Title"
                     android:textStyle="bold"
+                    android:transitionName="vacancy_name"
                     app:layout_constraintStart_toStartOf="@+id/textView82"
                     app:layout_constraintTop_toBottomOf="@+id/imageView16" />
 
@@ -90,6 +91,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/open_sans_regular"
                     android:text="Location"
+                    android:transitionName="company_location"
                     app:layout_constraintStart_toStartOf="@+id/textView82"
                     app:layout_constraintTop_toBottomOf="@+id/textView82" />
 

@@ -17,7 +17,7 @@
         android:paddingBottom="8dp">
 
         <TextView
-            android:id="@+id/tv_degree_level"
+            android:id="@+id/tv_person_name"
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -41,40 +41,40 @@
             android:focusable="true"
             android:foreground="?attr/selectableItemBackground"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_org_name" />
+            app:layout_constraintTop_toTopOf="@+id/tv_person_name" />
 
         <TextView
-            android:id="@+id/tv_contact"
+            android:id="@+id/tv_designation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
             android:text="Designation"
             android:textAllCaps="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_org_name" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_person_name" />
 
         <TextView
-            android:id="@+id/tv_join_date"
+            android:id="@+id/tv_org_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
             android:text="Organization Name"
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_position" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_designation" />
 
         <TextView
-            android:id="@+id/result_system"
+            android:id="@+id/tv_contact_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
             android:text="Email Address"
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_resign_date" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_org_name" />
 
         <TextView
-            android:id="@+id/result_achived"
+            android:id="@+id/tv_email_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -82,10 +82,10 @@
             android:text="Relationship"
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView85" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_contact_no" />
 
         <TextView
-            android:id="@+id/passing_year"
+            android:id="@+id/tv_relationship"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -93,7 +93,7 @@
             android:text="Contact No"
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_join_date" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_email_address" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

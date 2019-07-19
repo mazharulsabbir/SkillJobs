@@ -21,4 +21,14 @@ public class JobsQuickAdapter extends BaseQuickAdapter<Jobs, BaseViewHolder> {
                 .setText(R.id.job_location, jobs.getCompanyLocation())
                 .setText(R.id.job_dead_line, jobs.getDeadLine());
     }
+
+    @Override
+    public int getItemCount() {
+        return 10;
+    }
+
+    @Override
+    public boolean isLoading() {
+        return super.isLoading();
+    }
 }

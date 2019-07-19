@@ -1,6 +1,7 @@
 package skill.jobs.Fragment;
 
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,14 +11,15 @@ import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,9 +31,9 @@ import java.util.List;
 import skill.jobs.JobInfoViewerActivity;
 import skill.jobs.LoginActivity;
 import skill.jobs.R;
-import skill.jobs.RecyclerView.Helper.Jobs;
 import skill.jobs.RecyclerView.Adapter.JobsQuickAdapter;
 import skill.jobs.RecyclerView.Adapter.TrendingCourseQuickAdapter;
+import skill.jobs.RecyclerView.Helper.Jobs;
 import skill.jobs.RecyclerView.Helper.TrendingCourses;
 import skill.jobs.RegistrationActivity;
 
@@ -101,9 +103,10 @@ public class DashboardFragment extends Fragment {
 //        LinearLayoutManager layoutManager
 //                = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 
-
         mRecyclerViewFeatureJobs.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerViewTrendingCourses.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        mRecyclerViewFeatureJobs.setHasTransientState(true);
 
     }
 
@@ -127,7 +130,26 @@ public class DashboardFragment extends Fragment {
         mFeatureJobsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                startActivity(new Intent(getActivity(), JobInfoViewerActivity.class));
+                ImageView companyLogo = view.findViewById(R.id.imageView2);
+                TextView companyName = view.findViewById(R.id.job_company_name),
+                        vacancyName = view.findViewById(R.id.job_vacancy_name),
+                        location = view.findViewById(R.id.job_location);
+
+                Intent sharedIntent = new Intent(getActivity(), JobInfoViewerActivity.class);
+
+                Pair[] pairs = new Pair[4];
+                pairs[0] = new Pair<View, String>(companyLogo, "company_logo");
+                pairs[1] = new Pair<View, String>(companyName, "company_name");
+                pairs[2] = new Pair<View, String>(vacancyName, "vacancy_name");
+                pairs[3] = new Pair<View, String>(location, "company_location");
+
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(getActivity(), pairs);
+                    startActivity(sharedIntent, options.toBundle());
+
+                } else {
+                    startActivity(sharedIntent);
+                }
             }
         });
     }
@@ -139,15 +161,7 @@ public class DashboardFragment extends Fragment {
         mTrendingCoursesAdapter.isFirstOnly(false);
         mTrendingCoursesAdapter.openLoadAnimation();
         setEmptyView(mTrendingCoursesAdapter);
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-                mRecyclerViewTrendingCourses.setAdapter(mTrendingCoursesAdapter);
-
-            }
-        }, 200);
+        mRecyclerViewTrendingCourses.setAdapter(mTrendingCoursesAdapter);
     }
 
     private void setEmptyView(BaseQuickAdapter adapter) {

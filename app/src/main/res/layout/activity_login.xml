@@ -196,12 +196,12 @@
                 android:hint="Email">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    style="@style/TextAppearance.AppCompat.Small"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/open_sans_regular"
                     android:inputType="textEmailAddress"
-                    android:singleLine="true"
-                    android:textSize="@dimen/text_size_small" />
+                    android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -211,12 +211,12 @@
                 android:hint="Password">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    style="@style/TextAppearance.AppCompat.Small"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/open_sans_regular"
                     android:inputType="textPassword"
-                    android:singleLine="true"
-                    android:textSize="12sp" />
+                    android:singleLine="true" />
             </com.google.android.material.textfield.TextInputLayout>
 
 

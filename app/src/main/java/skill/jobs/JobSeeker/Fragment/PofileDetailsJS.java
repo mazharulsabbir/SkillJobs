@@ -30,28 +30,26 @@ public class PofileDetailsJS extends Fragment {
     View view;
     boolean pro_edit_flag = true, pro_edit_open = true;
 
-    private int drawables[] = {R.drawable.ic_my_location_black_24dp, R.drawable.ic_phone_black_24dp, R.drawable.ic_date_black_24dp,
+    private int[] drawables = {R.drawable.ic_my_location_black_24dp, R.drawable.ic_phone_black_24dp, R.drawable.ic_date_black_24dp,
             R.drawable.ic_gender, R.drawable.ic_marriage_ring, R.drawable.ic_nationality,
             R.drawable.ic_expected_salary, R.drawable.ic_national_id, R.drawable.ic_passport,
             R.drawable.ic_date_black_24dp, R.drawable.ic_present_address, R.drawable.ic_parmanent_address,
             R.drawable.ic_male, R.drawable.ic_female};
 
-    private String title[] = {"Lives In", "Contact No", "Birth Date", "Gender", "Marital Status",
+    private String[] title = {"Lives In", "Contact No", "Birth Date", "Gender", "Marital Status",
             "Nationality", "Expected Salary", "National ID", "Passport No",
             "Birth Certificate", "Present Address", "Permanent Address", "Father Name", "Mother Name"};
 
     private RecyclerView mRecyclerViewProfileInfo;
     private List<ProfileInformationHelper> info;
     private BaseQuickAdapter mProfileInformation;
-    private NestedScrollView mNestedScrollView;
-    private ProfileInformationHelper profileInformationHelper;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.design_job_seeker_profile_ui, container, false);
 
-        mNestedScrollView = view.findViewById(R.id.nestedScrollView);
+        NestedScrollView mNestedScrollView = view.findViewById(R.id.nestedScrollView);
 
         mRecyclerViewProfileInfo = view.findViewById(R.id.recycler_view);
         mRecyclerViewProfileInfo.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -73,14 +71,14 @@ public class PofileDetailsJS extends Fragment {
     private void initSampleData() {
         info = new ArrayList<>();
 
-        String mUserInfo[] = {"Dhaka, Bangladesh", "01825632294", "1999-02-12", "Male", "Unmarried", "Bangladeshi",
+        String[] mUserInfo = {"Dhaka, Bangladesh", "01825632294", "1999-02-12", "Male", "Unmarried", "Bangladeshi",
                 "-", "1954886790", "-", "-", "103 Central Bashabo, Khilgaon, District: Dhaka, Post Code: 1219, Bangladesh",
                 "Sakhipur 4 no ward, Tangail, Post Code: 1950, Dhaka , Bangladesh",
                 "Md. Lutfar Rahman", "Mazeda"
         };
 
         for (int i = 0; i < mUserInfo.length; i++) {
-            profileInformationHelper = new ProfileInformationHelper(drawables[i], title[i], mUserInfo[i]);
+            ProfileInformationHelper profileInformationHelper = new ProfileInformationHelper(drawables[i], title[i], mUserInfo[i]);
             info.add(i, profileInformationHelper);
         }
     }
@@ -92,11 +90,6 @@ public class PofileDetailsJS extends Fragment {
         mProfileInformation.isFirstOnly(false);
         mProfileInformation.openLoadAnimation();
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mRecyclerViewProfileInfo.setAdapter(mProfileInformation);
-            }
-        }, 200);
+        mRecyclerViewProfileInfo.setAdapter(mProfileInformation);
     }
 }

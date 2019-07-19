@@ -34,6 +34,7 @@
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:focusableInTouchMode="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="50dp">
@@ -49,13 +50,14 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
+                    android:padding="8dp"
                     android:id="@+id/imageView17"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginStart="16dp"
                     android:background="@drawable/rectangle_shape_filled"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/logo"
+                    android:src="@drawable/ic_company"
                     android:transitionName="company_logo"
                     app:layout_constraintBottom_toBottomOf="@+id/imageView16"
                     app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/open_sans_regular"
-                    android:text="Job Title"
+                    android:text="Vacancy"
                     android:textStyle="bold"
                     android:transitionName="vacancy_name"
                     app:layout_constraintStart_toStartOf="@+id/textView82"
@@ -80,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:fontFamily="@font/open_sans_regular"
-                    android:text="Company Name"
+                    android:text="Company"
                     android:textStyle="bold"
                     android:transitionName="company_name"
                     app:layout_constraintStart_toEndOf="@+id/imageView17"
@@ -118,16 +120,213 @@
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
                     app:layout_constraintTop_toTopOf="@+id/materialButton3" />
 
-                <View
+                <androidx.cardview.widget.CardView
+                    app:cardElevation="0dp"
+                    android:id="@+id/cardView_job_details"
                     android:layout_width="match_parent"
-                    android:layout_height="16dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
-                    android:background="@color/color_view_color"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/materialButton4" />
+                    app:layout_constraintTop_toBottomOf="@+id/materialButton4">
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextAppearance.AppCompat.Large"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Job Details"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorPrimary"
+                            android:textStyle="bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:focusable="false"
+                            android:overScrollMode="never"
+                            android:scrollbars="none"
+                            android:id="@+id/recycler_view_job_details"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+<!--                &lt;!&ndash;<androidx.cardview.widget.CardView&ndash;&gt;
+                    &lt;!&ndash;android:id="@+id/cardView_job_desc"&ndash;&gt;
+                    &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                    &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                    &lt;!&ndash;android:layout_marginTop="32dp"&ndash;&gt;
+                    &lt;!&ndash;app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;
+                    &lt;!&ndash;app:layout_constraintStart_toStartOf="parent"&ndash;&gt;
+                    &lt;!&ndash;app:layout_constraintTop_toBottomOf="@+id/cardView_job_details">&ndash;&gt;
+
+                    &lt;!&ndash;<LinearLayout&ndash;&gt;
+                        &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                        &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                        &lt;!&ndash;android:orientation="vertical">&ndash;&gt;
+
+                        &lt;!&ndash;<TextView&ndash;&gt;
+                            &lt;!&ndash;style="@style/TextAppearance.AppCompat.Large"&ndash;&gt;
+                            &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                            &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                            &lt;!&ndash;android:gravity="center"&ndash;&gt;
+                            &lt;!&ndash;android:text="Job Description"&ndash;&gt;
+                            &lt;!&ndash;android:textAllCaps="true"&ndash;&gt;
+                            &lt;!&ndash;android:textColor="@color/colorPrimary"&ndash;&gt;
+                            &lt;!&ndash;android:textStyle="bold" />&ndash;&gt;
+
+                        &lt;!&ndash;<androidx.recyclerview.widget.RecyclerView&ndash;&gt;
+                            &lt;!&ndash;android:id="@+id/recycler_view_job_description"&ndash;&gt;
+                            &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                            &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                            &lt;!&ndash;android:layout_marginTop="8dp" />&ndash;&gt;
+
+                    &lt;!&ndash;</LinearLayout>&ndash;&gt;
+
+                &lt;!&ndash;</androidx.cardview.widget.CardView>&ndash;&gt;
+
+                &lt;!&ndash;<androidx.cardview.widget.CardView&ndash;&gt;
+                    &lt;!&ndash;android:id="@+id/cardView_educational_requirements"&ndash;&gt;
+                    &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                    &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                    &lt;!&ndash;android:layout_marginTop="32dp"&ndash;&gt;
+                    &lt;!&ndash;app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;
+                    &lt;!&ndash;app:layout_constraintStart_toStartOf="parent"&ndash;&gt;
+                    &lt;!&ndash;app:layout_constraintTop_toBottomOf="@+id/cardView_job_details">&ndash;&gt;
+
+                    &lt;!&ndash;<LinearLayout&ndash;&gt;
+                        &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                        &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                        &lt;!&ndash;android:orientation="vertical">&ndash;&gt;
+
+                        &lt;!&ndash;<TextView&ndash;&gt;
+                            &lt;!&ndash;style="@style/TextAppearance.AppCompat.Large"&ndash;&gt;
+                            &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                            &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                            &lt;!&ndash;android:gravity="center"&ndash;&gt;
+                            &lt;!&ndash;android:text="Educational Requirements"&ndash;&gt;
+                            &lt;!&ndash;android:textAllCaps="true"&ndash;&gt;
+                            &lt;!&ndash;android:textColor="@color/colorPrimary"&ndash;&gt;
+                            &lt;!&ndash;android:textStyle="bold" />&ndash;&gt;
+
+                        &lt;!&ndash;<androidx.recyclerview.widget.RecyclerView&ndash;&gt;
+                            &lt;!&ndash;android:id="@+id/recycler_view_educational_requirements"&ndash;&gt;
+                            &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                            &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                            &lt;!&ndash;android:layout_marginTop="8dp" />&ndash;&gt;
+
+                    &lt;!&ndash;</LinearLayout>&ndash;&gt;
+
+                &lt;!&ndash;</androidx.cardview.widget.CardView>&ndash;&gt;
+
+                &lt;!&ndash;<androidx.cardview.widget.CardView&ndash;&gt;
+                    &lt;!&ndash;android:id="@+id/cardView_additional_requirements"&ndash;&gt;
+                    &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                    &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                    &lt;!&ndash;android:layout_marginTop="32dp"&ndash;&gt;
+                    &lt;!&ndash;app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;
+                    &lt;!&ndash;app:layout_constraintStart_toStartOf="parent"&ndash;&gt;
+                    &lt;!&ndash;app:layout_constraintTop_toBottomOf="@+id/cardView_educational_requirements">&ndash;&gt;
+
+                    &lt;!&ndash;<LinearLayout&ndash;&gt;
+                        &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                        &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                        &lt;!&ndash;android:orientation="vertical">&ndash;&gt;
+
+                        &lt;!&ndash;<TextView&ndash;&gt;
+                            &lt;!&ndash;style="@style/TextAppearance.AppCompat.Large"&ndash;&gt;
+                            &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                            &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                            &lt;!&ndash;android:gravity="center"&ndash;&gt;
+                            &lt;!&ndash;android:text="Additional Requirements"&ndash;&gt;
+                            &lt;!&ndash;android:textAllCaps="true"&ndash;&gt;
+                            &lt;!&ndash;android:textColor="@color/colorPrimary"&ndash;&gt;
+                            &lt;!&ndash;android:textStyle="bold" />&ndash;&gt;
+
+                        &lt;!&ndash;<androidx.recyclerview.widget.RecyclerView&ndash;&gt;
+                            &lt;!&ndash;android:id="@+id/recycler_view_additional_requirements"&ndash;&gt;
+                            &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                            &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                            &lt;!&ndash;android:layout_marginTop="8dp" />&ndash;&gt;
+
+                    &lt;!&ndash;</LinearLayout>&ndash;&gt;
+
+                &lt;!&ndash;</androidx.cardview.widget.CardView>&ndash;&gt;
+
+                &lt;!&ndash;<androidx.cardview.widget.CardView&ndash;&gt;
+                    &lt;!&ndash;android:id="@+id/cardView_extra_facilities"&ndash;&gt;
+                    &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                    &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                    &lt;!&ndash;android:layout_marginTop="32dp"&ndash;&gt;
+                    &lt;!&ndash;app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;
+                    &lt;!&ndash;app:layout_constraintStart_toStartOf="parent"&ndash;&gt;
+                    &lt;!&ndash;app:layout_constraintTop_toBottomOf="@+id/cardView_additional_requirements">&ndash;&gt;
+
+                    &lt;!&ndash;<LinearLayout&ndash;&gt;
+                        &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                        &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                        &lt;!&ndash;android:orientation="vertical">&ndash;&gt;
+
+                        &lt;!&ndash;<TextView&ndash;&gt;
+                            &lt;!&ndash;style="@style/TextAppearance.AppCompat.Large"&ndash;&gt;
+                            &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                            &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                            &lt;!&ndash;android:gravity="center"&ndash;&gt;
+                            &lt;!&ndash;android:text="Extra Facilities"&ndash;&gt;
+                            &lt;!&ndash;android:textAllCaps="true"&ndash;&gt;
+                            &lt;!&ndash;android:textColor="@color/colorPrimary"&ndash;&gt;
+                            &lt;!&ndash;android:textStyle="bold" />&ndash;&gt;
+
+                        &lt;!&ndash;<androidx.recyclerview.widget.RecyclerView&ndash;&gt;
+                            &lt;!&ndash;android:id="@+id/recycler_view_extra_facilities"&ndash;&gt;
+                            &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                            &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                            &lt;!&ndash;android:layout_marginTop="8dp" />&ndash;&gt;
+
+                    &lt;!&ndash;</LinearLayout>&ndash;&gt;
+
+                &lt;!&ndash;</androidx.cardview.widget.CardView>&ndash;&gt;
+
+                &lt;!&ndash;<androidx.cardview.widget.CardView&ndash;&gt;
+                    &lt;!&ndash;android:id="@+id/cardView_apply_instruction"&ndash;&gt;
+                    &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                    &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                    &lt;!&ndash;android:layout_marginTop="32dp"&ndash;&gt;
+                    &lt;!&ndash;app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;
+                    &lt;!&ndash;app:layout_constraintStart_toStartOf="parent"&ndash;&gt;
+                    &lt;!&ndash;app:layout_constraintTop_toBottomOf="@+id/cardView_extra_facilities">&ndash;&gt;
+
+                    &lt;!&ndash;<LinearLayout&ndash;&gt;
+                        &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                        &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                        &lt;!&ndash;android:orientation="vertical">&ndash;&gt;
+
+                        &lt;!&ndash;<TextView&ndash;&gt;
+                            &lt;!&ndash;style="@style/TextAppearance.AppCompat.Large"&ndash;&gt;
+                            &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                            &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                            &lt;!&ndash;android:gravity="center"&ndash;&gt;
+                            &lt;!&ndash;android:text="Apply Instruction"&ndash;&gt;
+                            &lt;!&ndash;android:textAllCaps="true"&ndash;&gt;
+                            &lt;!&ndash;android:textColor="@color/colorPrimary"&ndash;&gt;
+                            &lt;!&ndash;android:textStyle="bold" />&ndash;&gt;
+
+                        &lt;!&ndash;<androidx.recyclerview.widget.RecyclerView&ndash;&gt;
+                            &lt;!&ndash;android:id="@+id/recycler_view_apply_instruction"&ndash;&gt;
+                            &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+                            &lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;
+                            &lt;!&ndash;android:layout_marginTop="8dp" />&ndash;&gt;
+
+                    &lt;!&ndash;</LinearLayout>&ndash;&gt;
+
+                &lt;!&ndash;</androidx.cardview.widget.CardView>-->
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline3"
@@ -135,7 +334,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent="0.5" />
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

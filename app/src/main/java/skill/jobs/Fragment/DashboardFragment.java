@@ -64,18 +64,13 @@ public class DashboardFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         stringUrlDesign();
 
-        return view;
-    }
-
-    @Override
-    public void onStart() {
         initSampleData();
         initRecyclerViews();
         featureJobsAdapter();
 
         trendingCourseAdapter();
 
-        super.onStart();
+        return view;
     }
 
     private void initSampleData() {
@@ -116,16 +111,8 @@ public class DashboardFragment extends Fragment {
         mFeatureJobsAdapter = new JobsQuickAdapter(R.layout.example_job, jobsList);
         mFeatureJobsAdapter.isFirstOnly(false);
         mFeatureJobsAdapter.openLoadAnimation();
-        setEmptyView(mFeatureJobsAdapter);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-                mRecyclerViewFeatureJobs.setAdapter(mFeatureJobsAdapter);
-
-            }
-        }, 200);
+        mRecyclerViewFeatureJobs.setAdapter(mFeatureJobsAdapter);
 
         mFeatureJobsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override

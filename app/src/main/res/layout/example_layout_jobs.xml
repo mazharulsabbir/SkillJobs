@@ -121,24 +121,30 @@
             app:layout_constraintStart_toStartOf="@+id/job_dead_line"
             app:layout_constraintTop_toBottomOf="@+id/job_dead_line" />
 
-        <TextView
+        <ImageButton
             android:id="@+id/menu_favorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:drawableEnd="@drawable/ic_favorite_red"
-            android:padding="8dp"
+            android:background="@drawable/shape_round_corner_borderless_outline"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:src="@drawable/ic_favorite_red"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
+        <ImageButton
             android:id="@+id/menu_not_favorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:drawableEnd="@drawable/ic_favorite_border_black_20dp"
-            android:padding="8dp"
+            android:background="@drawable/shape_round_corner_borderless_outline"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:src="@drawable/ic_favorite_border_black_20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -154,13 +160,16 @@
             app:layout_constraintEnd_toStartOf="@+id/menu_favorite"
             app:layout_constraintTop_toTopOf="@+id/menu_favorite" />
 
-        <TextView
+        <ImageButton
             android:id="@+id/menu_share_job"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:drawableEnd="@drawable/ic_share_black_24dp"
-            android:padding="8dp"
+            android:background="@drawable/shape_round_corner_borderless_outline"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:src="@drawable/ic_share_black_24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/view7" />
 

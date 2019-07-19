@@ -1,6 +1,7 @@
 package skill.jobs;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,10 +33,5 @@ public class JobInfoViewerActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        finish();
     }
 }

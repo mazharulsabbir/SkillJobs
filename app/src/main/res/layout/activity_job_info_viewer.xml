@@ -50,8 +50,8 @@
 
                 <ImageView
                     android:id="@+id/imageView17"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:layout_marginStart="16dp"
                     android:background="@drawable/rectangle_shape_filled"
                     android:scaleType="centerCrop"
@@ -66,6 +66,7 @@
                     style="@style/TextAppearance.AppCompat.Medium"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:fontFamily="@font/open_sans_regular"
                     android:text="Job Title"
                     android:textStyle="bold"
@@ -77,7 +78,7 @@
                     android:id="@+id/textView82"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="16dp"
                     android:fontFamily="@font/open_sans_regular"
                     android:text="Company Name"
                     android:textStyle="bold"

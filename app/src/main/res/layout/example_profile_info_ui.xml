@@ -32,7 +32,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_below="@+id/tv_title"
-            android:background="@drawable/round_corner"
+            android:background="@drawable/shape_round_corner"
             android:padding="2dp"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="@+id/tv_title"

@@ -33,4 +33,9 @@ public class JobInfoViewerActivity extends AppCompatActivity {
 
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }

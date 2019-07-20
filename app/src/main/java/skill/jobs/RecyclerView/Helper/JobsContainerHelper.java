@@ -2,20 +2,19 @@ package skill.jobs.RecyclerView.Helper;
 
 public class JobsContainerHelper {
     int vector;
-    String companyName, vacancyPostName, companyLocation, deadLine, experience, jobType, salary;
+    String companyName, vacancyPostName, companyLocation, deadLine, experience, salary;
 
 
     public JobsContainerHelper() {
     }
 
-    public JobsContainerHelper(int vector, String companyName, String vacancyPostName, String companyLocation, String deadLine, String experience, String jobType, String salary) {
+    public JobsContainerHelper(int vector, String companyName, String vacancyPostName, String companyLocation, String deadLine, String experience,  String salary) {
         this.vector = vector;
         this.companyName = companyName;
         this.vacancyPostName = vacancyPostName;
         this.companyLocation = companyLocation;
         this.deadLine = deadLine;
         this.experience = experience;
-        this.jobType = jobType;
         this.salary = salary;
     }
 
@@ -65,14 +64,6 @@ public class JobsContainerHelper {
 
     public void setExperience(String experience) {
         this.experience = experience;
-    }
-
-    public String getJobType() {
-        return jobType;
-    }
-
-    public void setJobType(String jobType) {
-        this.jobType = jobType;
     }
 
     public String getSalary() {

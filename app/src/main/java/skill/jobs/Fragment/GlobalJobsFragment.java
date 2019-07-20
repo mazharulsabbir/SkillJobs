@@ -51,13 +51,12 @@ public class GlobalJobsFragment extends Fragment {
     private void initSampleData() {
         jobsList = new ArrayList<>();
         for (int i = 1; i <= 100; i++) {
-            JobsContainerHelper jobs = new JobsContainerHelper(R.mipmap.ic_launcher,
-                    "Company Global" + i,
-                    "Vacancy ",
-                    "Location ",
-                    "Dead Line ",
+            JobsContainerHelper jobs = new JobsContainerHelper(R.drawable.ic_company,
+                    "Company",
+                    "Vacancy",
+                    "Location",
+                    "Dead Line",
                     "Experience",
-                    "Job Type",
                     "Salary");
             jobsList.add(jobs);
         }

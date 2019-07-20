@@ -70,24 +70,15 @@
             app:layout_constraintTop_toBottomOf="@+id/job_company_name" />
 
         <TextView
-            android:id="@+id/job_salary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/open_sans_regular"
-            android:gravity="center"
-            android:text="Total Vacancy"
-            app:layout_constraintStart_toStartOf="@+id/job_location"
-            app:layout_constraintTop_toBottomOf="@+id/job_location" />
-
-        <TextView
             android:id="@+id/job_dead_line"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
             android:fontFamily="@font/open_sans_regular"
             android:gravity="center"
             android:text="Dead Line"
-            app:layout_constraintStart_toStartOf="@+id/job_salary"
-            app:layout_constraintTop_toBottomOf="@+id/job_salary" />
+            app:layout_constraintStart_toStartOf="@+id/job_location"
+            app:layout_constraintTop_toBottomOf="@+id/job_location" />
 
         <View
             android:id="@+id/view"

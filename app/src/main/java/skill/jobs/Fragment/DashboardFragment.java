@@ -76,17 +76,18 @@ public class DashboardFragment extends Fragment {
     private void initSampleData() {
         jobsList = new ArrayList<>();
         for (int i = 1; i <= 20; i++) {
-            Jobs jobs = new Jobs("Company ",
+            Jobs jobs = new Jobs(R.drawable.ic_company,
+                    "Company ",
                     "Vacancy ",
                     "Location ",
-                    "Dead Line ", i);
+                    "Dead Line ");
             jobsList.add(jobs);
         }
 
         courses = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             TrendingCourses course = new TrendingCourses("Title ", "Duration", "Fees");
-            courses.add(course);
+            courses.add(i,course);
         }
     }
 

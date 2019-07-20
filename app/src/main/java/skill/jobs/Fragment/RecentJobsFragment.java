@@ -3,7 +3,6 @@ package skill.jobs.Fragment;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,13 +50,12 @@ public class RecentJobsFragment extends Fragment {
     private void initSampleData() {
         jobsList = new ArrayList<>();
         for (int i = 1; i <= 100; i++) {
-            JobsContainerHelper jobs = new JobsContainerHelper(R.mipmap.ic_launcher,
-                    "Company "+i,
-                    "Vacancy ",
-                    "Location ",
-                    "Dead Line ",
+            JobsContainerHelper jobs = new JobsContainerHelper(R.drawable.ic_company,
+                    "Company",
+                    "Vacancy",
+                    "Location",
+                    "Dead Line",
                     "Experience",
-                    "Job Type",
                     "Salary");
             jobsList.add(jobs);
         }

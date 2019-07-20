@@ -44,8 +44,8 @@
             <!--SECTION: INTERNSHIP-->
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="45dp"
                 android:scaleType="fitXY"
@@ -57,8 +57,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_regular"
                 android:gravity="center"
-                android:text="INTERNSHIP"
+                android:text="Internship"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/imageView4"
                 app:layout_constraintStart_toStartOf="@+id/imageView4"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />
@@ -66,8 +69,8 @@
             <!--SECTION: E-RECRUITMENT-->
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="16dp"
@@ -80,8 +83,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_regular"
                 android:gravity="center"
-                android:text="E-RECRUITMENT"
+                android:text="E-Recruitment"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/imageView5"
                 app:layout_constraintStart_toStartOf="@+id/imageView5"
                 app:layout_constraintTop_toBottomOf="@+id/imageView5" />
@@ -89,8 +95,8 @@
             <!--SECTION: E-LEARNING-->
             <ImageView
                 android:id="@+id/imageView6"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="32dp"
                 android:scaleType="fitXY"
@@ -101,8 +107,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_regular"
                 android:gravity="center"
-                android:text="E-LEARNING"
+                android:text="E-Learning"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/imageView6"
                 app:layout_constraintStart_toStartOf="@+id/imageView6"
                 app:layout_constraintTop_toBottomOf="@+id/imageView6" />
@@ -110,8 +119,8 @@
             <!--SECTION: CAREER DOCTOR-->
             <ImageView
                 android:id="@+id/imageView7"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="45dp"
                 android:scaleType="fitXY"
@@ -122,8 +131,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_regular"
                 android:gravity="center"
-                android:text="CAREER DOCTOR"
+                android:text="Career Doctor"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/imageView7"
                 app:layout_constraintStart_toStartOf="@+id/imageView7"
                 app:layout_constraintTop_toBottomOf="@+id/imageView7" />
@@ -131,8 +143,8 @@
             <!--SECTION: SKILLED FACE-->
             <ImageView
                 android:id="@+id/imageView8"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="16dp"
@@ -145,8 +157,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_regular"
                 android:gravity="center"
-                android:text="SKILLED FACE"
+                android:text="Skilledface"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/imageView8"
                 app:layout_constraintStart_toStartOf="@+id/imageView8"
                 app:layout_constraintTop_toBottomOf="@+id/imageView8" />
@@ -154,8 +169,8 @@
             <!--SECTION: VIDEO RESUME-->
             <ImageView
                 android:id="@+id/imageView9"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="32dp"
                 android:scaleType="fitXY"
@@ -166,8 +181,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/open_sans_regular"
                 android:gravity="center"
-                android:text="VIDEO RESUME"
+                android:text="Video Resume"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/imageView9"
                 app:layout_constraintStart_toStartOf="@+id/imageView9"
                 app:layout_constraintTop_toBottomOf="@+id/imageView9" />

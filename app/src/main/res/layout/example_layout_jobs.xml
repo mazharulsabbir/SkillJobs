@@ -33,13 +33,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Company Name"
-            android:transitionName="company_name"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/job_type"
+            android:transitionName="company_name"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/job_vacancy_name" />
 
@@ -99,17 +97,6 @@
             android:text="Xp"
             app:layout_constraintStart_toStartOf="@+id/job_location"
             app:layout_constraintTop_toBottomOf="@+id/job_location" />
-
-        <TextView
-            android:id="@+id/job_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/open_sans_regular"
-            android:gravity="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/job_company_name"
-            tools:text="Job Type" />
 
         <View
             android:id="@+id/view"

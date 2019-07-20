@@ -16,6 +16,7 @@ public class JobsQuickAdapter extends BaseQuickAdapter<Jobs, BaseViewHolder> {
     @Override
     protected void convert(BaseViewHolder viewHolder, Jobs jobs) {
         viewHolder
+                .setImageResource(R.id.imageView2,jobs.getVector())
                 .setText(R.id.job_company_name, jobs.getCompanyName())
                 .setText(R.id.job_vacancy_name, jobs.getVacancyPostName())
                 .setText(R.id.job_location, jobs.getCompanyLocation())

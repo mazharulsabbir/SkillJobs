@@ -53,7 +53,7 @@ public class TrainingFragment extends Fragment {
 
 
 
-       // texturl();
+
         return  view;
     }
 

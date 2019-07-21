@@ -56,7 +56,8 @@ public class RecentJobsFragment extends Fragment {
                     "Location",
                     "Dead Line",
                     "Experience",
-                    "Salary");
+                    "Salary",
+                    false);
             jobsList.add(jobs);
         }
     }

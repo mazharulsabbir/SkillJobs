@@ -57,7 +57,8 @@ public class GlobalJobsFragment extends Fragment {
                     "Location",
                     "Dead Line",
                     "Experience",
-                    "Salary");
+                    "Salary",
+                    true);
             jobsList.add(jobs);
         }
     }

@@ -29,8 +29,6 @@ import skill.jobs.Fragment.TrainingFragment;
 public class MainActivity extends AppCompatActivity {
 
     private String ACTIVE_FRAGMENT = "";
-    private BadgeDrawable badge;
-
 
     @SuppressLint("NewApi")
     @Override
@@ -97,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        badge = bottomNavigation.showBadge(R.id.nav_jobs);
+        BadgeDrawable badge = bottomNavigation.showBadge(R.id.nav_jobs);
         badge.setNumber(120);
         badge.setMaxCharacterCount(4);
         badge.setBackgroundColor(Color.BLUE);
@@ -113,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
         searchView.setMaxWidth(Integer.MAX_VALUE);
         searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        searchView.setQueryHint("Try, Android Developer");
+        searchView.setQueryHint("Try, Android Developer?");
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

@@ -17,7 +17,7 @@ public class JobsContainerAdapter extends BaseQuickAdapter<JobsContainerHelper, 
     }
 
     @Override
-    protected void convert(BaseViewHolder viewHolder, JobsContainerHelper jobs) {
+    protected void convert(BaseViewHolder viewHolder, final JobsContainerHelper jobs) {
         viewHolder
                 .setImageResource(R.id.imageView2, jobs.getVector())
                 .setText(R.id.job_company_name, jobs.getCompanyName())
@@ -36,6 +36,8 @@ public class JobsContainerAdapter extends BaseQuickAdapter<JobsContainerHelper, 
 
         if (jobs.isFavorite()){
             likeButton.setVisibility(View.INVISIBLE);
+        }else{
+            likeButton.setVisibility(View.VISIBLE);
         }
 
         likeButton.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +45,8 @@ public class JobsContainerAdapter extends BaseQuickAdapter<JobsContainerHelper, 
             public void onClick(View v) {
                 likeButton.setVisibility(View.INVISIBLE);
                 dislikeButton.setVisibility(View.VISIBLE);
+
+                jobs.setFavorite(true);
             }
         });
 
@@ -51,6 +55,9 @@ public class JobsContainerAdapter extends BaseQuickAdapter<JobsContainerHelper, 
             public void onClick(View v) {
                 dislikeButton.setVisibility(View.INVISIBLE);
                 likeButton.setVisibility(View.VISIBLE);
+
+                jobs.setFavorite(false);
+
             }
         });
 

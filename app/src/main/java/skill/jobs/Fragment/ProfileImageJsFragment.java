@@ -1,6 +1,7 @@
 
 package skill.jobs.Fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +27,6 @@ import skill.jobs.R;
 public class ProfileImageJsFragment extends Fragment {
     View rootview;
 
-    @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_profile_image_js,container,false);
@@ -34,7 +35,7 @@ public class ProfileImageJsFragment extends Fragment {
     }
 
     private void setupTabView() {
-        ProfileImageJsFragment.SectionsPagerAdapter mSectionsPagerAdapter = new ProfileImageJsFragment.SectionsPagerAdapter(getFragmentManager());
+        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         ViewPager mViewPager = rootview.findViewById(R.id.Container_U_I);
@@ -65,9 +66,12 @@ public class ProfileImageJsFragment extends Fragment {
 
             switch (position) {
                 case 0:
+                    Log.d("position"," 0");
                     fragment = new UploadProfilePictureFragment();
                     break;
                 case 1:
+                    Log.d("position"," 1");
+
                     fragment = new UploadCoverPhotoFragment();
                     break;
 

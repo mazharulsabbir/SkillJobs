@@ -20,16 +20,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import skill.jobs.R;
+import skill.jobs.RecyclerView.Adapter.RunningCourseAdapter;
 import skill.jobs.RecyclerView.Adapter.UpCommingCourseAdapter;
+import skill.jobs.RecyclerView.Helper.RunningCourseHelper;
 import skill.jobs.RecyclerView.Helper.UpcommingCourse;
 
 public class TrainingFragment extends Fragment {
 
     private View view;
     private List<UpcommingCourse> courses;
+    private List<RunningCourseHelper> RunnigCourses;
 
     private BaseQuickAdapter mUpCommingCoursesAdapter;
+    private BaseQuickAdapter mRunningCoursesAdapter;
+
     private RecyclerView mRecyclerViewUpcomingCourse;
+    private  RecyclerView mRecyclerViewRunningCourse;
 
     public TrainingFragment(){
 
@@ -43,11 +49,21 @@ public class TrainingFragment extends Fragment {
         initializecourse();
         initRecyclerView();
         UpCommingCoursesAdapter();
+        RunningCoursesAdapter();
 
 
 
        // texturl();
         return  view;
+    }
+
+    private void RunningCoursesAdapter() {
+       mRunningCoursesAdapter=new RunningCourseAdapter(R.layout.design_running_course,RunnigCourses);
+       mRunningCoursesAdapter.isFirstOnly(false);
+       mRunningCoursesAdapter.openLoadAnimation();
+       mRecyclerViewRunningCourse.setAdapter(mRunningCoursesAdapter);
+
+
     }
 
     private void texturl() {
@@ -69,6 +85,9 @@ public class TrainingFragment extends Fragment {
     private void initRecyclerView() {
         mRecyclerViewUpcomingCourse= view.findViewById(R.id.upcomming_course_recyclerview);
         mRecyclerViewUpcomingCourse.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        mRecyclerViewRunningCourse=view.findViewById(R.id.running_course_recyclerview);
+        mRecyclerViewRunningCourse.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 
     private void initializecourse() {
@@ -83,6 +102,15 @@ public class TrainingFragment extends Fragment {
                     "5000",
                     "8000");
             courses.add(course);
+        }
+
+        RunnigCourses=new ArrayList<>();
+        for(int i=0;i<10;i++){
+            RunningCourseHelper helper=new RunningCourseHelper(
+                    "Title",
+                    "50"
+            );
+            RunnigCourses.add(helper);
         }
 
     }

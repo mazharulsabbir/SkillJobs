@@ -170,6 +170,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
+                        android:fontFamily="@font/open_sans_regular"
                         android:gravity="center"
                         android:text="Job Description"
                         android:textAllCaps="true"
@@ -177,18 +178,21 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tv_job_description"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
-                        android:text="Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs" />
+                        android:fontFamily="@font/open_sans_regular"
+                        android:text="Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs"
+                        android:textStyle="bold" />
 
                     <TextView
                         style="@style/TextAppearance.AppCompat.Large"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
+                        android:fontFamily="@font/open_sans_regular"
                         android:gravity="center"
                         android:text="Education Requirements"
                         android:textAllCaps="true"
@@ -196,18 +200,21 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tv_educational_requirements"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
-                        android:text="Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs" />
+                        android:fontFamily="@font/open_sans_regular"
+                        android:text="Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs"
+                        android:textStyle="bold" />
 
                     <TextView
                         style="@style/TextAppearance.AppCompat.Large"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
+                        android:fontFamily="@font/open_sans_regular"
                         android:gravity="center"
                         android:text="Additional Requirements"
                         android:textAllCaps="true"
@@ -215,18 +222,21 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tv_additional_requirements"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
-                        android:text="Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs" />
+                        android:fontFamily="@font/open_sans_regular"
+                        android:text="Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs"
+                        android:textStyle="bold" />
 
                     <TextView
                         style="@style/TextAppearance.AppCompat.Large"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
+                        android:fontFamily="@font/open_sans_regular"
                         android:gravity="center"
                         android:text="Extra Facilities"
                         android:textAllCaps="true"
@@ -234,18 +244,21 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tv_extra_facilities"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
-                        android:text="Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs" />
+                        android:fontFamily="@font/open_sans_regular"
+                        android:text="Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs"
+                        android:textStyle="bold" />
 
                     <TextView
                         style="@style/TextAppearance.AppCompat.Large"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
+                        android:fontFamily="@font/open_sans_regular"
                         android:gravity="center"
                         android:text="Apply Instruction"
                         android:textAllCaps="true"
@@ -253,12 +266,18 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tv_apply_instruction"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
                         android:layout_marginEnd="16dp"
-                        android:text="Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs" />
+                        android:fontFamily="@font/open_sans_regular"
+                        android:text="Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs Skill Jobs"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"/>
 
                 </LinearLayout>
 

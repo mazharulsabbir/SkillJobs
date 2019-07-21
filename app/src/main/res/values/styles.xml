@@ -8,6 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="android:windowActivityTransitions" tools:ignore="NewApi">true</item>
+
+        <item name="android:statusBarColor" tools:ignore="NewApi">
+            @android:color/transparent
+        </item>
+
+        <item name="android:navigationBarColor" tools:ignore="NewApi">
+            @android:color/transparent
+        </item>
     </style>
 
     <!-- Splash Screen theme. -->

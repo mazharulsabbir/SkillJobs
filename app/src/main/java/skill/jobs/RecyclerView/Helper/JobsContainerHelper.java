@@ -1,14 +1,14 @@
 package skill.jobs.RecyclerView.Helper;
 
 public class JobsContainerHelper {
-    int vector;
-    String companyName, vacancyPostName, companyLocation, deadLine, experience, salary;
-
+    private int vector;
+    private String companyName, vacancyPostName, companyLocation, deadLine, experience, salary;
+    private boolean isFavorite;
 
     public JobsContainerHelper() {
     }
 
-    public JobsContainerHelper(int vector, String companyName, String vacancyPostName, String companyLocation, String deadLine, String experience,  String salary) {
+    public JobsContainerHelper(int vector, String companyName, String vacancyPostName, String companyLocation, String deadLine, String experience, String salary, boolean isFavorite) {
         this.vector = vector;
         this.companyName = companyName;
         this.vacancyPostName = vacancyPostName;
@@ -16,6 +16,15 @@ public class JobsContainerHelper {
         this.deadLine = deadLine;
         this.experience = experience;
         this.salary = salary;
+        this.isFavorite = isFavorite;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
     }
 
     public int getVector() {

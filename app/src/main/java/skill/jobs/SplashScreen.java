@@ -2,6 +2,7 @@ package skill.jobs;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.WindowInsets;
 
 import androidx.appcompat.app.AppCompatActivity;
 

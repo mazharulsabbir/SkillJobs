@@ -40,6 +40,7 @@ public class JobsContainerAdapter extends BaseQuickAdapter<JobsContainerHelper, 
             likeButton.setVisibility(View.VISIBLE);
         }
 
+        //on click it will change to unlike button
         likeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +51,7 @@ public class JobsContainerAdapter extends BaseQuickAdapter<JobsContainerHelper, 
             }
         });
 
+        //on click it will change to like button
         dislikeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

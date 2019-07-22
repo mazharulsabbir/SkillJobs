@@ -9,6 +9,8 @@
     <string name="navigation_open">Navigation Open</string>
     <string name="navigation_close">Navigation Close</string>
 
+    <string name="search_hint">Try! Android Developer</string>
+
     <!-- TODO: Remove or change this placeholder text -->
 
     <string-array name="marital_array">

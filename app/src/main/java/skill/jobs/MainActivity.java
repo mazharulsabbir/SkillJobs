@@ -113,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
         searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
         searchView.setQueryHint("Try, Android Developer?");
 
+        //TODO: ADD SUGGESTED SEARCH, RECENT SEARCH QUERY ON searchView ... modify searchable.xml
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -144,6 +146,11 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+
+    @Override
+    public boolean onSearchRequested() {
+        return super.onSearchRequested();
     }
 
     @SuppressLint("NewApi")

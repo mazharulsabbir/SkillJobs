@@ -5,7 +5,8 @@
     android:id="@+id/nestedScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:scrollbars="none">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -213,16 +214,14 @@
             style="@style/TextAppearance.AppCompat.Large"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Career Objective"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view10" />
 
@@ -239,156 +238,298 @@
             style="@style/TextAppearance.AppCompat.Large"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Work Experience"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView91" />
+
+        <!--TextView as Add + Button-->
+        <TextView
+            android:id="@+id/tv_add_work_experience"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_add_box_black_24dp"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintStart_toStartOf="@+id/textView92"
+            app:layout_constraintTop_toBottomOf="@+id/textView92" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_work_experience"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:focusable="false"
+            android:overScrollMode="never"
+            android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView92" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_add_work_experience" />
 
         <TextView
             android:id="@+id/textView93"
             style="@style/TextAppearance.AppCompat.Large"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Contact Information"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_work_experience" />
+
+        <!--TextView as Add + Button-->
+        <TextView
+            android:id="@+id/tv_add_contact_info"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_add_box_black_24dp"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView93" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_contact_information"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:focusable="false"
+            android:overScrollMode="never"
+            android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView93" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_add_contact_info" />
+
+        <TextView
+            android:id="@+id/textViewSkills"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/open_sans_regular"
+            android:text="Skills"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_contact_information" />
+
+        <!--TextView as Add + Button-->
+        <TextView
+            android:id="@+id/tv_add_skills"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_add_box_black_24dp"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewSkills" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_skills"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:focusable="false"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_add_skills" />
 
         <TextView
             android:id="@+id/textView94"
             style="@style/TextAppearance.AppCompat.Large"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Education"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recycler_view_contact_information" />
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_skills" />
+
+        <!--TextView as Add + Button-->
+        <TextView
+            android:id="@+id/tv_add_education"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_add_box_black_24dp"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView94" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_education"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:focusable="false"
+            android:overScrollMode="never"
+            android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView94" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_add_education" />
 
         <TextView
             android:id="@+id/textView95"
             style="@style/TextAppearance.AppCompat.Large"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Certifications"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_education" />
+
+        <!--TextView as Add + Button-->
+        <TextView
+            android:id="@+id/tv_add_certifications"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="16dp"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_add_box_black_24dp"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView95" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_certifications"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:focusable="false"
+            android:overScrollMode="never"
+            android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView95" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_add_certifications" />
 
         <TextView
             android:id="@+id/textView96"
             style="@style/TextAppearance.AppCompat.Large"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Training"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_certifications" />
+
+        <!--TextView as Add + Button-->
+        <TextView
+            android:id="@+id/tv_add_training"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_add_box_black_24dp"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintStart_toStartOf="@+id/textView96"
+            app:layout_constraintTop_toBottomOf="@+id/textView96" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_training"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:focusable="false"
+            android:overScrollMode="never"
+            android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView96" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_add_training" />
 
         <TextView
             android:id="@+id/textView97"
             style="@style/TextAppearance.AppCompat.Large"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Reference"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_training" />
+
+        <!--TextView as Add + Button-->
+        <TextView
+            android:id="@+id/tv_add_reference"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:drawableStart="@drawable/ic_add_box_black_24dp"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintStart_toStartOf="@+id/tv_add_training"
+            app:layout_constraintTop_toBottomOf="@+id/textView97" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_reference"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:focusable="false"
+            android:overScrollMode="never"
+            android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView97" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_add_reference" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>

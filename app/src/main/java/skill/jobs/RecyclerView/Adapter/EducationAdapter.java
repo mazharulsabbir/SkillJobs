@@ -23,7 +23,7 @@ public class EducationAdapter extends BaseQuickAdapter<EducationHelper, BaseView
                 .setText(R.id.result_achieved_name,item.getResultAchved())
                 .setText(R.id.institution_name,item.getInstitution())
                 .setText(R.id.passing_year,item.getPassingYear())
-                .setText(R.id.tv_degree_level,item.getDegreeLevel());
-
+                .setText(R.id.tv_degree_level,item.getDegreeLevel())
+                .addOnClickListener(R.id.tv_btn_more);
     }
 }

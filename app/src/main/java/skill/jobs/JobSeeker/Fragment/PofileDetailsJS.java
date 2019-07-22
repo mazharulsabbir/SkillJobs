@@ -118,6 +118,7 @@ public class PofileDetailsJS extends Fragment implements View.OnClickListener {
                 "Join Date",
                 "Resign Date");
         weh.add(workExperienceHeplers);
+        weh.add(workExperienceHeplers);
 
         mWorkExperience = new WorkExperienceAdapter(R.layout.example_work_experience, weh);
         mWorkExperience.isFirstOnly(false);
@@ -127,6 +128,7 @@ public class PofileDetailsJS extends Fragment implements View.OnClickListener {
         List<ContactInformationHelper> ch = new ArrayList<>();
         ContactInformationHelper contactInformationHelper = new ContactInformationHelper("Contact Title", "Contact");
         ch.add(contactInformationHelper);
+        ch.add(contactInformationHelper);
 
         mContactInfo = new ContactInformationAdapter(R.layout.example_contact_information, ch);
         mContactInfo.isFirstOnly(false);
@@ -135,6 +137,8 @@ public class PofileDetailsJS extends Fragment implements View.OnClickListener {
 
         List<SkillsHelper> sh = new ArrayList<>();
         SkillsHelper skillsHelper = new SkillsHelper("Skills Name", "Years Of XP");
+        sh.add(skillsHelper);
+        sh.add(skillsHelper);
         sh.add(skillsHelper);
         mSkills = new SkillsAdapter(R.layout.example_contact_information, sh);
         //we use contact information adapter over here because of same number of parameter.
@@ -146,12 +150,14 @@ public class PofileDetailsJS extends Fragment implements View.OnClickListener {
         List<EducationHelper> eh = new ArrayList<>();
         EducationHelper educationHelper = new EducationHelper("Degree Level",
                 "Degree Title",
-                "Result System",
+                "Grade",
                 "3.7",
-                "Grade Scale",
+                "First Class",
                 "Passing Year",
                 "Institution");
         eh.add(educationHelper);
+        eh.add(educationHelper);
+
         mEducation = new EducationAdapter(R.layout.example_education, eh);
         mEducation.isFirstOnly(false);
         mEducation.openLoadAnimation();
@@ -162,6 +168,7 @@ public class PofileDetailsJS extends Fragment implements View.OnClickListener {
                 "Exam Date",
                 "Score",
                 "Score Scale");
+        ceh.add(certificationsHelper);
         ceh.add(certificationsHelper);
         mCertifications = new CertificationsAdapter(R.layout.example_certifications, ceh);
         mCertifications.isFirstOnly(false);
@@ -176,6 +183,7 @@ public class PofileDetailsJS extends Fragment implements View.OnClickListener {
                 "Training End Date",
                 "Training Certification");
         th.add(trainingHelper);
+        th.add(trainingHelper);
         mTraining = new TrainingAdapter(R.layout.example_training, th);
         mTraining.isFirstOnly(false);
         mTraining.openLoadAnimation();
@@ -188,6 +196,7 @@ public class PofileDetailsJS extends Fragment implements View.OnClickListener {
                 "Contact No",
                 "Email Address",
                 "Relation");
+        rh.add(referenceHelper);
         rh.add(referenceHelper);
         mReference = new ReferenceAdapter(R.layout.example_reference, rh);
         mReference.isFirstOnly(false);

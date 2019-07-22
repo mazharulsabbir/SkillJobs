@@ -93,9 +93,9 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_person_profile"
             android:padding="16dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_sabbir"
             app:layout_constraintBottom_toBottomOf="@+id/imageView11"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView11" />
@@ -249,17 +249,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView91" />
 
-        <!--TextView as Add + Button-->
-        <TextView
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="24dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_work"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_add_work_experience"
+            app:layout_constraintStart_toStartOf="@+id/textView92"
+            app:layout_constraintTop_toTopOf="@+id/tv_add_work_experience" />
+
+        <Button
             android:id="@+id/tv_add_work_experience"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:clickable="true"
-            android:drawableStart="@drawable/ic_add_box_black_24dp"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            app:layout_constraintStart_toStartOf="@+id/textView92"
+            android:layout_height="wrap_content"
+            android:text="Add New Work Experience"
+            android:textAllCaps="false"
+            android:textColor="@color/color_body_text"
+            app:layout_constraintStart_toEndOf="@+id/imageView20"
             app:layout_constraintTop_toBottomOf="@+id/textView92" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -291,18 +298,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_work_experience" />
 
-        <!--TextView as Add + Button-->
-        <TextView
+
+        <ImageView
+            android:id="@+id/imageView21"
+            android:layout_width="24dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_contact"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_add_contact_info"
+            app:layout_constraintStart_toStartOf="@+id/textView92"
+            app:layout_constraintTop_toTopOf="@+id/tv_add_contact_info" />
+
+        <Button
             android:id="@+id/tv_add_contact_info"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginStart="16dp"
-            android:clickable="true"
-            android:drawableStart="@drawable/ic_add_box_black_24dp"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content"
+            android:text="Add New Contact"
+            android:textAllCaps="false"
+            android:textColor="@color/color_body_text"
+            app:layout_constraintStart_toEndOf="@+id/imageView21"
             app:layout_constraintTop_toBottomOf="@+id/textView93" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -334,18 +348,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_contact_information" />
 
-        <!--TextView as Add + Button-->
-        <TextView
+
+        <ImageView
+            android:id="@+id/imageView22"
+            android:layout_width="24dp"
+            android:layout_height="0dp"
+            android:src="@drawable/idea"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_add_skills"
+            app:layout_constraintStart_toStartOf="@+id/textView92"
+            app:layout_constraintTop_toTopOf="@+id/tv_add_skills" />
+
+        <Button
             android:id="@+id/tv_add_skills"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginStart="16dp"
-            android:clickable="true"
-            android:drawableStart="@drawable/ic_add_box_black_24dp"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content"
+            android:text="Add New Skills"
+            android:textAllCaps="false"
+            android:textColor="@color/color_body_text"
+            app:layout_constraintStart_toEndOf="@+id/imageView22"
             app:layout_constraintTop_toBottomOf="@+id/textViewSkills" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -377,18 +398,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_skills" />
 
-        <!--TextView as Add + Button-->
-        <TextView
+        <ImageView
+            android:id="@+id/imageView23"
+            android:layout_width="24dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_education"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_add_education"
+            app:layout_constraintStart_toStartOf="@+id/textView92"
+            app:layout_constraintTop_toTopOf="@+id/tv_add_education" />
+
+        <Button
             android:id="@+id/tv_add_education"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginStart="16dp"
-            android:clickable="true"
-            android:drawableStart="@drawable/ic_add_box_black_24dp"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content"
+            android:text="Add New University/School"
+            android:textAllCaps="false"
+            android:textColor="@color/color_body_text"
+            app:layout_constraintStart_toEndOf="@+id/imageView23"
             app:layout_constraintTop_toBottomOf="@+id/textView94" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -420,18 +447,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_education" />
 
-        <!--TextView as Add + Button-->
-        <TextView
+
+        <ImageView
+            android:id="@+id/imageView24"
+            android:layout_width="24dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_certificate"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_add_certifications"
+            app:layout_constraintStart_toStartOf="@+id/textView92"
+            app:layout_constraintTop_toTopOf="@+id/tv_add_certifications" />
+
+        <Button
             android:id="@+id/tv_add_certifications"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginStart="16dp"
-            android:clickable="true"
-            android:drawableStart="@drawable/ic_add_box_black_24dp"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content"
+            android:text="Add New Certification"
+            android:textAllCaps="false"
+            android:textColor="@color/color_body_text"
+            app:layout_constraintStart_toEndOf="@+id/imageView24"
             app:layout_constraintTop_toBottomOf="@+id/textView95" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -463,17 +497,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_certifications" />
 
-        <!--TextView as Add + Button-->
-        <TextView
+
+        <ImageView
+            android:id="@+id/imageView25"
+            android:layout_width="24dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_class"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_add_training"
+            app:layout_constraintStart_toStartOf="@+id/textView92"
+            app:layout_constraintTop_toTopOf="@+id/tv_add_training" />
+
+        <Button
             android:id="@+id/tv_add_training"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:clickable="true"
-            android:drawableStart="@drawable/ic_add_box_black_24dp"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            app:layout_constraintStart_toStartOf="@+id/textView96"
+            android:layout_height="wrap_content"
+            android:text="Add New Training"
+            android:textAllCaps="false"
+            android:textColor="@color/color_body_text"
+            app:layout_constraintStart_toEndOf="@+id/imageView25"
             app:layout_constraintTop_toBottomOf="@+id/textView96" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -505,17 +547,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_training" />
 
-        <!--TextView as Add + Button-->
-        <TextView
+
+        <ImageView
+            android:id="@+id/imageView26"
+            android:layout_width="24dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_conference"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_add_reference"
+            app:layout_constraintStart_toStartOf="@+id/textView92"
+            app:layout_constraintTop_toTopOf="@+id/tv_add_reference" />
+
+        <Button
             android:id="@+id/tv_add_reference"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:clickable="true"
-            android:drawableStart="@drawable/ic_add_box_black_24dp"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground"
-            app:layout_constraintStart_toStartOf="@+id/tv_add_training"
+            android:layout_height="wrap_content"
+            android:text="Add New Reference"
+            android:textAllCaps="false"
+            android:textColor="@color/color_body_text"
+            app:layout_constraintStart_toEndOf="@+id/imageView26"
             app:layout_constraintTop_toBottomOf="@+id/textView97" />
 
         <androidx.recyclerview.widget.RecyclerView

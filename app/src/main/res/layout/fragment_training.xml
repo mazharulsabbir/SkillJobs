@@ -11,63 +11,41 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView7"
-            style="@style/TextAppearance.AppCompat.Large"
+        <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/open_sans_regular"
-            android:gravity="center"
-            android:text="UPCOMING COURSES"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            style="@style/Widget.Design.AppBarLayout"
+            app:tabGravity="fill"
+            android:id="@+id/coursetab"
+            android:background="@color/white"
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/upcomming_course_recyclerview"
+            >
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/runningcourse_item"
+                android:text="Upcomming Courses"
+                android:layout_marginBottom="16dp"/>
+
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/upcomingcourse_item"
+                android:text="Running Courses"/>
+
+        </com.google.android.material.tabs.TabLayout>
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/CourseContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:overScrollMode="never"
-            android:focusable="false"
-            android:layout_marginTop="16dp">
+            android:layout_height="900dp">
 
-
-        </androidx.recyclerview.widget.RecyclerView>
-
-        <View
-            android:layout_marginTop="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="16dp"
-            android:background="@color/color_view_color" />
-
-        <TextView
-            style="@style/TextAppearance.AppCompat.Large"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:fontFamily="@font/open_sans_regular"
-            android:text="RUNNING COURSES"
-            android:textAlignment="center"
-            android:textColor="@color/colorPrimary"
-            android:textStyle="bold" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/running_course_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:overScrollMode="never"
-            android:focusable="false"
-            android:layout_marginTop="16dp">
+        </androidx.viewpager.widget.ViewPager>
 
 
 
-        </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

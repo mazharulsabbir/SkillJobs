@@ -5,9 +5,14 @@ import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,17 +31,11 @@ import skill.jobs.RecyclerView.Adapter.UpCommingCourseAdapter;
 import skill.jobs.RecyclerView.Helper.RunningCourseHelper;
 import skill.jobs.RecyclerView.Helper.UpcommingCourse;
 
+
 public class TrainingFragment extends Fragment {
 
     private View view;
-    private List<UpcommingCourse> courses;
-    private List<RunningCourseHelper> RunnigCourses;
 
-    private BaseQuickAdapter mUpCommingCoursesAdapter;
-    private BaseQuickAdapter mRunningCoursesAdapter;
-
-    private RecyclerView mRecyclerViewUpcomingCourse;
-    private  RecyclerView mRecyclerViewRunningCourse;
 
     public TrainingFragment(){
 
@@ -46,73 +46,53 @@ public class TrainingFragment extends Fragment {
         view=inflater.inflate(R.layout.fragment_training, container, false);
 
 
-        initializecourse();
-        initRecyclerView();
-        UpCommingCoursesAdapter();
-        RunningCoursesAdapter();
-
-
+        setuptabview();
 
 
         return  view;
     }
 
-    private void RunningCoursesAdapter() {
-       mRunningCoursesAdapter=new RunningCourseAdapter(R.layout.design_running_course,RunnigCourses);
-       mRunningCoursesAdapter.isFirstOnly(false);
-       mRunningCoursesAdapter.openLoadAnimation();
-       mRecyclerViewRunningCourse.setAdapter(mRunningCoursesAdapter);
+    private void setuptabview() {
+        PagerAdapter mSectionsPagerAdapter = new PagerAdapter(getFragmentManager());
+        ViewPager viewPager=view.findViewById(R.id.CourseContainer);
+        viewPager.setAdapter(mSectionsPagerAdapter);
 
-
-    }
-
-    private void texturl() {
-        TextView previous_price = view.findViewById(R.id.previous_price_upcomming_course);
-        previous_price.setPaintFlags(previous_price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-
+        TabLayout tabLayout= view.findViewById(R.id.coursetab);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
 
     }
 
-    private void UpCommingCoursesAdapter() {
-        mUpCommingCoursesAdapter=new UpCommingCourseAdapter(R.layout.design_upcoming_course,courses);
-        mUpCommingCoursesAdapter.isFirstOnly(false);
-        mUpCommingCoursesAdapter.openLoadAnimation();
-
-        mRecyclerViewUpcomingCourse.setAdapter(mUpCommingCoursesAdapter);
-    }
 
 
-    private void initRecyclerView() {
-        mRecyclerViewUpcomingCourse= view.findViewById(R.id.upcomming_course_recyclerview);
-        mRecyclerViewUpcomingCourse.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        mRecyclerViewRunningCourse=view.findViewById(R.id.running_course_recyclerview);
-        mRecyclerViewRunningCourse.setLayoutManager(new LinearLayoutManager(getContext()));
-    }
+    public class PagerAdapter extends FragmentStatePagerAdapter {
+        private  Fragment fragment=null;
 
-    private void initializecourse() {
-
-        courses =new ArrayList<>();
-        for (int i=0;i<10;i++) {
-            UpcommingCourse course = new UpcommingCourse(
-                    "COURSE TITLE",
-                    "10-4-19",
-                    "5-5-19",
-                    "48",
-                    "5000",
-                    "8000");
-            courses.add(course);
+        public PagerAdapter(@NonNull FragmentManager fm) {
+            super(fm);
         }
 
-        RunnigCourses=new ArrayList<>();
-        for(int i=0;i<10;i++){
-            RunningCourseHelper helper=new RunningCourseHelper(
-                    "Title",
-                    "50"
-            );
-            RunnigCourses.add(helper);
+        @NonNull
+        @Override
+        public Fragment getItem(int position) {
+            switch (position){
+                case 0:
+                    fragment = new UpcommingCourseFragment();
+                    break;
+                case 1:
+                    fragment = new RunningCourseFragment();
+                    break;
+
+            }
+
+            return fragment;
         }
 
+        @Override
+        public int getCount() {
+            return 2;
+        }
     }
 
 }

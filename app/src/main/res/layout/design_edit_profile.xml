@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
 
     android:layout_height="match_parent"
@@ -13,52 +14,47 @@
         <ImageView
             android:id="@+id/Profile_cover_Image"
             android:layout_width="match_parent"
-            android:layout_height="176dp"
+            android:layout_height="150dp"
             android:background="@drawable/cover"
+            android:padding="8dp"
+            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <ImageView
             android:id="@+id/imageView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:src="@drawable/ic_photo_camera_black_24dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rectangle_shape_filled"
+            android:padding="8dp"
+            android:src="@drawable/ic_person_profile"
             app:layout_constraintBottom_toBottomOf="@+id/Profile_cover_Image"
-            app:layout_constraintEnd_toEndOf="@+id/Profile_cover_Image"
-            app:layout_constraintHorizontal_bias="0.958"
-            app:layout_constraintStart_toStartOf="@+id/Profile_cover_Image"
-            app:layout_constraintTop_toTopOf="@+id/Profile_cover_Image"
-            app:layout_constraintVertical_bias="0.934" />
-
-        <com.mikhaellopez.circularimageview.CircularImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/profile_image"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:src="@drawable/ic_launcher_background"
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="2dp"
-            app:layout_constraintBottom_toBottomOf="@+id/Profile_cover_Image"
-            app:layout_constraintEnd_toEndOf="@+id/Profile_cover_Image"
-            app:layout_constraintHorizontal_bias="0.015"
-            app:layout_constraintStart_toStartOf="@+id/Profile_cover_Image"
-            app:layout_constraintTop_toTopOf="@+id/Profile_cover_Image"
-            app:layout_constraintVertical_bias="0.879" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_photo_camera_black_24dp"
-            app:layout_constraintBottom_toBottomOf="@+id/profile_image"
-            app:layout_constraintEnd_toEndOf="@+id/profile_image"
-            app:layout_constraintHorizontal_bias="0.484"
-            app:layout_constraintStart_toStartOf="@+id/profile_image"
-            app:layout_constraintTop_toTopOf="@+id/profile_image"
-            app:layout_constraintVertical_bias="1.0" />
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/shape_round_white"
+            android:padding="2dp"
+            android:src="@drawable/ic_add_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView15"
+            app:layout_constraintEnd_toEndOf="@+id/imageView15" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/shape_round_white"
+            android:padding="2dp"
+            android:src="@drawable/ic_add_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/Profile_cover_Image"
+            app:layout_constraintEnd_toEndOf="parent" />
+
 
         <LinearLayout
             android:id="@+id/linearLayout2"
@@ -118,7 +114,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Space
-                    android:layout_width="4dp"
+                    android:layout_width="8dp"
                     android:layout_height="wrap_content" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -431,17 +427,14 @@
                 android:layout_width="fill_parent"
                 android:layout_height="96dp"
                 android:layout_weight="1"
-                android:hint="Address"
-
-                >
+                android:hint="Address">
 
                 <com.google.android.material.textfield.TextInputEditText
                     style="@style/TextAppearance.AppCompat.Small"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="8dp"
                     android:fontFamily="@font/open_sans_regular"
-                    android:gravity="top|left"
+                    android:gravity="top|start"
                     android:inputType="textMultiLine" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
@@ -495,15 +488,20 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Spinner
-                android:id="@+id/maritalSpinner"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_text_layout_height"
-
+                android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:dropDownWidth="160dp">
+                android:background="@drawable/rectangle_shape_filled"
+                android:gravity="center">
 
-            </Spinner>
+                <Spinner
+                    android:id="@+id/maritalSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:minHeight="45dp" />
+            </LinearLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -525,24 +523,45 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/pro_Gander"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="fill_parent"
-                android:layout_height="@dimen/edit_text_layout_height"
+            <RadioGroup
                 android:layout_marginTop="4dp"
-                android:layout_weight="1"
-                android:hint="Gander">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    style="@style/TextAppearance.AppCompat.Small"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/open_sans_regular"
-                    android:inputType="text" />
+                    android:background="@drawable/rectangle_shape_filled"
+                    android:orientation="horizontal">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <TextView
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="@font/open_sans_regular"
+                        android:text="Gender: "
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
 
+                    <RadioButton
+                        android:text="Male"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <RadioButton
+                        android:text="Female"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <RadioButton
+                        android:text="Other"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+            </RadioGroup>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/pro_Last_Month_salary"
@@ -570,17 +589,14 @@
                 android:layout_height="96dp"
                 android:layout_marginTop="4dp"
                 android:layout_weight="1"
-                android:hint="Career Objective"
-
-                >
+                android:hint="Career Objective">
 
                 <com.google.android.material.textfield.TextInputEditText
                     style="@style/TextAppearance.AppCompat.Small"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="8dp"
                     android:fontFamily="@font/open_sans_regular"
-                    android:gravity="top|left"
+                    android:gravity="top|start"
                     android:inputType="textMultiLine" />
             </com.google.android.material.textfield.TextInputLayout>
 

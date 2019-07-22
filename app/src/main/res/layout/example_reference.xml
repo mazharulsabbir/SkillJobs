@@ -67,6 +67,7 @@
             android:id="@+id/tv_contact_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Email Address"
             android:textAllCaps="false"
@@ -77,9 +78,8 @@
             android:id="@+id/tv_email_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:fontFamily="@font/open_sans_regular"
-            android:text="Relationship"
+            android:text="Contact No"
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_contact_no" />
@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/open_sans_regular"
-            android:text="Contact No"
+            android:text="Relationship"
             android:textAllCaps="false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_email_address" />

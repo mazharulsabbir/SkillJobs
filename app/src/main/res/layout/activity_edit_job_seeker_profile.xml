@@ -25,7 +25,7 @@
                 android:layout_height="match_parent"
                 android:theme="@style/ToolbarOverlayTheme"
                 app:layout_scrollFlags="scroll|enterAlways"
-                app:title="EDIT PROFILE" />
+                app:title="Edit Profile" />
 
         </com.google.android.material.appbar.AppBarLayout>
 

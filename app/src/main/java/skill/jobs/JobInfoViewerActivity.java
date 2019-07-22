@@ -74,7 +74,7 @@ public class JobInfoViewerActivity extends AppCompatActivity {
                 if (scrollY >= bottom) {
                     layoutBottom.setVisibility(View.VISIBLE);
                 } else if ((scrollY < bottom)) {
-                    layoutBottom.setVisibility(View.INVISIBLE);
+                    layoutBottom.setVisibility(View.GONE);
                 }
             }
         });
@@ -120,8 +120,7 @@ public class JobInfoViewerActivity extends AppCompatActivity {
     }
 
     private void initiateHtmlToString() {
-        String jobDesc = "<li>Create and preserve an environment where employees, visitors and properties are safe and " +
-                "well- protected</li>\n" +
+        String jobDesc = "<li>Create and preserve an environment where employees, visitors and properties are safe and well- protected</li>\n" +
                 "\t<li>Develop &amp; implement security policies, protocol and procedures</li>\n" +
                 "\t<li>Recruit, train and supervise Security Officers and Guards</li>\n" +
                 "\t<li>Attend meetings with other Manager to determine operational needs</li>\n" +
@@ -133,8 +132,7 @@ public class JobInfoViewerActivity extends AppCompatActivity {
                 "\t<li>Ensure submissive behavior and warm reception to the visitors</li>";
 
         String educationalReq = "Job Experience:" +
-                "\t<li>Proven experience as Assistant Manager or similar position of security team in a reputed<br />\n" +
-                "\torganization</li>\n" +
+                "\t<li>Proven experience as Assistant Manager or similar position of security team in a reputed organization</li>\n" +
                 "\t<li>Defense background (minimum rank: Lieutenant or equivalent) is preferable</li>\n";
 
         String additionalReq = "<li>Well- groomed and age at most 45 years</li>\n" +

@@ -17,10 +17,11 @@
 
         <ImageView
             android:id="@+id/imageView18"
+            android:padding="8dp"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:background="@drawable/rectangle_shape_filled"
-            android:src="@drawable/logo"
+            android:src="@drawable/ic_company"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_org_name" />
 

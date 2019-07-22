@@ -10,6 +10,7 @@ import android.view.inputmethod.EditorInfo;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -25,6 +26,8 @@ import skill.jobs.Fragment.FavoriteJobsFragment;
 import skill.jobs.Fragment.JobsFragment;
 import skill.jobs.Fragment.ProfileFragment;
 import skill.jobs.Fragment.TrainingFragment;
+import skill.jobs.JobSeeker.EditJobSeekerProfile;
+import skill.jobs.JobSeeker.JobSeekerActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -99,12 +102,20 @@ public class MainActivity extends AppCompatActivity {
         badge.setNumber(120);
         badge.setMaxCharacterCount(4);
         badge.setBackgroundColor(Color.BLUE);
+        badge.setBadgeTextColor(Color.WHITE);
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
+
+        //to visible menu item icon
+        if (menu instanceof MenuBuilder) {
+            MenuBuilder m = (MenuBuilder) menu;
+            m.setOptionalIconsVisible(true);
+        }
+
 
         MenuItem searchItem = menu.findItem(R.id.search_job);
         SearchView searchView = (SearchView) searchItem.getActionView();
@@ -136,15 +147,21 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-
             case android.R.id.home:
                 BottomSheetProductsAndServices sheet = new BottomSheetProductsAndServices();
                 sheet.show(getSupportFragmentManager(), "BottomSheetDialog");
                 return true;
 
+            case R.id.menu_job_seeker_profile:
+                startActivity(new Intent(MainActivity.this, JobSeekerActivity.class));
+                return true;
+
+            case R.id.menu_edit_profile:
+                startActivity(new Intent(this, EditJobSeekerProfile.class));
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
-
         }
     }
 

@@ -17,11 +17,12 @@
         android:paddingBottom="8dp">
 
         <ImageView
+            android:padding="8dp"
             android:id="@+id/imageView19"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:background="@drawable/rectangle_shape_filled"
-            android:src="@drawable/logo"
+            android:src="@drawable/ic_university"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_degree_level" />
 
@@ -182,7 +183,7 @@
 
         <View
             android:id="@+id/view11"
-            android:layout_width="3dp"
+            android:layout_width="2dp"
             android:layout_height="0dp"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"

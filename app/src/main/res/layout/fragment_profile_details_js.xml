@@ -353,7 +353,7 @@
             android:id="@+id/imageView22"
             android:layout_width="24dp"
             android:layout_height="0dp"
-            android:src="@drawable/idea"
+            android:src="@drawable/ic_idea"
             app:layout_constraintBottom_toBottomOf="@+id/tv_add_skills"
             app:layout_constraintStart_toStartOf="@+id/textView92"
             app:layout_constraintTop_toTopOf="@+id/tv_add_skills" />

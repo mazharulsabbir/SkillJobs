@@ -32,14 +32,14 @@ public class ProfileFragment extends Fragment {
         JobSeekerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Animation Shake = AnimationUtils.loadAnimation(getActivity(), R.anim.shake);
-                JobSeekerButton.startAnimation(Shake);
-                new Handler().postDelayed(new Runnable() {
-                    public void run() {
-                        startActivity(new Intent(getActivity(), JobSeekerActivity.class));
-
-                    }
-                }, 200);
+//                Animation Shake = AnimationUtils.loadAnimation(getActivity(), R.anim.shake);
+//                JobSeekerButton.startAnimation(Shake);
+//                new Handler().postDelayed(new Runnable() {
+//                    public void run() {
+//
+//                    }
+//                }, 200);
+                startActivity(new Intent(getActivity(), JobSeekerActivity.class));
 
             }
         });

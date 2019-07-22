@@ -5,7 +5,6 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
@@ -17,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -24,11 +24,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import skill.jobs.JobInfoViewerActivity;
+import skill.jobs.JobSeeker.JobSeekerActivity;
 import skill.jobs.LoginActivity;
 import skill.jobs.R;
 import skill.jobs.RecyclerView.Adapter.JobsQuickAdapter;
@@ -40,7 +42,7 @@ import skill.jobs.RegistrationActivity;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DashboardFragment extends Fragment {
+public class DashboardFragment extends Fragment implements View.OnClickListener {
     private View view;
     private RecyclerView mRecyclerViewFeatureJobs;
     private RecyclerView mRecyclerViewTrendingCourses;
@@ -70,6 +72,12 @@ public class DashboardFragment extends Fragment {
 
         trendingCourseAdapter();
 
+        MaterialButton addResume = view.findViewById(R.id.materialButton2);
+        addResume.setOnClickListener(this);
+
+        MaterialButton postJob = view.findViewById(R.id.materialButton);
+        postJob.setOnClickListener(this);
+
         return view;
     }
 
@@ -87,7 +95,7 @@ public class DashboardFragment extends Fragment {
         courses = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             TrendingCourses course = new TrendingCourses("Title ", "Duration", "Fees");
-            courses.add(i,course);
+            courses.add(i, course);
         }
     }
 
@@ -205,4 +213,15 @@ public class DashboardFragment extends Fragment {
 
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.materialButton2:
+                startActivity(new Intent(getActivity(), JobSeekerActivity.class));
+                break;
+            case R.id.materialButton:
+                Toast.makeText(getContext(), "Process is going on..", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
 }

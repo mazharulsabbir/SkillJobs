@@ -2,6 +2,7 @@ package skill.jobs.RecyclerView.Adapter;
 
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -30,6 +31,8 @@ public class JobsContainerAdapter extends BaseQuickAdapter<JobsContainerHelper, 
                 .addOnClickListener(R.id.menu_share_job)
                 .addOnClickListener(R.id.menu_favorite)
                 .addOnClickListener(R.id.menu_not_favorite);//ready to favorite
+
+        //Glide.with(mContext).load(item.getUserAvatar()).crossFade().into((ImageView) viewHolder.getView(R.id.iv));
 
         final ImageButton likeButton = viewHolder.getView(R.id.menu_favorite);
         final ImageButton dislikeButton = viewHolder.getView(R.id.menu_not_favorite);

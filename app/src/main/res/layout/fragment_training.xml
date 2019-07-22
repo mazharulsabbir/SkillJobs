@@ -28,7 +28,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <include layout="@layout/design_upcoming_course" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/upcomming_course_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:focusable="false"
+            android:layout_marginTop="16dp">
+
+
+        </androidx.recyclerview.widget.RecyclerView>
 
         <View
             android:layout_marginTop="16dp"
@@ -48,11 +57,17 @@
             android:textColor="@color/colorPrimary"
             android:textStyle="bold" />
 
-        <include
-            layout="@layout/design_running_course"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="159dp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/running_course_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:focusable="false"
+            android:layout_marginTop="16dp">
 
+
+
+        </androidx.recyclerview.widget.RecyclerView>
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

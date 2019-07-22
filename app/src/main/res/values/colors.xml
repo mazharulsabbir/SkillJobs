@@ -10,5 +10,6 @@
     <color name="Background_color_official">#F8FAFC</color>
     <color name="color_view_color">#CCCCCC</color>
     <color name="color_body_text">#333333</color>
+    <color name="darkGray">#A9A9A9</color>
 
 </resources>

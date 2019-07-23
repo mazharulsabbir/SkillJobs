@@ -6,15 +6,15 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import java.util.List;
 
 import skill.jobs.R;
-import skill.jobs.RecyclerView.Helper.Jobs;
+import skill.jobs.RecyclerView.Helper.JobsHelper;
 
-public class JobsQuickAdapter extends BaseQuickAdapter<Jobs, BaseViewHolder> {
-    public JobsQuickAdapter(int view, List<Jobs> jobs) {
+public class JobsQuickAdapter extends BaseQuickAdapter<JobsHelper, BaseViewHolder> {
+    public JobsQuickAdapter(int view, List<JobsHelper> jobs) {
         super(view, jobs);
     }
 
     @Override
-    protected void convert(BaseViewHolder viewHolder, Jobs jobs) {
+    protected void convert(BaseViewHolder viewHolder, JobsHelper jobs) {
         viewHolder
                 .setImageResource(R.id.imageView2,jobs.getVector())
                 .setText(R.id.job_company_name, jobs.getCompanyName())

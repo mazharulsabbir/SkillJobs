@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
+import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,6 +34,7 @@ import skill.jobs.JobSeeker.JobSeekerActivity;
 public class MainActivity extends AppCompatActivity {
 
     private String ACTIVE_FRAGMENT = "";
+    private FrameLayout frameLayout;
 
     @SuppressLint("NewApi")
     @Override
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*TOOLBAR SEGMENT*/
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -46,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_service_black);
 
+        /*BOTTOM NAVIGATION BAR SEGMENT*/
         BottomNavigationView bottomNavigation = findViewById(R.id.navigation_view);
 
         if (savedInstanceState == null) {
@@ -57,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
             fragmentManager.executePendingTransactions();
         }
 
+        /*BOTTOM NAVIGATION ITEM CLICK LISTENER*/
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -94,15 +100,21 @@ public class MainActivity extends AppCompatActivity {
                         }
                         return true;
                 }
+
                 return false;
             }
         });
 
+        /*MANAGE BADGE OF BOTTOM NAVIGATION ITEMS*/
         BadgeDrawable badge = bottomNavigation.showBadge(R.id.nav_jobs);
         badge.setNumber(120);
         badge.setMaxCharacterCount(4);
         badge.setBackgroundColor(Color.BLUE);
         badge.setBadgeTextColor(Color.WHITE);
+
+        /*MAINTAIN CHILD POSITION OF FRAME LAYOUT SEGMENT*/
+        frameLayout = findViewById(R.id.fragment_container);
+
 
     }
 

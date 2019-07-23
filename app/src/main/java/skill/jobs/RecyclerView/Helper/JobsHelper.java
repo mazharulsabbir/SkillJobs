@@ -1,13 +1,13 @@
 package skill.jobs.RecyclerView.Helper;
 
-public class Jobs {
+public class JobsHelper {
     int vector;
     String companyName, vacancyPostName, companyLocation, deadLine;
 
-    public Jobs() {
+    public JobsHelper() {
     }
 
-    public Jobs(int vector, String companyName, String vacancyPostName, String companyLocation, String deadLine) {
+    public JobsHelper(int vector, String companyName, String vacancyPostName, String companyLocation, String deadLine) {
         this.vector = vector;
         this.companyName = companyName;
         this.vacancyPostName = vacancyPostName;

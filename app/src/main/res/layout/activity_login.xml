@@ -1,261 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingStart="@dimen/layout_padding"
-        android:paddingTop="8dp"
-        android:paddingEnd="@dimen/layout_padding"
-        android:paddingBottom="@dimen/layout_padding">
+        android:layout_alignParentTop="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ImageView
+            android:padding="16dp"
+            android:id="@+id/imageView"
+            android:layout_width="160dp"
+            android:layout_height="52dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/skill_jobs_toolbar_logo_small"
+            android:transitionName="ic_app_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_heading"
+            style="@style/TextAppearance.AppCompat.Large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#fff">
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="46dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/open_sans_regular"
+            android:gravity="center"
+            android:text="Sign in to skill jobs"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:transitionName="txt_headings" />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="180dp"
-                android:layout_height="52dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/logo"
-                android:transitionName="ic_app_logo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_text_layout_height"
+            android:hint="Email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/open_sans_regular"
+                android:inputType="textEmailAddress"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_text_layout_height"
+            android:hint="Password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/TextAppearance.AppCompat.Small"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/open_sans_regular"
+                android:inputType="textPassword"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <CheckBox
+                android:id="@+id/check_box_remember_me"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:checked="true"
+                android:fontFamily="@font/open_sans_regular"
+                android:text="Remember Me!"
+                android:textSize="14sp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/skip_login"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
                 android:fontFamily="@font/open_sans_regular"
-                android:text="Guest Login"
+                android:text="Reset Password"
                 android:textAllCaps="false"
-                android:textColor="#404040"
-                android:textSize="10sp"
-                android:textStyle="bold"
-                app:cornerRadius="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp" />
 
-
-            <TextView
-                android:id="@+id/textView2"
-                style="@style/TextAppearance.AppCompat.Large"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/open_sans_regular"
-                android:text="Your trusted career partner"
-                android:transitionName="txt_partner"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/open_sans_regular"
-                android:text="Login or Register to explore all our new service. We offer you the best career solution."
-                android:transitionName="txt_login_or_register"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-            <TextView
-                android:id="@+id/textView4"
-                style="@style/TextAppearance.AppCompat.Large"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/open_sans_regular"
-                android:text="Our Services"
-                app:layout_constraintStart_toStartOf="@+id/textView2"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:drawableStart="@drawable/ic_bullet_number_black_24dp"
-                android:drawablePadding="8dp"
-                android:fontFamily="@font/open_sans_regular"
-                android:text="Professional Training"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-            <TextView
-                android:id="@+id/textView98"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
-                android:drawableStart="@drawable/ic_bullet_number_black_24dp"
-                android:drawablePadding="8dp"
-                android:fontFamily="@font/open_sans_regular"
-                android:text="Career Doctor"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/textView4"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:gravity="center"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView98">
-
-                <com.google.android.material.button.MaterialButton
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="2dp"
-                    android:fontFamily="@font/open_sans_regular"
-                    android:minWidth="120dp"
-                    android:text="LEARN MORE"
-                    android:textAllCaps="false"
-                    android:textStyle="bold"
-                    app:cornerRadius="16dp" />
-
-                <Space
-                    android:layout_width="4dp"
-                    android:layout_height="wrap_content" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btRegistration"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/open_sans_regular"
-                    android:minWidth="120dp"
-                    android:text="REGISTER"
-                    android:textAllCaps="false"
-                    android:textStyle="bold"
-                    android:transitionName="btn_register"
-                    app:cornerRadius="16dp" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@color/colorPrimary"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-            <TextView
-                android:id="@+id/txt_heading"
-                style="@style/TextAppearance.AppCompat.Large"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:fontFamily="@font/open_sans_regular"
-                android:gravity="center"
-                android:text="Sign in to skill jobs"
-                android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
-                android:transitionName="txt_headings" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_text_layout_height"
-                android:hint="Email">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/open_sans_regular"
-                    android:inputType="textEmailAddress"
-                    android:singleLine="true" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/edit_text_layout_height"
-                android:hint="Password">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    style="@style/TextAppearance.AppCompat.Small"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/open_sans_regular"
-                    android:inputType="textPassword"
-                    android:singleLine="true" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
-
-                <CheckBox
-                    android:id="@+id/check_box_remember_me"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:checked="true"
-                    android:textSize="14sp"
-                    android:fontFamily="@font/open_sans_regular"
-                    android:text="Remember Me!" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:textAllCaps="false"
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    android:layout_alignParentEnd="true"
-                    android:fontFamily="@font/open_sans_regular"
-                    android:text="Reset Password"
-                    android:textColor="@color/colorAccent" />
-
-            </RelativeLayout>
-
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:layout_width="match_parent"
+                android:id="@+id/btRegistration"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/open_sans_regular"
+                android:minWidth="120dp"
+                android:text="REGISTER"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:transitionName="btn_register"
+                app:cornerRadius="16dp" />
+
+            <Space
+                android:layout_width="16dp"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_sign_in"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="50dp"
-                android:layout_marginTop="@dimen/button_margin_top"
-                android:layout_marginEnd="50dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
                 android:fontFamily="@font/open_sans_regular"
                 android:onClick="btnSignInClicked"
                 android:padding="8dp"
@@ -265,7 +140,23 @@
                 app:cornerRadius="16dp" />
 
         </LinearLayout>
-
     </LinearLayout>
 
-</androidx.core.widget.NestedScrollView>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/skip_login"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom|center_horizontal"
+        android:fontFamily="@font/open_sans_regular"
+        android:text="Continue as guest"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:layout_marginBottom="34dp"
+        app:cornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</RelativeLayout>

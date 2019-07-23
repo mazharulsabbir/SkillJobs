@@ -2,6 +2,9 @@ package skill.jobs.Fragment;
 
 
 import android.app.ActivityOptions;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -24,18 +27,24 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import skill.jobs.Database.JobsReq;
+import skill.jobs.Database.JsonPlaceHolderApi;
+import skill.jobs.Database.Post;
 import skill.jobs.JobInfoViewerActivity;
-import skill.jobs.JobSeeker.JobSeekerActivity;
 import skill.jobs.LoginActivity;
 import skill.jobs.R;
 import skill.jobs.RecyclerView.Adapter.JobsQuickAdapter;
 import skill.jobs.RecyclerView.Adapter.TrendingCourseQuickAdapter;
-import skill.jobs.RecyclerView.Helper.Jobs;
+import skill.jobs.RecyclerView.Helper.JobsHelper;
 import skill.jobs.RecyclerView.Helper.TrendingCourses;
 import skill.jobs.RegistrationActivity;
 
@@ -47,11 +56,13 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     private RecyclerView mRecyclerViewFeatureJobs;
     private RecyclerView mRecyclerViewTrendingCourses;
 
-    private List<Jobs> jobsList;
+    private List<JobsHelper> jobsList;
     private List<TrendingCourses> courses;
 
     private BaseQuickAdapter mFeatureJobsAdapter;
     private BaseQuickAdapter mTrendingCoursesAdapter;
+
+    String content = "";
 
 
     public DashboardFragment() {
@@ -72,31 +83,60 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
 
         trendingCourseAdapter();
 
-        MaterialButton addResume = view.findViewById(R.id.materialButton2);
-        addResume.setOnClickListener(this);
-
-        MaterialButton postJob = view.findViewById(R.id.materialButton);
-        postJob.setOnClickListener(this);
-
         return view;
     }
 
     private void initSampleData() {
-        jobsList = new ArrayList<>();
-        for (int i = 1; i <= 20; i++) {
-            Jobs jobs = new Jobs(R.drawable.ic_company,
-                    "Company ",
-                    "Vacancy ",
-                    "Location ",
-                    "Dead Line ");
-            jobsList.add(jobs);
-        }
 
         courses = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             TrendingCourses course = new TrendingCourses("Title ", "Duration", "Fees");
             courses.add(i, course);
         }
+        jobs();
+    }
+
+    private void jobs() {
+        jobsList = new ArrayList<>();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://test.skill.jobs/api/jobs/0/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+
+        Call<List<JobsReq>> call = jsonPlaceHolderApi.getJobs();
+
+        call.enqueue(new Callback<List<JobsReq>>() {
+            @Override
+            public void onResponse(Call<List<JobsReq>> call, Response<List<JobsReq>> response) {
+
+                if (!response.isSuccessful()) {
+                    Toast.makeText(getContext(), "Code: " + response.code(), Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                List<JobsReq> jobs = response.body();
+
+                for (JobsReq job : jobs) {
+
+                    JobsHelper jobsHelper = new JobsHelper(R.drawable.ic_company,
+                            job.getCompanyName(),
+                            job.getJobTitle(),
+                            job.getTimezone(),
+                            job.getDate());
+                    jobsList.add(jobsHelper);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<JobsReq>> call, Throwable t) {
+                //textViewResult.setText(t.getMessage());
+                Toast.makeText(getContext(), "Message: " + t.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void initRecyclerViews() {
@@ -216,12 +256,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.materialButton2:
-                startActivity(new Intent(getActivity(), JobSeekerActivity.class));
-                break;
-            case R.id.materialButton:
-                Toast.makeText(getContext(), "Process is going on..", Toast.LENGTH_SHORT).show();
-                break;
+
         }
     }
 }

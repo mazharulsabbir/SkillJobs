@@ -2,9 +2,6 @@ package skill.jobs.Fragment;
 
 
 import android.app.ActivityOptions;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -38,7 +35,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import skill.jobs.Database.JobsReq;
 import skill.jobs.Database.JsonPlaceHolderApi;
-import skill.jobs.Database.Post;
 import skill.jobs.JobInfoViewerActivity;
 import skill.jobs.LoginActivity;
 import skill.jobs.R;

@@ -30,12 +30,12 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+//
+//import retrofit2.Call;
+//import retrofit2.Callback;
+//import retrofit2.Response;
+//import retrofit2.Retrofit;
+//import retrofit2.converter.gson.GsonConverterFactory;
 import skill.jobs.Database.JobsReq;
 import skill.jobs.Database.JsonPlaceHolderApi;
 import skill.jobs.Database.Post;
@@ -75,7 +75,6 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        stringUrlDesign();
 
         initSampleData();
         initRecyclerViews();
@@ -93,8 +92,10 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             TrendingCourses course = new TrendingCourses("Title ", "Duration", "Fees");
             courses.add(i, course);
         }
-        jobs();
+       // jobs();
     }
+
+    /*
 
     private void jobs() {
         jobsList = new ArrayList<>();
@@ -138,6 +139,8 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             }
         });
     }
+
+    */
 
     private void initRecyclerViews() {
         mRecyclerViewFeatureJobs = view.findViewById(R.id.recycler_view_feature_job);
@@ -206,52 +209,6 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         adapter.setEmptyView(errorView);
     }
 
-    private void stringUrlDesign() {
-        String text = "Login or Register";
-        TextView textView = view.findViewById(R.id.textView6);
-
-        SpannableString ss = new SpannableString(text);
-
-        ClickableSpan clickableSpanSignIn = new ClickableSpan() {
-            @Override
-            public void onClick(@NonNull View widget) {
-                startActivity(new Intent(getActivity(), LoginActivity.class));
-            }
-
-            @Override
-            public void updateDrawState(@NonNull TextPaint ds) {
-                super.updateDrawState(ds);
-                ds.setColor(Color.BLACK);
-                ds.setUnderlineText(false);
-            }
-        };
-
-
-        ClickableSpan clickableSpan1 = new ClickableSpan() {
-            @Override
-            public void onClick(@NonNull View widget) {
-                startActivity(new Intent(getActivity(), RegistrationActivity.class));
-            }
-
-            @Override
-            public void updateDrawState(@NonNull TextPaint ds) {
-                super.updateDrawState(ds);
-                ds.setColor(Color.BLACK);
-                ds.setUnderlineText(false);
-            }
-        };
-
-
-        ss.setSpan(clickableSpanSignIn, 0, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        textView.setText(ss);
-        textView.setMovementMethod(LinkMovementMethod.getInstance());
-
-
-        ss.setSpan(clickableSpan1, 9, 17, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        textView.setText(ss);
-        textView.setMovementMethod(LinkMovementMethod.getInstance());
-
-    }
 
     @Override
     public void onClick(View v) {

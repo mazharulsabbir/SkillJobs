@@ -7,11 +7,11 @@ import retrofit2.http.GET;
 
 public interface UpCourseApi {
 
-  //  String Base_Url="http://training.skill.jobs/api/v1/";
-    String Base_Url="https://jsonplaceholder.typicode.com/";
+String Base_Url="http://training.skill.jobs/api/v1/";
 
-  //  @GET("courses")
-    @GET("posts")
+
+  @GET("/courses")
+
     Call<List<Upcourse>> getUpcourses();
 
 }

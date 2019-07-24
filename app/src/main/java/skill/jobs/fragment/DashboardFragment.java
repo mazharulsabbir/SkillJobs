@@ -4,19 +4,23 @@ package skill.jobs.fragment;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +29,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 import skill.jobs.database.JobsReq;
 import skill.jobs.database.JsonPlaceHolderApi;
 import skill.jobs.JobInfoViewerActivity;
@@ -62,10 +66,11 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        jobsList = new ArrayList<>();
 
+        getResponse();//job list
         initSampleData();
         initRecyclerViews();
-        featureJobsAdapter();
 
         trendingCourseAdapter();
 
@@ -79,63 +84,12 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             TrendingCourses course = new TrendingCourses("Title ", "Duration", "Fees");
             courses.add(i, course);
         }
-       jobs();
-    }
-
-
-
-    private void jobs() {
-        jobsList = new ArrayList<>();
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://test.skill.jobs/api/jobs/0/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-
-        Call<List<JobsReq>> call = jsonPlaceHolderApi.getJobs();
-
-        call.enqueue(new Callback<List<JobsReq>>() {
-            @Override
-            public void onResponse(Call<List<JobsReq>> call, Response<List<JobsReq>> response) {
-
-                if (!response.isSuccessful()) {
-                    Toast.makeText(getContext(), "Code: " + response.code(), Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                List<JobsReq> jobs = response.body();
-
-                for (JobsReq job : jobs) {
-
-                    JobsHelper jobsHelper = new JobsHelper(R.drawable.ic_company,
-                            job.getCompanyName(),
-                            job.getJobTitle(),
-                            job.getTimezone(),
-                            job.getDate());
-                    jobsList.add(jobsHelper);
-
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<JobsReq>> call, Throwable t) {
-                //textViewResult.setText(t.getMessage());
-                Toast.makeText(getContext(), "Message: " + t.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
     }
 
 
     private void initRecyclerViews() {
         mRecyclerViewFeatureJobs = view.findViewById(R.id.recycler_view_feature_job);
         mRecyclerViewTrendingCourses = view.findViewById(R.id.recycler_view_trending_course);
-
-        //horizontal recycler view
-//        LinearLayoutManager layoutManager
-//                = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-
         mRecyclerViewFeatureJobs.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerViewTrendingCourses.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -195,6 +149,78 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         adapter.setEmptyView(errorView);
     }
 
+    private void getResponse() {
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://test.skill.jobs/api/")
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .build();
+
+        JsonPlaceHolderApi api = retrofit.create(JsonPlaceHolderApi.class);
+
+        Call<String> call = api.getJobs();
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                Log.i("Response: ", response.body());
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        Log.i("onSuccess", response.body());
+
+                        String jsonResponse = response.body();
+                        getJobLists(jsonResponse);
+
+                    } else {
+                        Log.i("onEmptyResponse", "Returned empty response");
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void getJobLists(String response) {
+
+        try {
+            //getting the whole json object from the response
+            JSONObject obj = new JSONObject(response);
+            ArrayList<JobsReq> retroModelArrayList = new ArrayList<>();
+            JSONArray dataArray = obj.getJSONArray("data");
+
+            for (int i = 0; i < dataArray.length(); i++) {
+                JobsReq jobsReq = new JobsReq();
+                JSONObject jsonObject = dataArray.getJSONObject(i);
+
+                jobsReq.setJobTitle(jsonObject.getString("jobTitle"));
+                jobsReq.setCompanyName(jsonObject.getString("companyName"));
+                jobsReq.setDate(jsonObject.getJSONObject("jobDeadline").getString("date"));
+                jobsReq.setTimezone(jsonObject.getJSONObject("jobDeadline").getString("timezone"));
+
+                retroModelArrayList.add(jobsReq);
+            }
+
+            for (int j = 0; j < retroModelArrayList.size(); j++) {
+                JobsHelper helper = new JobsHelper(R.drawable.ic_company,
+                        retroModelArrayList.get(j).getCompanyName(),
+                        retroModelArrayList.get(j).getJobTitle(),
+                        retroModelArrayList.get(j).getTimezone(),
+                        retroModelArrayList.get(j).getDate());
+
+                jobsList.add(helper);
+
+            }
+
+            featureJobsAdapter();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     @Override
     public void onClick(View v) {

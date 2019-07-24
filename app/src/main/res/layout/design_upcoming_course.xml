@@ -169,7 +169,7 @@
             android:fontFamily="@font/open_sans_regular"
             android:text="TK "
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/button6"
+            app:layout_constraintEnd_toStartOf="@+id/enrollButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/previous_price_upcomming_course" />
 
@@ -180,10 +180,10 @@
             android:background="@color/colorPrimaryDark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button6" />
+            app:layout_constraintTop_toBottomOf="@+id/enrollButton" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button6"
+            android:id="@+id/enrollButton"
             style="@style/TextAppearance.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,51 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.TrainingFragment">
+    android:orientation="vertical"
+    tools:context=".fragment.TrainingFragment">
 
-    <LinearLayout
-        android:paddingBottom="8dp"
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/coursetab"
+        style="@style/Widget.Design.AppBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:tabGravity="fill"
+
+        >
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/runningcourse_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Upcomming Courses" />
+
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/upcomingcourse_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Running Courses" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/CourseContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-        <com.google.android.material.tabs.TabLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/Widget.Design.AppBarLayout"
-            app:tabGravity="fill"
-            android:id="@+id/coursetab"
-            android:background="@color/white"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
 
-            >
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/runningcourse_item"
-                android:text="Upcomming Courses"
-                android:layout_marginBottom="16dp"/>
+    </androidx.viewpager.widget.ViewPager>
 
 
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/upcomingcourse_item"
-                android:text="Running Courses"/>
-
-        </com.google.android.material.tabs.TabLayout>
-
-
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/CourseContainer"
-            android:layout_width="match_parent"
-            android:layout_height="900dp">
-
-        </androidx.viewpager.widget.ViewPager>
-
-
-
-
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+</LinearLayout>

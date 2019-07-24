@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:padding="8dp"
-    tools:context=".Fragment.ProfileFragment">
+    tools:context=".fragment.ProfileFragment">
 
     <androidx.cardview.widget.CardView
         android:layout_margin="4dp"

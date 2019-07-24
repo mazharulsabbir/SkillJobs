@@ -25,9 +25,6 @@ public class UpCommingCourseAdapter extends BaseQuickAdapter<UpcommingCourse, Ba
                 .setText(R.id.tv_running_course_hours,item.getHours())
                 .setText(R.id.previous_price_upcomming_course,item.getPre_price())
                 .setText(R.id.tv_price,item.getPrice());
-
-
-
     }
 
 

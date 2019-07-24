@@ -1,20 +1,43 @@
 package skill.jobs.database;
 
-import com.google.gson.annotations.SerializedName;
-
 public class JobsReq {
+    private int id;
+    private String slug,jobTitle,companyName,date,timezone_type,timezone;
 
-    @SerializedName("id")
-    private int jobId;
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    private String jobTitle,companyName;
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
 
-    //job dead line
-    private int timezone_type;
-    private String date,timezone;
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
 
-    public int getJobId() {
-        return jobId;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setTimezone_type(String timezone_type) {
+        this.timezone_type = timezone_type;
+    }
+
+    public void setTimezone(String timezone) {
+        this.timezone = timezone;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getSlug() {
+        return slug;
     }
 
     public String getJobTitle() {
@@ -25,12 +48,12 @@ public class JobsReq {
         return companyName;
     }
 
-    public int getTimezone_type() {
-        return timezone_type;
-    }
-
     public String getDate() {
         return date;
+    }
+
+    public String getTimezone_type() {
+        return timezone_type;
     }
 
     public String getTimezone() {

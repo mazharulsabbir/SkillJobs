@@ -9,8 +9,10 @@ import skill.jobs.R;
 import skill.jobs.recyclerview.helper.JobsHelper;
 
 public class JobsQuickAdapter extends BaseQuickAdapter<JobsHelper, BaseViewHolder> {
+    List<JobsHelper> jobs;
     public JobsQuickAdapter(int view, List<JobsHelper> jobs) {
         super(view, jobs);
+        this.jobs = jobs;
     }
 
     @Override
@@ -25,7 +27,7 @@ public class JobsQuickAdapter extends BaseQuickAdapter<JobsHelper, BaseViewHolde
 
     @Override
     public int getItemCount() {
-        return 10;
+        return jobs.size();
     }
 
     @Override

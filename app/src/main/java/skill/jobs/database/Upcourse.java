@@ -4,7 +4,7 @@ public class Upcourse {
 int id,category_id,is_active;
 String name,slug,banner,summary,detail,created_at;
 Boolean updated_at,deleted_at;
-/*
+
     public Upcourse(int id, int category_id, int is_active, String name, String slug, String banner, String summary, String detail, String created_at, Boolean updated_at, Boolean deleted_at) {
         this.id = id;
         this.category_id = category_id;
@@ -65,33 +65,4 @@ Boolean updated_at,deleted_at;
     }
 
 
-    */
-
-
-int userId;
-String title,body;
-
-
-    public Upcourse(int id, int userId, String title, String body) {
-        this.id = id;
-        this.userId = userId;
-        this.title = title;
-        this.body = body;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getBody() {
-        return body;
-    }
 }

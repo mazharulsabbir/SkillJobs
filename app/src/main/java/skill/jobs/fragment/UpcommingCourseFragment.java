@@ -11,9 +11,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +33,7 @@ import skill.jobs.R;
 import skill.jobs.recyclerview.adapter.UpCommingCourseAdapter;
 import skill.jobs.recyclerview.helper.UpcommingCourse;
 
-public class UpcommingCourseFragment extends Fragment {
+public class UpcommingCourseFragment extends Fragment  {
 
    View view;
     private List<UpcommingCourse> courses;
@@ -47,8 +51,6 @@ public class UpcommingCourseFragment extends Fragment {
         //initialcourse();
         ApiData();
         initialRecyclerview();
-
-
         UpCommingCoursesAdapter();
 
         return view;
@@ -57,15 +59,19 @@ public class UpcommingCourseFragment extends Fragment {
     private void ApiData() {
 
 
-        Retrofit retrofit= new Retrofit.Builder()
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
 
+        Retrofit retrofit= new Retrofit.Builder()
                 .baseUrl(UpCourseApi.Base_Url)
-                .addConverterFactory(GsonConverterFactory.create()).build();
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
 
 
         UpCourseApi mapi=retrofit.create(UpCourseApi.class);
-
         Call<List<Upcourse>> call= mapi.getUpcourses();
+
 
         call.enqueue(new Callback<List<Upcourse>>() {
             @Override
@@ -74,20 +80,30 @@ public class UpcommingCourseFragment extends Fragment {
                 if(!response.isSuccessful()) {
                     Log.d("RESPOSE ERROR : ",response.message());
                 }
-                List<Upcourse> data=response.body();
 
+
+                List<Upcourse> data=response.body();
                 courses =new ArrayList<>();
-                for(int i=0;i<data.size();i++){
-                    UpcommingCourse course = new UpcommingCourse(
-                            data.get(i).getTitle()+"",
+
+
+                for(Upcourse upcourse : data){
+
+                    UpcommingCourse course =new UpcommingCourse(
+                            upcourse.getName(),
                             "10-4-19",
                             "5-5-19",
                             "48",
                             "5000",
-                            "8000");
+                            "8000"
+
+                    );
 
                     courses.add(course);
+
                 }
+
+                Log.d("Success: ","yes");
+
             }
 
             @Override
@@ -98,6 +114,7 @@ public class UpcommingCourseFragment extends Fragment {
         });
 
     }
+
 
     private void initialRecyclerview() {
         mRecyclerViewUpcomingCourse= view.findViewById(R.id.upcomming_course_recyclerview);
@@ -127,6 +144,22 @@ public class UpcommingCourseFragment extends Fragment {
         mUpCommingCoursesAdapter.openLoadAnimation();
 
         mRecyclerViewUpcomingCourse.setAdapter(mUpCommingCoursesAdapter);
+
+
+
+
+        mUpCommingCoursesAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter, View v, int position) {
+                switch (v.getId()) {
+
+                    case R.id.enrollButton:
+                        Toast.makeText(getContext(), "Share", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
+
     }
 
     private void texturl() {

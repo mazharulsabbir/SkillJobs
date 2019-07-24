@@ -159,6 +159,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         JsonPlaceHolderApi api = retrofit.create(JsonPlaceHolderApi.class);
 
         Call<String> call = api.getJobs();
+
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {

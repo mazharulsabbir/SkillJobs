@@ -11,8 +11,12 @@ import skill.jobs.R;
 import skill.jobs.recyclerview.helper.UpcommingCourse;
 
 public class UpCommingCourseAdapter extends BaseQuickAdapter<UpcommingCourse, BaseViewHolder> {
+
+    List<UpcommingCourse> courses;
+
     public UpCommingCourseAdapter(int layoutResId, @Nullable List<UpcommingCourse> data) {
-        super(layoutResId, data);
+        super(layoutResId);
+        courses=data;
     }
 
 
@@ -27,5 +31,13 @@ public class UpCommingCourseAdapter extends BaseQuickAdapter<UpcommingCourse, Ba
                 .setText(R.id.tv_price,item.getPrice());
     }
 
+    @Override
+    public boolean isLoading() {
+        return super.isLoading();
+    }
 
+    @Override
+    public int getItemCount() {
+        return courses.size();
+    }
 }

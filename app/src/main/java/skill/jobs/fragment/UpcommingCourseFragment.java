@@ -11,14 +11,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.security.cert.LDAPCertStoreParameters;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +28,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import skill.jobs.database.UpCourseApi;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
+import skill.jobs.database.JsonPlaceHolderApi;
 import skill.jobs.database.Upcourse;
 import skill.jobs.R;
 import skill.jobs.recyclerview.adapter.UpCommingCourseAdapter;
@@ -51,7 +53,7 @@ public class UpcommingCourseFragment extends Fragment  {
         //initialcourse();
         ApiData();
         initialRecyclerview();
-        UpCommingCoursesAdapter();
+       // UpCommingCoursesAdapter();
 
         return view;
     }
@@ -59,61 +61,84 @@ public class UpcommingCourseFragment extends Fragment  {
     private void ApiData() {
 
 
-        Gson gson = new GsonBuilder()
-                .setLenient()
-                .create();
 
         Retrofit retrofit= new Retrofit.Builder()
-                .baseUrl(UpCourseApi.Base_Url)
-                .addConverterFactory(GsonConverterFactory.create(gson))
+                .baseUrl("http://training.skill.jobs/api/v1/")
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
 
 
-        UpCourseApi mapi=retrofit.create(UpCourseApi.class);
-        Call<List<Upcourse>> call= mapi.getUpcourses();
+        JsonPlaceHolderApi mapi=retrofit.create(JsonPlaceHolderApi.class);
+        Call<String> call= mapi.getUpcourses();
 
-
-        call.enqueue(new Callback<List<Upcourse>>() {
+        call.enqueue(new Callback<String>() {
             @Override
-            public void onResponse(Call<List<Upcourse>> call, Response<List<Upcourse>> response) {
+            public void onResponse(Call<String> call, Response<String> response) {
+                Log.i("Response: ", response.body());
+                if(!response.isSuccessful())return;
 
-                if(!response.isSuccessful()) {
-                    Log.d("RESPOSE ERROR : ",response.message());
+                if (response.body() != null) {
+                    Log.i("onSuccess", response.body());
+
+                    String jsonResponse = response.body();
+               //     getJobLists(jsonResponse);
+
+                } else {
+                    Log.i("onEmptyResponse", "Returned empty response");
                 }
-
-
-                List<Upcourse> data=response.body();
-                courses =new ArrayList<>();
-
-
-                for(Upcourse upcourse : data){
-
-                    UpcommingCourse course =new UpcommingCourse(
-                            upcourse.getName(),
-                            "10-4-19",
-                            "5-5-19",
-                            "48",
-                            "5000",
-                            "8000"
-
-                    );
-
-                    courses.add(course);
-
-                }
-
-                Log.d("Success: ","yes");
 
             }
 
             @Override
-            public void onFailure(Call<List<Upcourse>> call, Throwable t) {
+            public void onFailure(Call<String> call, Throwable t) {
 
-                Log.d("API FAILED: ",t.getMessage());
+                Toast.makeText(getContext(), t.getMessage()+"", Toast.LENGTH_SHORT).show();
+                Log.i("Response error: ", t.getMessage());
             }
         });
 
+
+
+
     }
+    private void getJobLists(String response) {
+
+        try {
+            //getting the whole json object from the response
+            JSONObject obj = new JSONObject(response);
+            ArrayList<Upcourse> arrayList = new ArrayList<>();
+            JSONArray dataArray = obj.getJSONArray("data");
+
+
+            for (int i = 0; i < dataArray.length(); i++) {
+                Upcourse upcourse = new Upcourse();
+                JSONObject jsonObject = dataArray.getJSONObject(i);
+                upcourse.setName(jsonObject.getString("name" ));
+
+                arrayList.add(upcourse);
+            }
+
+            for (int j = 0; j < arrayList.size(); j++) {
+                UpcommingCourse helper = new UpcommingCourse(
+                        arrayList.get(j).getName()+"",
+                        "10-4-19",
+                        "5-5-19",
+                        "48 "+arrayList.get(j).getId(),
+                        "5000",
+                        "8000");
+
+                courses.add(helper);
+
+            }
+
+            UpCommingCoursesAdapter();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 
     private void initialRecyclerview() {

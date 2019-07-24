@@ -9,4 +9,8 @@ public interface JsonPlaceHolderApi {
     @GET("jobs")
     Call<String> getJobs();
 
+
+    @GET("courses")
+    Call<String> getUpcourses();
+
 }

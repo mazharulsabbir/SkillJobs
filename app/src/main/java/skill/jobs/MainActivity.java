@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,14 +21,14 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import skill.jobs.Fragment.BottomSheetProductsAndServices;
-import skill.jobs.Fragment.DashboardFragment;
-import skill.jobs.Fragment.FavoriteJobsFragment;
-import skill.jobs.Fragment.JobsFragment;
-import skill.jobs.Fragment.ProfileFragment;
-import skill.jobs.Fragment.TrainingFragment;
-import skill.jobs.JobSeeker.EditJobSeekerProfile;
-import skill.jobs.JobSeeker.JobSeekerActivity;
+import skill.jobs.fragment.BottomSheetProductsAndServices;
+import skill.jobs.fragment.DashboardFragment;
+import skill.jobs.fragment.FavoriteJobsFragment;
+import skill.jobs.fragment.JobsFragment;
+import skill.jobs.fragment.ProfileFragment;
+import skill.jobs.fragment.TrainingFragment;
+import skill.jobs.jobseeker.EditJobSeekerProfile;
+import skill.jobs.jobseeker.JobSeekerActivity;
 
 public class MainActivity extends AppCompatActivity {
 

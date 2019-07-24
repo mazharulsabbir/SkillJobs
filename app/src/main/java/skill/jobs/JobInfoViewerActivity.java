@@ -24,8 +24,8 @@ import org.xml.sax.XMLReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import skill.jobs.RecyclerView.Adapter.JobDetailsViewAdapter;
-import skill.jobs.RecyclerView.Helper.JobDetailsViewHelper;
+import skill.jobs.recyclerview.adapter.JobDetailsViewAdapter;
+import skill.jobs.recyclerview.helper.JobDetailsViewHelper;
 
 public class JobInfoViewerActivity extends AppCompatActivity {
 

@@ -40,6 +40,9 @@ dependencies {
     //country code picker
     implementation 'com.hbb20:ccp:2.2.9'
 
+    //json dependency
+    implementation 'com.google.code.gson:gson:2.8.5'
+
     //retrofit for API uses
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'

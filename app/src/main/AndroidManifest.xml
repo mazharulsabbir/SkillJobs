@@ -25,7 +25,7 @@
 
         </activity>
         <activity
-            android:name=".JobSeeker.JobSeekerActivity"
+            android:name=".jobseeker.JobSeekerActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".RegistrationActivity" />
         <activity
@@ -49,7 +49,7 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity android:name=".JobSeeker.EditJobSeekerProfile" />
+        <activity android:name=".jobseeker.EditJobSeekerProfile" />
     </application>
 
 </manifest>

@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -47,12 +46,8 @@ public class JobInfoViewerActivity extends AppCompatActivity {
     private NestedScrollView scrollView;
     private MaterialButton materialButtonSave;
     private JobDetailsViewHelper profileInformationHelper;
-    private int itemId;
-
-
+    private int jobId;
     private CardView layoutBottom;
-
-    private Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +61,7 @@ public class JobInfoViewerActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent intent = this.getIntent();
-        itemId = Integer.parseInt(intent.getStringExtra("JOB_ID"));
+        jobId = Integer.parseInt(intent.getStringExtra("JOB_ID"));
 
         scrollView = findViewById(R.id.mNestedScrollView);
 
@@ -99,13 +94,13 @@ public class JobInfoViewerActivity extends AppCompatActivity {
     private void getResponse() {
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(JsonPlaceHolderApi.BASE_JOB_ITEM_URL)
+                .baseUrl(JsonPlaceHolderApi.BASE_JOBS_URL)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
 
         JsonPlaceHolderApi api = retrofit.create(JsonPlaceHolderApi.class);
 
-        Call<String> call = api.getJobDetails(itemId);
+        Call<String> call = api.getJobDetails(jobId);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
@@ -184,7 +179,6 @@ public class JobInfoViewerActivity extends AppCompatActivity {
 
     }
 
-    @SuppressWarnings("unchecked")
     private void featureJobsAdapter() {
         //jobsList.clear();
         mJobInformation = new JobDetailsViewAdapter(R.layout.example_preview_job_details, info);

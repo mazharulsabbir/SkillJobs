@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -64,13 +65,9 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        jobsList = new ArrayList<>();
         initRecyclerViews();
-        getResponse();
 
         initSampleData();
-
-        featureJobsAdapter();
         trendingCourseAdapter();
 
         return view;
@@ -117,6 +114,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             ArrayList<JobsReq> retroModelArrayList = new ArrayList<>();
             JSONArray dataArray = obj.getJSONArray("data");
             itemId = new ArrayList<>();
+            jobsList = new ArrayList<>();
 
             for (int i = 0; i < dataArray.length(); i++) {
                 JSONObject jsonObject = dataArray.getJSONObject(i);
@@ -143,14 +141,16 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                 jobsList.add(helper);
             }
 
+            featureJobsAdapter();
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
     }
 
-
     private void initSampleData() {
+        getResponse();
 
         courses = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -158,7 +158,6 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
             courses.add(i, course);
         }
     }
-
 
     private void initRecyclerViews() {
         mRecyclerViewFeatureJobs = view.findViewById(R.id.recycler_view_feature_job);
@@ -232,4 +231,5 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
 
         }
     }
+
 }

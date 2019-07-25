@@ -220,7 +220,6 @@
             android:text="Career Objective"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view10" />
@@ -244,7 +243,6 @@
             android:text="Work Experience"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView91" />
@@ -293,7 +291,6 @@
             android:text="Contact Information"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_work_experience" />
@@ -343,7 +340,6 @@
             android:text="Skills"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_contact_information" />
@@ -393,7 +389,6 @@
             android:text="Education"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_skills" />
@@ -442,7 +437,6 @@
             android:text="Certifications"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_education" />
@@ -492,7 +486,6 @@
             android:text="Training"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_certifications" />
@@ -542,7 +535,6 @@
             android:text="Reference"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_training" />

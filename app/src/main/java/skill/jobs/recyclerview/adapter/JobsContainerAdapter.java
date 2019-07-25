@@ -26,7 +26,7 @@ public class JobsContainerAdapter extends BaseQuickAdapter<JobsContainerHelper, 
                 .setText(R.id.job_experience, jobs.getExperience())
                 .setText(R.id.job_salary, jobs.getSalary())
                 .setText(R.id.job_dead_line, jobs.getDeadLine())
-                .setVisible(R.id.menu_not_favorite, jobs.isFavorite())
+                .setVisible(R.id.menu_favorite, jobs.isFavorite())
                 .addOnClickListener(R.id.menu_share_job)
                 .addOnClickListener(R.id.menu_favorite)
                 .addOnClickListener(R.id.menu_not_favorite);//ready to favorite
@@ -37,9 +37,9 @@ public class JobsContainerAdapter extends BaseQuickAdapter<JobsContainerHelper, 
         final ImageButton dislikeButton = viewHolder.getView(R.id.menu_not_favorite);
 
         if (jobs.isFavorite()){
-            likeButton.setVisibility(View.INVISIBLE);
+            dislikeButton.setVisibility(View.INVISIBLE);
         }else{
-            likeButton.setVisibility(View.VISIBLE);
+            dislikeButton.setVisibility(View.VISIBLE);
         }
 
         //on click it will change to unlike button
@@ -49,7 +49,7 @@ public class JobsContainerAdapter extends BaseQuickAdapter<JobsContainerHelper, 
                 likeButton.setVisibility(View.INVISIBLE);
                 dislikeButton.setVisibility(View.VISIBLE);
 
-                jobs.setFavorite(true);
+                jobs.setFavorite(false);
             }
         });
 
@@ -60,7 +60,7 @@ public class JobsContainerAdapter extends BaseQuickAdapter<JobsContainerHelper, 
                 dislikeButton.setVisibility(View.INVISIBLE);
                 likeButton.setVisibility(View.VISIBLE);
 
-                jobs.setFavorite(false);
+                jobs.setFavorite(true);
 
             }
         });

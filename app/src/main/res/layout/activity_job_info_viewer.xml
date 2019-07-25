@@ -44,7 +44,7 @@
                 <ImageView
                     android:id="@+id/imageView16"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="100dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/index"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -68,25 +68,29 @@
                 <TextView
                     android:id="@+id/textView79"
                     style="@style/TextAppearance.AppCompat.Medium"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
                     android:fontFamily="@font/open_sans_regular"
                     android:text="Vacancy"
                     android:textStyle="bold"
                     android:transitionName="vacancy_name"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/textView82"
                     app:layout_constraintTop_toBottomOf="@+id/imageView16" />
 
                 <TextView
                     android:id="@+id/textView82"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
                     android:fontFamily="@font/open_sans_regular"
                     android:text="Company"
                     android:textStyle="bold"
                     android:transitionName="company_name"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView17"
                     app:layout_constraintTop_toBottomOf="@+id/textView79" />
 
@@ -146,10 +150,12 @@
                                 style="@style/TextAppearance.AppCompat.Large"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginEnd="8dp"
                                 android:gravity="center"
                                 android:text="Job Details"
+                                android:textAlignment="viewStart"
                                 android:textAllCaps="true"
-                                android:textColor="@color/colorPrimary"
                                 android:textStyle="bold" />
 
                             <androidx.recyclerview.widget.RecyclerView
@@ -169,12 +175,14 @@
                         style="@style/TextAppearance.AppCompat.Large"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="32dp"
+                        android:layout_marginEnd="4dp"
                         android:fontFamily="@font/open_sans_regular"
                         android:gravity="center"
                         android:text="Job Description"
+                        android:textAlignment="viewStart"
                         android:textAllCaps="true"
-                        android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
 
                     <TextView
@@ -191,12 +199,14 @@
                         style="@style/TextAppearance.AppCompat.Large"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="32dp"
+                        android:layout_marginEnd="4dp"
                         android:fontFamily="@font/open_sans_regular"
                         android:gravity="center"
                         android:text="Education Requirements"
+                        android:textAlignment="viewStart"
                         android:textAllCaps="true"
-                        android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
 
                     <TextView
@@ -213,12 +223,14 @@
                         style="@style/TextAppearance.AppCompat.Large"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="32dp"
+                        android:layout_marginEnd="4dp"
                         android:fontFamily="@font/open_sans_regular"
                         android:gravity="center"
                         android:text="Additional Requirements"
+                        android:textAlignment="viewStart"
                         android:textAllCaps="true"
-                        android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
 
                     <TextView
@@ -235,12 +247,14 @@
                         style="@style/TextAppearance.AppCompat.Large"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="32dp"
+                        android:layout_marginEnd="4dp"
                         android:fontFamily="@font/open_sans_regular"
                         android:gravity="center"
                         android:text="Extra Facilities"
+                        android:textAlignment="viewStart"
                         android:textAllCaps="true"
-                        android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
 
                     <TextView
@@ -257,12 +271,14 @@
                         style="@style/TextAppearance.AppCompat.Large"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
                         android:layout_marginTop="32dp"
+                        android:layout_marginEnd="4dp"
                         android:fontFamily="@font/open_sans_regular"
                         android:gravity="center"
                         android:text="Apply Instruction"
+                        android:textAlignment="viewStart"
                         android:textAllCaps="true"
-                        android:textColor="@color/colorPrimary"
                         android:textStyle="bold" />
 
                     <TextView

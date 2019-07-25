@@ -4,32 +4,21 @@ public class JobsReq {
     private int id;
     private String slug,jobTitle,companyName,date,timezone_type,timezone;
 
+    public JobsReq() {
+    }
+
+    public JobsReq(int id, String slug, String jobTitle, String companyName, String date, String timezone_type, String timezone) {
+        this.id = id;
+        this.slug = slug;
+        this.jobTitle = jobTitle;
+        this.companyName = companyName;
+        this.date = date;
+        this.timezone_type = timezone_type;
+        this.timezone = timezone;
+    }
+
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setSlug(String slug) {
-        this.slug = slug;
-    }
-
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
-    }
-
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public void setTimezone_type(String timezone_type) {
-        this.timezone_type = timezone_type;
-    }
-
-    public void setTimezone(String timezone) {
-        this.timezone = timezone;
     }
 
     public int getId() {

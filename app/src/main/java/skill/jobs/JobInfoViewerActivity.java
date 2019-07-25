@@ -1,8 +1,10 @@
 package skill.jobs;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -19,11 +21,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.android.material.button.MaterialButton;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xml.sax.XMLReader;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
+import skill.jobs.database.JsonPlaceHolderApi;
 import skill.jobs.recyclerview.adapter.JobDetailsViewAdapter;
 import skill.jobs.recyclerview.helper.JobDetailsViewHelper;
 
@@ -35,6 +46,9 @@ public class JobInfoViewerActivity extends AppCompatActivity {
     private BaseQuickAdapter mJobInformation;
     private NestedScrollView scrollView;
     private MaterialButton materialButtonSave;
+    private JobDetailsViewHelper profileInformationHelper;
+    private int itemId;
+
 
     private CardView layoutBottom;
 
@@ -51,6 +65,9 @@ public class JobInfoViewerActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Intent intent = this.getIntent();
+        itemId = Integer.parseInt(intent.getStringExtra("JOB_ID"));
+
         scrollView = findViewById(R.id.mNestedScrollView);
 
         layoutBottom = findViewById(R.id.card_view_bottom);
@@ -59,9 +76,6 @@ public class JobInfoViewerActivity extends AppCompatActivity {
 
         mRecyclerViewJobDetails = findViewById(R.id.recycler_view_job_details);
         mRecyclerViewJobDetails.setLayoutManager(new LinearLayoutManager(this));
-
-        initSampleData();
-        featureJobsAdapter();
 
         scrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
             @Override
@@ -79,18 +93,95 @@ public class JobInfoViewerActivity extends AppCompatActivity {
             }
         });
 
-        initiateHtmlToString();
-
+        getResponse();
     }
 
+    private void getResponse() {
 
-    private void initSampleData() {
-        info = new ArrayList<>();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(JsonPlaceHolderApi.BASE_JOB_ITEM_URL)
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .build();
 
-        for (int i = 0; i < title.length; i++) {
-            JobDetailsViewHelper profileInformationHelper = new JobDetailsViewHelper(title[i], "Information will appear here...");
-            info.add(i, profileInformationHelper);
+        JsonPlaceHolderApi api = retrofit.create(JsonPlaceHolderApi.class);
+
+        Call<String> call = api.getJobDetails(itemId);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                Log.i("Response: ", response.body());
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        Log.i("onSuccess", response.body());
+
+                        String jsonResponse = response.body();
+                        getJobInfo(jsonResponse);
+
+                    } else {
+                        Log.i("onEmptyResponse", "Returned empty response");
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                t.printStackTrace();
+
+            }
+        });
+    }
+
+    private void getJobInfo(String response) {
+
+        try {
+            //getting the whole json object from the response
+            JSONObject obj = new JSONObject(response);
+            JSONArray dataArray = obj.getJSONArray("data");
+
+            for (int i = 0; i < dataArray.length(); i++) {
+                JSONObject jsonObject = dataArray.getJSONObject(i);
+
+                TextView mJobName = findViewById(R.id.textView79);
+                TextView mCompanyName = findViewById(R.id.textView82);
+                TextView mLocation = findViewById(R.id.textView83);
+
+                mJobName.setText(jsonObject.getString("jobTitle"));
+                mCompanyName.setText(jsonObject.getString("companyName"));
+                mLocation.setText(jsonObject.getJSONObject("jobDeadline").getString("timezone"));
+
+                info = new ArrayList<>();
+
+                String jobDescription, educationRequire, additionalRequire, extraFacilities;
+
+                jobDescription = jsonObject.getString("jobDetail");
+                educationRequire = jsonObject.getString("educationRequire");
+                additionalRequire = jsonObject.getString("additionalRequire");
+                extraFacilities = jsonObject.getString("extraFacilities");
+
+                initiateHtmlToString(jobDescription, educationRequire, additionalRequire, extraFacilities);
+
+                profileInformationHelper = new JobDetailsViewHelper(title[0], jsonObject.getString("jobTitle"));
+                info.add(0, profileInformationHelper);
+
+                profileInformationHelper = new JobDetailsViewHelper(title[2], jsonObject.getString("experienceRequire") + " year");
+                info.add(1, profileInformationHelper);
+
+                profileInformationHelper = new JobDetailsViewHelper(title[5], jsonObject.getJSONObject("jobDeadline").getString("date"));
+                info.add(2, profileInformationHelper);
+
+                profileInformationHelper = new JobDetailsViewHelper(title[6], Integer.toString(jsonObject.getInt("noOfVacancy")));
+                info.add(3, profileInformationHelper);
+
+                profileInformationHelper = new JobDetailsViewHelper(title[7], jsonObject.getString("location"));
+                info.add(4, profileInformationHelper);
+
+            }
+            featureJobsAdapter();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+
     }
 
     @SuppressWarnings("unchecked")
@@ -103,7 +194,6 @@ public class JobInfoViewerActivity extends AppCompatActivity {
         mRecyclerViewJobDetails.setAdapter(mJobInformation);
 
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -119,28 +209,7 @@ public class JobInfoViewerActivity extends AppCompatActivity {
         }
     }
 
-    private void initiateHtmlToString() {
-        String jobDesc = "<li>Create and preserve an environment where employees, visitors and properties are safe and well- protected</li>\n" +
-                "\t<li>Develop &amp; implement security policies, protocol and procedures</li>\n" +
-                "\t<li>Recruit, train and supervise Security Officers and Guards</li>\n" +
-                "\t<li>Attend meetings with other Manager to determine operational needs</li>\n" +
-                "\t<li>Control budgets for security operations and monitor expenses</li>\n" +
-                "\t<li>Plan and coordinate security operations for specific events</li>\n" +
-                "\t<li>Investigate &amp; resolve issues</li>\n" +
-                "\t<li>Maintain relationship with local government authority, law and order enforcing agencies</li>\n" +
-                "\t<li>Lead periodical safety drill</li>\n" +
-                "\t<li>Ensure submissive behavior and warm reception to the visitors</li>";
-
-        String educationalReq = "Job Experience:" +
-                "\t<li>Proven experience as Assistant Manager or similar position of security team in a reputed organization</li>\n" +
-                "\t<li>Defense background (minimum rank: Lieutenant or equivalent) is preferable</li>\n";
-
-        String additionalReq = "<li>Well- groomed and age at most 45 years</li>\n" +
-                "\t<li>Ability to lead &amp; coach security team</li>\n" +
-                "\t<li>Experience in using relevant technology &amp; equipment (e.g. CCTV)</li>\n" +
-                "\t<li>Excellent communication &amp; interpersonal skills</li>";
-
-        String extraFacility = "<li>As per policy.</li>";
+    private void initiateHtmlToString(String jobDesc, String educationalReq, String additionalReq, String extraFacility) {
 
         TextView jobDescription = findViewById(R.id.tv_job_description);
         TextView educationalRequirements = findViewById(R.id.tv_educational_requirements);
@@ -148,11 +217,11 @@ public class JobInfoViewerActivity extends AppCompatActivity {
         TextView extraFacilities = findViewById(R.id.tv_extra_facilities);
         TextView applyInstruction = findViewById(R.id.tv_apply_instruction);
 
-        jobDescription.setText(Html.fromHtml(jobDesc, null, new UlTagHandler()));
-        educationalRequirements.setText(Html.fromHtml(educationalReq, null, new UlTagHandler()));
-        additionalRequirements.setText(Html.fromHtml(additionalReq, null, new UlTagHandler()));
-        extraFacilities.setText(Html.fromHtml(extraFacility, null, new UlTagHandler()));
-        applyInstruction.setText(Html.fromHtml(extraFacility, null, new UlTagHandler()));
+        jobDescription.setText(Html.fromHtml(jobDesc.trim(), null, new UlTagHandler()));
+        educationalRequirements.setText(Html.fromHtml(educationalReq.trim(), null, new UlTagHandler()));
+        additionalRequirements.setText(Html.fromHtml(additionalReq.trim(), null, new UlTagHandler()));
+        extraFacilities.setText(Html.fromHtml(extraFacility.trim(), null, new UlTagHandler()));
+        applyInstruction.setText(Html.fromHtml(extraFacility.trim(), null, new UlTagHandler()));
     }
 
     public class UlTagHandler implements Html.TagHandler {

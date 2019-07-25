@@ -134,7 +134,6 @@ public class FeatureJobsFragment extends Fragment {
 
     }
 
-    @SuppressWarnings("unchecked")
     private void featureJobsAdapter() {
         //jobsList.clear();
         mFeatureJobsAdapter = new JobsContainerAdapter(R.layout.example_layout_jobs, jobsList);

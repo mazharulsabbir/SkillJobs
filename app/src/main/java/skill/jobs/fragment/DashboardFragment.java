@@ -44,7 +44,7 @@ import skill.jobs.recyclerview.helper.TrendingCourses;
  * A simple {@link Fragment} subclass.
  */
 public class DashboardFragment extends Fragment implements View.OnClickListener {
-    String content = "";
+
     private View view;
     private RecyclerView mRecyclerViewFeatureJobs;
     private RecyclerView mRecyclerViewTrendingCourses;
@@ -53,12 +53,6 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     private BaseQuickAdapter mFeatureJobsAdapter;
     private BaseQuickAdapter mTrendingCoursesAdapter;
     private List<String> itemId;
-
-
-    public DashboardFragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

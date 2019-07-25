@@ -1,9 +1,11 @@
 package skill.jobs.fragment;
 
+import android.app.FragmentManager;
 import android.graphics.Paint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -52,10 +54,11 @@ public class UpcommingCourseFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_upcomming_course, container, false);
 
-        //initialcourse();
+
         ApiData();
         initialRecyclerview();
-//        initialcourse();
+
+
         return view;
     }
 
@@ -145,21 +148,6 @@ public class UpcommingCourseFragment extends Fragment {
 
     }
 
-    private void initialcourse() {
-        courses = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            UpcommingCourse course = new UpcommingCourse(
-                    "COURSE TITLE",
-                    "10-4-19",
-                    "5-5-19",
-                    "48",
-                    "5000",
-                    "8000");
-            courses.add(course);
-        }
-        UpCommingCoursesAdapter();
-
-    }
 
     private void UpCommingCoursesAdapter() {
         mUpCommingCoursesAdapter = new UpCommingCourseAdapter(R.layout.design_upcoming_course, courses);
@@ -169,19 +157,33 @@ public class UpcommingCourseFragment extends Fragment {
         mRecyclerViewUpcomingCourse.setAdapter(mUpCommingCoursesAdapter);
 
 
+        mUpCommingCoursesAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+
+            }
+        });
+
         mUpCommingCoursesAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View v, int position) {
                 switch (v.getId()) {
 
                     case R.id.enrollButton:
-                        Toast.makeText(getContext(), "Enroll Now", Toast.LENGTH_SHORT).show();
+                        EnrollmentFormFragment formFragment = new EnrollmentFormFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.fragment_container, formFragment);
+                        fragmentTransaction.commit();
                         break;
                 }
             }
         });
 
     }
+
+
+
+
 
     private void texturl() {
         TextView previous_price = view.findViewById(R.id.previous_price_upcomming_course);

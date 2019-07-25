@@ -29,15 +29,17 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
+import skill.jobs.database.JobsReq;
 import skill.jobs.database.JsonPlaceHolderApi;
 import skill.jobs.database.Upcourse;
 import skill.jobs.R;
 import skill.jobs.recyclerview.adapter.UpCommingCourseAdapter;
+import skill.jobs.recyclerview.helper.JobsHelper;
 import skill.jobs.recyclerview.helper.UpcommingCourse;
 
-public class UpcommingCourseFragment extends Fragment  {
+public class UpcommingCourseFragment extends Fragment {
 
-   View view;
+    View view;
     private List<UpcommingCourse> courses;
     private BaseQuickAdapter mUpCommingCoursesAdapter;
 
@@ -48,40 +50,38 @@ public class UpcommingCourseFragment extends Fragment  {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view= inflater.inflate(R.layout.fragment_upcomming_course, container, false);
+        view = inflater.inflate(R.layout.fragment_upcomming_course, container, false);
 
         //initialcourse();
         ApiData();
         initialRecyclerview();
-       // UpCommingCoursesAdapter();
-
+//        initialcourse();
         return view;
     }
 
     private void ApiData() {
 
 
-
-        Retrofit retrofit= new Retrofit.Builder()
+        Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://training.skill.jobs/api/v1/")
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
 
 
-        JsonPlaceHolderApi mapi=retrofit.create(JsonPlaceHolderApi.class);
-        Call<String> call= mapi.getUpcourses();
+        JsonPlaceHolderApi mapi = retrofit.create(JsonPlaceHolderApi.class);
+        Call<String> call = mapi.getUpcourses();
 
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 Log.i("Response: ", response.body());
-                if(!response.isSuccessful())return;
+                if (!response.isSuccessful()) return;
 
                 if (response.body() != null) {
                     Log.i("onSuccess", response.body());
 
                     String jsonResponse = response.body();
-               //     getJobLists(jsonResponse);
+                    getJobLists(jsonResponse);
 
                 } else {
                     Log.i("onEmptyResponse", "Returned empty response");
@@ -92,38 +92,37 @@ public class UpcommingCourseFragment extends Fragment  {
             @Override
             public void onFailure(Call<String> call, Throwable t) {
 
-                Toast.makeText(getContext(), t.getMessage()+"", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), t.getMessage() + "", Toast.LENGTH_SHORT).show();
                 Log.i("Response error: ", t.getMessage());
             }
         });
 
 
-
-
     }
-    private void getJobLists(String response) {
 
+    private void getJobLists(String response) {
         try {
             //getting the whole json object from the response
             JSONObject obj = new JSONObject(response);
-            ArrayList<Upcourse> arrayList = new ArrayList<>();
+            ArrayList<Upcourse> retroModelArrayList = new ArrayList<>();
             JSONArray dataArray = obj.getJSONArray("data");
-
+            courses = new ArrayList<>();
 
             for (int i = 0; i < dataArray.length(); i++) {
                 Upcourse upcourse = new Upcourse();
                 JSONObject jsonObject = dataArray.getJSONObject(i);
-                upcourse.setName(jsonObject.getString("name" ));
 
-                arrayList.add(upcourse);
+                upcourse.setName(jsonObject.getString("name"));
+
+                retroModelArrayList.add(upcourse);
             }
 
-            for (int j = 0; j < arrayList.size(); j++) {
+            for (int j = 0; j < retroModelArrayList.size(); j++) {
                 UpcommingCourse helper = new UpcommingCourse(
-                        arrayList.get(j).getName()+"",
+                        retroModelArrayList.get(j).getName() + "",
                         "10-4-19",
                         "5-5-19",
-                        "48 "+arrayList.get(j).getId(),
+                        "48 ",
                         "5000",
                         "8000");
 
@@ -140,18 +139,15 @@ public class UpcommingCourseFragment extends Fragment  {
     }
 
 
-
     private void initialRecyclerview() {
-        mRecyclerViewUpcomingCourse= view.findViewById(R.id.upcomming_course_recyclerview);
+        mRecyclerViewUpcomingCourse = view.findViewById(R.id.upcomming_course_recyclerview);
         mRecyclerViewUpcomingCourse.setLayoutManager(new LinearLayoutManager(getContext()));
 
     }
 
-
-
     private void initialcourse() {
-        courses =new ArrayList<>();
-        for (int i=0;i<10;i++) {
+        courses = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
             UpcommingCourse course = new UpcommingCourse(
                     "COURSE TITLE",
                     "10-4-19",
@@ -161,16 +157,16 @@ public class UpcommingCourseFragment extends Fragment  {
                     "8000");
             courses.add(course);
         }
+        UpCommingCoursesAdapter();
 
     }
+
     private void UpCommingCoursesAdapter() {
-        mUpCommingCoursesAdapter=new UpCommingCourseAdapter(R.layout.design_upcoming_course,courses);
+        mUpCommingCoursesAdapter = new UpCommingCourseAdapter(R.layout.design_upcoming_course, courses);
         mUpCommingCoursesAdapter.isFirstOnly(false);
         mUpCommingCoursesAdapter.openLoadAnimation();
 
         mRecyclerViewUpcomingCourse.setAdapter(mUpCommingCoursesAdapter);
-
-
 
 
         mUpCommingCoursesAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
@@ -179,7 +175,7 @@ public class UpcommingCourseFragment extends Fragment  {
                 switch (v.getId()) {
 
                     case R.id.enrollButton:
-                        Toast.makeText(getContext(), "Share", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "Enroll Now", Toast.LENGTH_SHORT).show();
                         break;
                 }
             }
@@ -193,8 +189,6 @@ public class UpcommingCourseFragment extends Fragment  {
 
 
     }
-
-
 
 
 }

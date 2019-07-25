@@ -15,7 +15,7 @@ public class UpCommingCourseAdapter extends BaseQuickAdapter<UpcommingCourse, Ba
     List<UpcommingCourse> courses;
 
     public UpCommingCourseAdapter(int layoutResId, @Nullable List<UpcommingCourse> data) {
-        super(layoutResId);
+        super(layoutResId,data);
         courses=data;
     }
 
@@ -28,6 +28,7 @@ public class UpCommingCourseAdapter extends BaseQuickAdapter<UpcommingCourse, Ba
                 .setText(R.id.start_date,item.getStartdate())
                 .setText(R.id.tv_running_course_hours,item.getHours())
                 .setText(R.id.previous_price_upcomming_course,item.getPre_price())
+                .addOnClickListener(R.id.enrollButton)
                 .setText(R.id.tv_price,item.getPrice());
     }
 

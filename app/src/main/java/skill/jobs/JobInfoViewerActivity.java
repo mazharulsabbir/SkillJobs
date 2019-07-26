@@ -38,6 +38,7 @@ import skill.jobs.recyclerview.adapter.JobDetailsViewAdapter;
 import skill.jobs.recyclerview.helper.JobDetailsViewHelper;
 
 public class JobInfoViewerActivity extends AppCompatActivity {
+    private static final String TAG = "JobInfoViewerActivity";
 
     private String[] title = {"Title", "Job Type", "Job Experience", "Gender", "Posted On", "Last Date", "No Of Vacancies", "Location", "Salary"};
     private RecyclerView mRecyclerViewJobDetails;
@@ -149,32 +150,47 @@ public class JobInfoViewerActivity extends AppCompatActivity {
                 String jobDescription, educationRequire, additionalRequire, extraFacilities;
 
                 jobDescription = jsonObject.getString("jobDetail");
+
                 educationRequire = jsonObject.getString("educationRequire");
+
                 additionalRequire = jsonObject.getString("additionalRequire");
+
                 extraFacilities = jsonObject.getString("extraFacilities");
 
                 initiateHtmlToString(jobDescription, educationRequire, additionalRequire, extraFacilities);
 
-                profileInformationHelper = new JobDetailsViewHelper(title[0], jsonObject.getString("jobTitle"));
+
+                profileInformationHelper = new JobDetailsViewHelper(title[0],
+                        jsonObject.getString("jobTitle"));
                 info.add(0, profileInformationHelper);
 
-                profileInformationHelper = new JobDetailsViewHelper(title[2], jsonObject.getString("experienceRequire") + " year");
+                profileInformationHelper = new JobDetailsViewHelper(title[2],
+                        jsonObject.getString("experienceRequire") + " year");
                 info.add(1, profileInformationHelper);
 
-                profileInformationHelper = new JobDetailsViewHelper(title[5], jsonObject.getJSONObject("jobDeadline").getString("date"));
+                profileInformationHelper = new JobDetailsViewHelper(title[5],
+                        jsonObject.getJSONObject("jobDeadline").getString("date"));
                 info.add(2, profileInformationHelper);
 
-                profileInformationHelper = new JobDetailsViewHelper(title[6], Integer.toString(jsonObject.getInt("noOfVacancy")));
-                info.add(3, profileInformationHelper);
+                try {
+                    profileInformationHelper = new JobDetailsViewHelper(title[6],
+                            Integer.toString(jsonObject.getInt("noOfVacancy")));
+                    info.add(3, profileInformationHelper);
+                } catch (Exception e) {
+                    profileInformationHelper = new JobDetailsViewHelper(title[6], "-");
+                    info.add(3, profileInformationHelper);
+                    Log.e(TAG, "getJobInfo: " + jobId, e);
+                }
 
-                profileInformationHelper = new JobDetailsViewHelper(title[7], jsonObject.getString("location"));
+                profileInformationHelper = new JobDetailsViewHelper(title[7],
+                        jsonObject.getString("location"));
                 info.add(4, profileInformationHelper);
 
             }
             featureJobsAdapter();
 
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e(TAG, "getJobInfo: " + jobId, e);
         }
 
     }

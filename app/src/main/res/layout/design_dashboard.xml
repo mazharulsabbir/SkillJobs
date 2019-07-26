@@ -11,8 +11,6 @@
         android:layout_height="wrap_content"
         android:focusableInTouchMode="true">
 
-        <!--SECTION: HEADER..-->
-
         <!--SECTION: FEATURE JOBS..-->
 
         <TextView
@@ -114,7 +112,7 @@
         <View
             android:id="@+id/view4"
             android:layout_width="0dp"
-            android:layout_height="14dp"
+            android:layout_height="16dp"
             android:layout_marginTop="8dp"
             android:background="@color/color_view_color"
             app:layout_constraintEnd_toEndOf="parent"

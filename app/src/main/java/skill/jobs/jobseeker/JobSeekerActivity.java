@@ -13,7 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 
 import skill.jobs.fragment.JobAgentFragment;
-import skill.jobs.jobseeker.fragment.PofileDetailsJS;
+import skill.jobs.jobseeker.fragment.ProfileDetailsJS;
 import skill.jobs.fragment.UploadCvFragment;
 import skill.jobs.R;
 
@@ -32,14 +32,14 @@ public class JobSeekerActivity extends AppCompatActivity {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_open, R.string.navigation_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_Container, new PofileDetailsJS()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_Container, new ProfileDetailsJS()).commit();
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.nav_ProfileDetails_JS:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_Container, new PofileDetailsJS()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_Container, new ProfileDetailsJS()).commit();
                         break;
                     case R.id.nav_CreateJobAgent_JS:
                         getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_Container, new JobAgentFragment()).commit();

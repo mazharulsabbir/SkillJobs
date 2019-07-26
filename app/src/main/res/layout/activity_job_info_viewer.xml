@@ -44,7 +44,7 @@
                 <ImageView
                     android:id="@+id/imageView16"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="80dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/index"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -107,24 +107,38 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/materialButton3"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="32dp"
                     android:layout_marginEnd="4dp"
                     android:minWidth="150dp"
                     android:text="SAVE"
                     app:layout_constraintEnd_toStartOf="@+id/guideline3"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView83" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/materialButton4"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
+                    android:layout_marginEnd="16dp"
                     android:minWidth="150dp"
                     android:text="APPLY"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/guideline3"
                     app:layout_constraintTop_toTopOf="@+id/materialButton3" />
+
+                <View
+                    android:layout_marginTop="24dp"
+                    android:id="@+id/view13"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/materialButton4"
+                    android:background="@color/color_view_color"
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -133,7 +147,7 @@
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/materialButton4">
+                    app:layout_constraintTop_toBottomOf="@+id/view13">
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardView_job_details"
@@ -152,6 +166,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="16dp"
                                 android:layout_marginEnd="8dp"
+                                android:fontFamily="@font/open_sans_regular"
                                 android:gravity="center"
                                 android:text="Job Details"
                                 android:textAlignment="viewStart"

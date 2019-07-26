@@ -39,7 +39,7 @@ import skill.jobs.recyclerview.helper.TrainingHelper;
 import skill.jobs.recyclerview.helper.WorkExperienceHepler;
 
 
-public class PofileDetailsJS extends Fragment implements View.OnClickListener {
+public class ProfileDetailsJS extends Fragment implements View.OnClickListener {
     ImageView pro_I_edit;
     View view;
     boolean pro_edit_flag = true, pro_edit_open = true;

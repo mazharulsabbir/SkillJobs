@@ -25,10 +25,10 @@ import skill.jobs.fragment.BottomSheetProductsAndServices;
 import skill.jobs.fragment.DashboardFragment;
 import skill.jobs.fragment.FavoriteJobsFragment;
 import skill.jobs.fragment.JobsFragment;
-import skill.jobs.fragment.ProfileFragment;
 import skill.jobs.fragment.TrainingFragment;
 import skill.jobs.jobseeker.EditJobSeekerProfile;
 import skill.jobs.jobseeker.JobSeekerActivity;
+import skill.jobs.jobseeker.fragment.ProfileDetailsJS;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.nav_Profile:
                         if (!ACTIVE_FRAGMENT.equals("PROFILE")) {
-                            openFragment(new ProfileFragment(), "PROFILE");
+                            openFragment(new ProfileDetailsJS(), "PROFILE");
                         }
                         return true;
                 }

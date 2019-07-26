@@ -18,6 +18,6 @@ public class JobDetailsViewAdapter extends BaseQuickAdapter<JobDetailsViewHelper
     @Override
     protected void convert(BaseViewHolder helper, JobDetailsViewHelper item) {
         helper.setText(R.id.tv_title, item.getTitle())
-                .setText(R.id.tv_info, ": " + item.getDescription());
+                .setText(R.id.tv_info, item.getDescription());
     }
 }

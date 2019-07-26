@@ -215,14 +215,15 @@ public class JobInfoViewerActivity extends AppCompatActivity {
         educationalRequirements.setText(Html.fromHtml(educationalReq.trim(), null, new UlTagHandler()));
         additionalRequirements.setText(Html.fromHtml(additionalReq.trim(), null, new UlTagHandler()));
         extraFacilities.setText(Html.fromHtml(extraFacility.trim(), null, new UlTagHandler()));
-        applyInstruction.setText(Html.fromHtml(extraFacility.trim(), null, new UlTagHandler()));
+
+        applyInstruction.setText("\nOnline apply");
     }
 
     public class UlTagHandler implements Html.TagHandler {
         @Override
         public void handleTag(boolean opening, String tag, Editable output,
                               XMLReader xmlReader) {
-            if (tag.equals("ul") && !opening) output.append("");
+            if (tag.equals("ul") && !opening) output.append(" ");
             if (tag.equals("li") && opening) output.append("\n‣ ");
         }
     }

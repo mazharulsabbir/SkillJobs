@@ -1,6 +1,6 @@
 package skill.jobs.fragment;
 
-import android.app.FragmentManager;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 
@@ -22,7 +22,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.security.cert.LDAPCertStoreParameters;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,12 +30,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
-import skill.jobs.database.JobsReq;
+import skill.jobs.CourseDetailsActivity;
 import skill.jobs.database.JsonPlaceHolderApi;
 import skill.jobs.database.Upcourse;
 import skill.jobs.R;
 import skill.jobs.recyclerview.adapter.UpCommingCourseAdapter;
-import skill.jobs.recyclerview.helper.JobsHelper;
 import skill.jobs.recyclerview.helper.UpcommingCourse;
 
 public class UpcommingCourseFragment extends Fragment {
@@ -160,6 +158,7 @@ public class UpcommingCourseFragment extends Fragment {
         mUpCommingCoursesAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                startActivity(new Intent(getActivity(), CourseDetailsActivity.class));
 
             }
         });

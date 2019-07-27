@@ -227,8 +227,8 @@ public class ProfileDetailsJS extends Fragment implements View.OnClickListener {
         info = new ArrayList<>();
 
         String[] mUserInfo = {"Dhaka, Bangladesh", "01825632294", "1999-02-12", "Male", "Unmarried", "Bangladeshi",
-                "-", "1954886790", "-", "-", "103 Central Bashabo, Khilgaon, District: Dhaka, JobsReq Code: 1219, Bangladesh",
-                "Sakhipur 4 no ward, Tangail, JobsReq Code: 1950, Dhaka , Bangladesh",
+                "-", "1954886790", "-", "-", "103 Central Bashabo, Khilgaon, District: Dhaka, JobsData Code: 1219, Bangladesh",
+                "Sakhipur 4 no ward, Tangail, JobsData Code: 1950, Dhaka , Bangladesh",
                 "Md. Lutfar Rahman", "Mazeda"
         };
 

@@ -33,7 +33,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
-            android:text="Vacancy Name"
             android:textStyle="bold"
             android:transitionName="vacancy_name"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +47,6 @@
             android:layout_marginStart="9dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
-            android:text="Company Name"
             android:textSize="14sp"
             android:textStyle="bold"
             android:transitionName="company_name"
@@ -64,7 +62,6 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/open_sans_regular"
             android:gravity="center"
-            android:text="Location"
             android:transitionName="company_location"
             app:layout_constraintStart_toStartOf="@+id/job_vacancy_name"
             app:layout_constraintTop_toBottomOf="@+id/job_company_name" />
@@ -76,7 +73,6 @@
             android:layout_marginTop="2dp"
             android:fontFamily="@font/open_sans_regular"
             android:gravity="center"
-            android:text="Dead Line"
             app:layout_constraintStart_toStartOf="@+id/job_location"
             app:layout_constraintTop_toBottomOf="@+id/job_location" />
 

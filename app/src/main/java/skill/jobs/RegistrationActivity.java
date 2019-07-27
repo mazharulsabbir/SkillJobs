@@ -24,8 +24,6 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
-        textView = findViewById(R.id.textView3);
         suTextView = findViewById(R.id.textView8);
         siTextView = findViewById(R.id.tvSigninHere);
 
@@ -35,11 +33,10 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     private void stringUrlDesign() {
-        String text = "Login or ";
+
         String sutext = "By clicking the button, I agree to the Terms of Service and Privacy Policy.";
         String sitext = "Already have account? Sign in";
 
-        SpannableString ss = new SpannableString(text);
         SpannableString su = new SpannableString(sutext);
         SpannableString si = new SpannableString(sitext);
 
@@ -96,21 +93,6 @@ public class RegistrationActivity extends AppCompatActivity {
         su.setSpan(clickableSpan2, 60, 74, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         suTextView.setText(su);
         suTextView.setMovementMethod(LinkMovementMethod.getInstance());
-
-
-        StyleSpan boldSpan;
-        boldSpan = new StyleSpan(Typeface.BOLD);
-        ss.setSpan(boldSpan, 0, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        textView.setText(ss);
-
-        text = "Register to explore all our new service. We offer you the best career solution.";
-
-        boldSpan = new StyleSpan(Typeface.BOLD);
-        ss = new SpannableString(text);
-        ss.setSpan(boldSpan, 0, 8, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        textView.append(ss);
 
     }
 }

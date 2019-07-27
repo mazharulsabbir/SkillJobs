@@ -216,11 +216,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Career Objective"
-            android:textAlignment="center"
             android:textAllCaps="true"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view10" />
 
@@ -239,11 +240,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Work Experience"
-            android:textAlignment="center"
             android:textAllCaps="true"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView91" />
 
@@ -287,11 +289,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Contact Information"
-            android:textAlignment="center"
             android:textAllCaps="true"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_work_experience" />
 
@@ -336,11 +339,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Skills"
-            android:textAlignment="center"
             android:textAllCaps="true"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_contact_information" />
 
@@ -385,11 +389,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Education"
-            android:textAlignment="center"
             android:textAllCaps="true"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_skills" />
 
@@ -433,11 +438,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Certifications"
-            android:textAlignment="center"
             android:textAllCaps="true"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_education" />
 
@@ -482,11 +488,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Training"
-            android:textAlignment="center"
             android:textAllCaps="true"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_certifications" />
 
@@ -531,11 +538,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Reference"
-            android:textAlignment="center"
             android:textAllCaps="true"
             android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/recycler_view_training" />
 

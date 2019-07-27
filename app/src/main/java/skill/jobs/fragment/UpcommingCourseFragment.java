@@ -1,14 +1,7 @@
 package skill.jobs.fragment;
 
-import android.app.FragmentManager;
 import android.graphics.Paint;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,13 +9,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.security.cert.LDAPCertStoreParameters;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,12 +28,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
-import skill.jobs.database.JobsReq;
+import skill.jobs.R;
 import skill.jobs.database.JsonPlaceHolderApi;
 import skill.jobs.database.Upcourse;
-import skill.jobs.R;
 import skill.jobs.recyclerview.adapter.UpCommingCourseAdapter;
-import skill.jobs.recyclerview.helper.JobsHelper;
 import skill.jobs.recyclerview.helper.UpcommingCourse;
 
 public class UpcommingCourseFragment extends Fragment {

@@ -62,7 +62,7 @@ public class JobInfoViewerActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent intent = this.getIntent();
-        jobId = Integer.parseInt(intent.getStringExtra("JOB_ID"));
+        jobId = intent.getIntExtra("JOB_ID",0);
 
         scrollView = findViewById(R.id.mNestedScrollView);
 

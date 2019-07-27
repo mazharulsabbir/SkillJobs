@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -62,7 +63,7 @@ public class JobInfoViewerActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent intent = this.getIntent();
-        jobId = intent.getIntExtra("JOB_ID",0);
+        jobId = intent.getIntExtra("JOB_ID", 0);
 
         scrollView = findViewById(R.id.mNestedScrollView);
 
@@ -105,17 +106,20 @@ public class JobInfoViewerActivity extends AppCompatActivity {
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                Log.i("Response: ", response.body());
+                Log.i("Response: ", response.message());
+
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
-                        Log.i("onSuccess", response.body());
 
                         String jsonResponse = response.body();
                         getJobInfo(jsonResponse);
 
                     } else {
-                        Log.i("onEmptyResponse", "Returned empty response");
+                        Toast.makeText(JobInfoViewerActivity.this, "" + jobId, Toast.LENGTH_SHORT).show();
+                        Log.i("onEmptyResponse: " + jobId, "Returned empty response");
                     }
+                }else{
+                    Toast.makeText(JobInfoViewerActivity.this, jobId+":"+response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 

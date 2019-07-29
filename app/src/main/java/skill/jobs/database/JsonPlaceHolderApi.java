@@ -8,7 +8,7 @@ public interface JsonPlaceHolderApi {
     String BASE_JOBS_URL = "http://test.skill.jobs/api/";
 
     @GET("jobs")
-    Call<String> getJobs();
+    Call<AllJobs> getAllJobs();
 
     @GET("job/{id}")
     Call<String> getJobDetails(

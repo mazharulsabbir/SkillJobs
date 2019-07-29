@@ -11,8 +11,6 @@
         android:layout_height="wrap_content"
         android:focusableInTouchMode="true">
 
-        <!--SECTION: HEADER..-->
-
         <!--SECTION: FEATURE JOBS..-->
 
         <TextView
@@ -78,7 +76,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
-            android:text="Skill JobsReq create a bridge between skilled candidates and employers. "
+            android:text="Skill JobsData create a bridge between skilled candidates and employers. "
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +91,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
-            android:text="Skill JobsReq is a global platform that brings solutions to both job seekers and employers fulfilling and guiding their needs from all over the world. Skill JobsReq will keep track of trends and provide both hands-on training and online training solutions."
+            android:text="Skill JobsData is a global platform that brings solutions to both job seekers and employers fulfilling and guiding their needs from all over the world. Skill JobsData will keep track of trends and provide both hands-on training and online training solutions."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView25" />
@@ -114,7 +112,7 @@
         <View
             android:id="@+id/view4"
             android:layout_width="0dp"
-            android:layout_height="14dp"
+            android:layout_height="16dp"
             android:layout_marginTop="8dp"
             android:background="@color/color_view_color"
             app:layout_constraintEnd_toEndOf="parent"

@@ -11,17 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +25,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 import skill.jobs.JobInfoViewerActivity;
 import skill.jobs.R;
-import skill.jobs.database.JobsReq;
+import skill.jobs.database.AllJobs;
+import skill.jobs.database.JobsData;
 import skill.jobs.database.JsonPlaceHolderApi;
 import skill.jobs.recyclerview.adapter.JobsQuickAdapter;
 import skill.jobs.recyclerview.adapter.TrendingCourseQuickAdapter;
@@ -44,6 +40,7 @@ import skill.jobs.recyclerview.helper.TrendingCourses;
  * A simple {@link Fragment} subclass.
  */
 public class DashboardFragment extends Fragment implements View.OnClickListener {
+    private static final String TAG = "DashboardFragment";
 
     private View view;
     private RecyclerView mRecyclerViewFeatureJobs;
@@ -52,7 +49,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     private List<TrendingCourses> courses;
     private BaseQuickAdapter mFeatureJobsAdapter;
     private BaseQuickAdapter mTrendingCoursesAdapter;
-    private List<String> itemId;
+    private List<JobsData> data;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -70,77 +67,29 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     private void getResponse() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(JsonPlaceHolderApi.BASE_JOBS_URL)
-                .addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())//ScalarsConverterFactory.create()
                 .build();
 
         JsonPlaceHolderApi api = retrofit.create(JsonPlaceHolderApi.class);
 
-        Call<String> call = api.getJobs();
-        call.enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                Log.i("Response: ", response.body());
-                if (response.isSuccessful()) {
-                    if (response.body() != null) {
-                        Log.i("onSuccess", response.body());
+        Call<AllJobs> call = api.getAllJobs();
+        call.enqueue(new Callback<AllJobs>() {
+                         @Override
+                         public void onResponse(Call<AllJobs> call, Response<AllJobs> response) {
+                             if (!response.isSuccessful()) {
+                                 Log.i(TAG, "onResponse: " + response.message() + ":" + response.code());
+                             }
 
-                        String jsonResponse = response.body();
-                        getAllJobLists(jsonResponse);
+                             data = response.body().getJobsData();
+                             featureJobsAdapter(data);
+                         }
 
-                    } else {
-                        Log.i("onEmptyResponse", "Returned empty response");
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<String> call, Throwable t) {
-                t.printStackTrace();
-            }
-        });
-    }
-
-    private void getAllJobLists(String response) {
-
-        try {
-            //getting the whole json object from the response
-            JSONObject obj = new JSONObject(response);
-            ArrayList<JobsReq> retroModelArrayList = new ArrayList<>();
-            JSONArray dataArray = obj.getJSONArray("data");
-            itemId = new ArrayList<>();
-            jobsList = new ArrayList<>();
-
-            for (int i = 0; i < dataArray.length(); i++) {
-                JSONObject jsonObject = dataArray.getJSONObject(i);
-                JobsReq jobsReq = new JobsReq(
-                        jsonObject.getInt("id"),
-                        jsonObject.getString("slug"),
-                        jsonObject.getString("jobTitle"),
-                        jsonObject.getString("companyName"),
-                        jsonObject.getJSONObject("jobDeadline").getString("date"),
-                        jsonObject.getJSONObject("jobDeadline").getString("timezone_type"),
-                        jsonObject.getJSONObject("jobDeadline").getString("timezone")
-                );
-
-                itemId.add(i, Integer.toString(jsonObject.getInt("id")));
-
-                retroModelArrayList.add(jobsReq);
-
-                JobsHelper helper = new JobsHelper(R.drawable.ic_company,
-                        retroModelArrayList.get(i).getCompanyName(),
-                        retroModelArrayList.get(i).getJobTitle(),
-                        retroModelArrayList.get(i).getTimezone(),
-                        retroModelArrayList.get(i).getDate());
-
-                jobsList.add(helper);
-            }
-
-            featureJobsAdapter();
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
+                         @Override
+                         public void onFailure(Call<AllJobs> call, Throwable t) {
+                             Log.e(TAG, "onFailure: ", t);
+                         }
+                     }
+        );
     }
 
     private void initSampleData() {
@@ -164,9 +113,9 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     }
 
     @SuppressWarnings("unchecked")
-    private void featureJobsAdapter() {
+    private void featureJobsAdapter(List<JobsData> jobsData) {
 
-        mFeatureJobsAdapter = new JobsQuickAdapter(R.layout.example_job, jobsList);
+        mFeatureJobsAdapter = new JobsQuickAdapter(R.layout.example_job, jobsData);
         mFeatureJobsAdapter.isFirstOnly(false);
         mFeatureJobsAdapter.openLoadAnimation();
 
@@ -183,8 +132,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
                         location = view.findViewById(R.id.job_location);
 
                 Intent sharedIntent = new Intent(getActivity(), JobInfoViewerActivity.class);
-                sharedIntent.putExtra("JOB_ID", itemId.get(position));
-
+                sharedIntent.putExtra("JOB_ID", data.get(position).getId());
 
                 Pair[] pairs = new Pair[4];
                 pairs[0] = new Pair<View, String>(companyLogo, "company_logo");

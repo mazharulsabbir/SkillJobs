@@ -16,10 +16,10 @@
         android:orientation="vertical">
 
         <ImageView
-            android:padding="16dp"
             android:id="@+id/imageView"
             android:layout_width="160dp"
             android:layout_height="52dp"
+            android:padding="16dp"
             android:scaleType="centerCrop"
             android:src="@drawable/skill_jobs_toolbar_logo_small"
             android:transitionName="ic_app_logo"
@@ -27,21 +27,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/txt_heading"
-            style="@style/TextAppearance.AppCompat.Large"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="46dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/open_sans_regular"
-            android:gravity="center"
-            android:text="Sign in"
-            android:textAllCaps="true"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
-            android:transitionName="txt_headings" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/text_input_email"
@@ -61,13 +46,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_password"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:id="@+id/text_input_password"
-            app:errorEnabled="true"
-            app:passwordToggleEnabled="true"
             android:layout_height="match_parent"
-            android:hint="Password">
+            android:hint="Password"
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -87,12 +72,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
+                android:layout_toEndOf="@+id/reset_password"
                 android:checked="true"
                 android:fontFamily="@font/open_sans_regular"
-                android:text="Remember Me!"
-                android:textSize="14sp" />
+                android:text="Remember Me!" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/reset_password"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -100,8 +86,7 @@
                 android:fontFamily="@font/open_sans_regular"
                 android:text="Reset Password"
                 android:textAllCaps="false"
-                android:textColor="@color/colorAccent"
-                android:textSize="14sp" />
+                android:textColor="@color/colorAccent" />
 
         </RelativeLayout>
 
@@ -111,7 +96,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/open_sans_regular"
-            android:onClick="btnSignInClicked"
             android:padding="8dp"
             android:text="Sign In"
             android:textAllCaps="true"

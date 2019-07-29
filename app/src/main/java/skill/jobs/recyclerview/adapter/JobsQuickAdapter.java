@@ -6,28 +6,31 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import java.util.List;
 
 import skill.jobs.R;
-import skill.jobs.recyclerview.helper.JobsHelper;
+import skill.jobs.database.JobsData;
 
-public class JobsQuickAdapter extends BaseQuickAdapter<JobsHelper, BaseViewHolder> {
-    List<JobsHelper> jobs;
-    public JobsQuickAdapter(int view, List<JobsHelper> jobs) {
+public class JobsQuickAdapter extends BaseQuickAdapter<JobsData, BaseViewHolder> {
+    List<JobsData> jobs;
+
+    public JobsQuickAdapter(int view, List<JobsData> jobs) {
         super(view, jobs);
         this.jobs = jobs;
     }
 
     @Override
-    protected void convert(BaseViewHolder viewHolder, JobsHelper jobs) {
-        viewHolder
-                .setImageResource(R.id.imageView2,jobs.getVector())
+    protected void convert(BaseViewHolder helper, JobsData jobs) {
+        helper
                 .setText(R.id.job_company_name, jobs.getCompanyName())
-                .setText(R.id.job_vacancy_name, jobs.getVacancyPostName())
-                .setText(R.id.job_location, jobs.getCompanyLocation())
-                .setText(R.id.job_dead_line, jobs.getDeadLine());
+                .setText(R.id.job_vacancy_name, jobs.getJobTitle())
+                .setText(R.id.job_location, jobs.getJobDeadline().getTimezone())
+                .setText(R.id.job_dead_line, jobs.getJobDeadline().getDate());
     }
 
     @Override
     public int getItemCount() {
-        return jobs.size();
+        if (jobs.size() > 15)
+            return 15;
+
+        else return jobs.size();
     }
 
     @Override

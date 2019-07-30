@@ -58,7 +58,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         initRecyclerViews();
 
-        initSampleData();
+        //initSampleData();
         trendingCourseAdapter();
 
         return view;
@@ -108,7 +108,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
         mRecyclerViewFeatureJobs.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerViewTrendingCourses.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        mRecyclerViewFeatureJobs.setHasTransientState(true);
+        mRecyclerViewFeatureJobs.setHasFixedSize(true);
 
     }
 
@@ -116,9 +116,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
     private void featureJobsAdapter(List<JobsData> jobsData) {
 
         mFeatureJobsAdapter = new JobsQuickAdapter(R.layout.example_job, jobsData);
-        mFeatureJobsAdapter.isFirstOnly(false);
-        mFeatureJobsAdapter.openLoadAnimation();
-
+        mFeatureJobsAdapter.setHasStableIds(true);
         mRecyclerViewFeatureJobs.setAdapter(mFeatureJobsAdapter);
 
         mFeatureJobsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {

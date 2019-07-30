@@ -9,11 +9,9 @@ import skill.jobs.R;
 import skill.jobs.database.JobsData;
 
 public class JobsQuickAdapter extends BaseQuickAdapter<JobsData, BaseViewHolder> {
-    List<JobsData> jobs;
 
     public JobsQuickAdapter(int view, List<JobsData> jobs) {
         super(view, jobs);
-        this.jobs = jobs;
     }
 
     @Override
@@ -25,16 +23,4 @@ public class JobsQuickAdapter extends BaseQuickAdapter<JobsData, BaseViewHolder>
                 .setText(R.id.job_dead_line, jobs.getJobDeadline().getDate());
     }
 
-    @Override
-    public int getItemCount() {
-        if (jobs.size() > 15)
-            return 15;
-
-        else return jobs.size();
-    }
-
-    @Override
-    public boolean isLoading() {
-        return super.isLoading();
-    }
 }

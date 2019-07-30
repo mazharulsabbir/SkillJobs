@@ -49,7 +49,7 @@
             android:id="@+id/text_input_password"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Password"
             app:errorEnabled="true"
             app:passwordToggleEnabled="true">

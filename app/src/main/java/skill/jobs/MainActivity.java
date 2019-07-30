@@ -2,7 +2,6 @@ package skill.jobs;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,7 +17,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import skill.jobs.fragment.BottomSheetProductsAndServices;
@@ -105,11 +103,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         /*MANAGE BADGE OF BOTTOM NAVIGATION ITEMS*/
-        BadgeDrawable badge = bottomNavigation.showBadge(R.id.nav_jobs);
-        badge.setNumber(120);
-        badge.setMaxCharacterCount(4);
-        badge.setBackgroundColor(Color.BLUE);
-        badge.setBadgeTextColor(Color.WHITE);
+
+//        BadgeDrawable badge = bottomNavigation.showBadge(R.id.nav_jobs);
+//        int jobs = data.size();
+//        if (jobs>0){
+//            badge.setNumber(jobs);
+//            badge.setMaxCharacterCount(4);
+//            badge.setBackgroundColor(Color.BLUE);
+//            badge.setBadgeTextColor(Color.WHITE);
+//        }
 
         /*MAINTAIN CHILD POSITION OF FRAME LAYOUT SEGMENT*/
         frameLayout = findViewById(R.id.fragment_container);

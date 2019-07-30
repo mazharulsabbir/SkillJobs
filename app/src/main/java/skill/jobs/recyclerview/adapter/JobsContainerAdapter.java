@@ -36,6 +36,9 @@ public class JobsContainerAdapter extends BaseQuickAdapter<JobsData, BaseViewHol
         final ImageButton likeButton = viewHolder.getView(R.id.menu_favorite);
         final ImageButton dislikeButton = viewHolder.getView(R.id.menu_not_favorite);
 
+
+        likeButton.setVisibility(View.INVISIBLE);
+
         if (jobs.isFavorite()){
             dislikeButton.setVisibility(View.INVISIBLE);
         }else{

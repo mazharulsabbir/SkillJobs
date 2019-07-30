@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -31,15 +32,17 @@ import skill.jobs.database.AllJobs;
 import skill.jobs.database.JobsData;
 import skill.jobs.database.JsonPlaceHolderApi;
 import skill.jobs.recyclerview.adapter.JobsContainerAdapter;
-import skill.jobs.recyclerview.helper.JobsContainerHelper;
 
 public class FeatureJobsFragment extends Fragment {
     private static final String TAG = "FeatureJobsFragment";
+    private int TOTAL_COUNTER = 100;
     private View view;
     private RecyclerView mRecyclerViewFeatureJobs;
-    private List<JobsContainerHelper> jobsList;
     private BaseQuickAdapter mFeatureJobsAdapter;
     private List<JobsData> data;
+    private List<JobsData> limitedData;
+    private int mCurrentCounter = 10;
+    private Toast toast;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +52,7 @@ public class FeatureJobsFragment extends Fragment {
 
         mRecyclerViewFeatureJobs = view.findViewById(R.id.recycler_view_feature_job);
         mRecyclerViewFeatureJobs.setLayoutManager(new LinearLayoutManager(getContext()));
+        mRecyclerViewFeatureJobs.setHasFixedSize(true);
 
         getResponse();
 
@@ -69,27 +73,64 @@ public class FeatureJobsFragment extends Fragment {
                          public void onResponse(Call<AllJobs> call, Response<AllJobs> response) {
                              if (!response.isSuccessful()) {
                                  Log.i(TAG, "onResponse: " + response.message() + ":" + response.code());
+                                 Toast.makeText(getContext(), response.code(), Toast.LENGTH_SHORT).show();
                              }
+                             data = new ArrayList<>();
+                             limitedData = new ArrayList<>();
 
                              data = response.body().getJobsData();
-                             featureJobsAdapter(data);
+                             TOTAL_COUNTER = data.size();
+                             if (data.size() > 10)
+                                 for (int i = 0; i < 10; i++) {
+                                     limitedData.add(data.get(i));
+                                 }
+                             else limitedData.addAll(data);
+                             featureJobsAdapter();
                          }
 
                          @Override
                          public void onFailure(Call<AllJobs> call, Throwable t) {
                              Log.e(TAG, "onFailure: ", t);
+                             Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
                          }
                      }
         );
     }
 
-    private void featureJobsAdapter(List<JobsData> jobsData) {
-        //jobsList.clear();
-        mFeatureJobsAdapter = new JobsContainerAdapter(R.layout.example_layout_jobs, jobsData);
-        mFeatureJobsAdapter.isFirstOnly(false);
-        mFeatureJobsAdapter.openLoadAnimation();
+    private void featureJobsAdapter() {
+        mFeatureJobsAdapter = new JobsContainerAdapter(R.layout.example_layout_jobs, limitedData);
+        mFeatureJobsAdapter.setHasStableIds(true);
 
         mRecyclerViewFeatureJobs.setAdapter(mFeatureJobsAdapter);
+
+        mFeatureJobsAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
+            @Override
+            public void onLoadMoreRequested() {
+                mRecyclerViewFeatureJobs.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mCurrentCounter >= TOTAL_COUNTER) {
+                            //Data are all loaded.
+                            mFeatureJobsAdapter.loadMoreEnd();
+                        } else {
+                            mCurrentCounter = mFeatureJobsAdapter.getData().size();
+                            limitedData.clear();
+
+                            if (mCurrentCounter + 10 <= data.size()) {
+                                for (int i = 0; i < mCurrentCounter + 10; i++) {
+                                    limitedData.add(data.get(i));
+                                }
+                            } else limitedData.addAll(data);
+
+                            mFeatureJobsAdapter.replaceData(limitedData);
+                            mFeatureJobsAdapter.notifyDataSetChanged();
+                            mFeatureJobsAdapter.loadMoreComplete();
+                        }
+                    }
+
+                }, 300);
+            }
+        }, mRecyclerViewFeatureJobs);
 
         mFeatureJobsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override

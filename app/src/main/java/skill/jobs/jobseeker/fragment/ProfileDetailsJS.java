@@ -2,6 +2,7 @@ package skill.jobs.jobseeker.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +20,8 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import skill.jobs.jobseeker.EditJobSeekerProfile;
 import skill.jobs.R;
+import skill.jobs.jobseeker.EditJobSeekerProfile;
 import skill.jobs.recyclerview.adapter.CertificationsAdapter;
 import skill.jobs.recyclerview.adapter.ContactInformationAdapter;
 import skill.jobs.recyclerview.adapter.EducationAdapter;
@@ -66,17 +67,26 @@ public class ProfileDetailsJS extends Fragment implements View.OnClickListener {
 
         NestedScrollView mNestedScrollView = view.findViewById(R.id.nestedScrollView);
 
-        initSampleData();
-        initiateRecyclerViews();
-        initiateRecyclerViewAdapters();
-
-        setAdapters();//connection between recyclerView and adapters
-
-
         //ON CLICK SEGMENT
         initiateOnClick();
 
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                initSampleData();
+                initiateRecyclerViews();
+                initiateRecyclerViewAdapters();
+
+                setAdapters();//connection between recyclerView and adapters
+            }
+        }, 300);
     }
 
     private void initiateRecyclerViews() {

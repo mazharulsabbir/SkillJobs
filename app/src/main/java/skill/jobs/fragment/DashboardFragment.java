@@ -117,6 +117,7 @@ public class DashboardFragment extends Fragment implements View.OnClickListener 
 
         mFeatureJobsAdapter = new JobsQuickAdapter(R.layout.example_job, jobsData);
         mFeatureJobsAdapter.setHasStableIds(true);
+        setEmptyView(mFeatureJobsAdapter);
         mRecyclerViewFeatureJobs.setAdapter(mFeatureJobsAdapter);
 
         mFeatureJobsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {

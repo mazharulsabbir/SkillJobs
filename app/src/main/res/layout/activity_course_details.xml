@@ -20,7 +20,8 @@
 
             <ImageView
                 android:id="@+id/jd_coverImage"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:scaleType="centerCrop"
                 android:layout_height="100dp"
                 android:src="@drawable/logo"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +84,7 @@
                 android:textSize="@dimen/large_text"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.053"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/textView4"
                 app:layout_constraintTop_toTopOf="@+id/textView4" />
 
@@ -194,9 +195,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:fontFamily="@font/open_sans_regular"
                 android:text="60"
                 app:layout_constraintBottom_toBottomOf="@+id/textView18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/textView18"
                 app:layout_constraintTop_toTopOf="@+id/textView18" />
 
@@ -277,16 +281,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView17">
 
                 <TextView
-                    style="@style/TextAppearance.AppCompat.Large"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
-                    android:fontFamily="@font/open_sans_regular"
-                    android:text="Course Overview and Objectives :"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/jd_courseOverview"
+                    android:id="@+id/jd_summaryOverview"
+                    android:layout_marginTop="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="User experience design (UXD) is the process of enhancing customer satisfaction and loyalty by improving the usability, ease of use, and pleasure provided in the interaction between the customer and the product. The User Experience (UX) course imparts how to design usable, useful, and desirable digital interfaces (e.g., websites, mobile/tablet apps, etc.) from a user-centered perspective. While UX is a field in its own right, UX skills are becoming increasingly important. Drawing from the human-computer interaction (HCI) discipline, UXD methods help delegates to understand users and their contexts."
@@ -298,7 +294,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
                     android:fontFamily="@font/open_sans_regular"
-                    android:text="Course Content"
+                    android:text="Course Content :"
+                    android:layout_marginBottom="8dp"
                     android:textStyle="bold" />
 
                 <TextView

@@ -1,5 +1,6 @@
 package skill.jobs.fragment;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,9 +29,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
+import skill.jobs.CourseDetailsActivity;
 import skill.jobs.R;
 import skill.jobs.database.JsonPlaceHolderApi;
-import skill.jobs.database.Upcourse;
+import skill.jobs.database.RunCourse;
 import skill.jobs.recyclerview.adapter.UpCommingCourseAdapter;
 import skill.jobs.recyclerview.helper.UpcommingCourse;
 
@@ -50,8 +52,8 @@ public class UpcommingCourseFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_upcomming_course, container, false);
 
 
-        ApiData();
-        initialRecyclerview();
+      //  ApiData();
+     //   initialRecyclerview();
 
 
         return view;
@@ -102,12 +104,12 @@ public class UpcommingCourseFragment extends Fragment {
         try {
             //getting the whole json object from the response
             JSONObject obj = new JSONObject(response);
-            ArrayList<Upcourse> retroModelArrayList = new ArrayList<>();
+            ArrayList<RunCourse> retroModelArrayList = new ArrayList<>();
             JSONArray dataArray = obj.getJSONArray("data");
             courses = new ArrayList<>();
 
             for (int i = 0; i < dataArray.length(); i++) {
-                Upcourse upcourse = new Upcourse();
+                RunCourse upcourse = new RunCourse();
                 JSONObject jsonObject = dataArray.getJSONObject(i);
 
                 upcourse.setName(jsonObject.getString("name"));
@@ -155,7 +157,7 @@ public class UpcommingCourseFragment extends Fragment {
         mUpCommingCoursesAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-
+                startActivity(new Intent(getActivity(), CourseDetailsActivity.class));
             }
         });
 

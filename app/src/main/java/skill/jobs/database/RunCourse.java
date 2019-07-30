@@ -1,6 +1,6 @@
 package skill.jobs.database;
 
-public class Upcourse {
+public class RunCourse {
 int id,category_id,is_active;
 String name,slug,banner,summary,detail,created_at;
 Boolean updated_at,deleted_at;

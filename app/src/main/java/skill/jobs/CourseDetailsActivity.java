@@ -29,6 +29,7 @@ public class CourseDetailsActivity extends AppCompatActivity {
         TextView Title=findViewById(R.id.jd_courseTitle);
         Title.setText(title);
         TextView Summary=findViewById(R.id.jd_summaryOverview);
+
         if (summary.equals("null")){
             Summary.setVisibility(View.GONE);
 

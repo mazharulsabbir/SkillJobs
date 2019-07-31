@@ -29,6 +29,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
+import skill.jobs.EnrollmentFormActivity;
 import skill.jobs.CourseDetailsActivity;
 import skill.jobs.R;
 import skill.jobs.database.JsonPlaceHolderApi;
@@ -41,6 +42,7 @@ public class UpcommingCourseFragment extends Fragment {
     View view;
     private List<UpcommingCourse> courses;
     private BaseQuickAdapter mUpCommingCoursesAdapter;
+    ArrayList<RunCourse> retroModelArrayList;
 
     private RecyclerView mRecyclerViewUpcomingCourse;
 
@@ -52,8 +54,8 @@ public class UpcommingCourseFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_upcomming_course, container, false);
 
 
-      //  ApiData();
-     //   initialRecyclerview();
+        ApiData();
+        initialRecyclerview();
 
 
         return view;
@@ -104,7 +106,7 @@ public class UpcommingCourseFragment extends Fragment {
         try {
             //getting the whole json object from the response
             JSONObject obj = new JSONObject(response);
-            ArrayList<RunCourse> retroModelArrayList = new ArrayList<>();
+            retroModelArrayList = new ArrayList<>();
             JSONArray dataArray = obj.getJSONArray("data");
             courses = new ArrayList<>();
 
@@ -113,6 +115,8 @@ public class UpcommingCourseFragment extends Fragment {
                 JSONObject jsonObject = dataArray.getJSONObject(i);
 
                 upcourse.setName(jsonObject.getString("name"));
+                upcourse.setSummary(jsonObject.getString("summary"));
+                upcourse.setDetail(jsonObject.getString("detail"));
 
                 retroModelArrayList.add(upcourse);
             }
@@ -157,7 +161,12 @@ public class UpcommingCourseFragment extends Fragment {
         mUpCommingCoursesAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                startActivity(new Intent(getActivity(), CourseDetailsActivity.class));
+
+                Intent intent=new Intent(getActivity(), CourseDetailsActivity.class);
+                intent.putExtra("Title",retroModelArrayList.get(position).getName());
+                intent.putExtra("Summary",retroModelArrayList.get(position).getSummary());
+                intent.putExtra("Detail",retroModelArrayList.get(position).getDetail());
+                startActivity(intent);
             }
         });
 
@@ -167,10 +176,7 @@ public class UpcommingCourseFragment extends Fragment {
                 switch (v.getId()) {
 
                     case R.id.enrollButton:
-                        EnrollmentFormFragment formFragment = new EnrollmentFormFragment();
-                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.fragment_container, formFragment);
-                        fragmentTransaction.commit();
+                       startActivity(new Intent(getActivity(),EnrollmentFormActivity.class));
                         break;
                 }
             }

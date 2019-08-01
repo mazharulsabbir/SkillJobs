@@ -22,7 +22,7 @@ public class JobsContainerAdapter extends BaseQuickAdapter<JobsData, BaseViewHol
                 .setText(R.id.job_company_name, jobs.getCompanyName())
                 .setText(R.id.job_vacancy_name, jobs.getJobTitle())
                 .setText(R.id.job_location, jobs.getJobDeadline().getTimezone())
-                .setText(R.id.job_dead_line, jobs.getJobDeadline().getDate())
+                .setText(R.id.job_dead_line, jobs.getJobDeadline().getDate().substring(0,10))
 //                .setText(R.id.job_experience, jobs.getExperience())
 //                .setText(R.id.job_salary, jobs.getSalary())
 //                .setVisible(R.id.menu_favorite, jobs.isFavorite())

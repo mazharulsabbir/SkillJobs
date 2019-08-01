@@ -142,6 +142,10 @@ public class FeatureJobsFragment extends Fragment {
 
                 Intent sharedIntent = new Intent(getActivity(), JobInfoViewerActivity.class);
                 sharedIntent.putExtra("JOB_ID", data.get(position).getId());
+                sharedIntent.putExtra("JOB_TITLE",data.get(position).getJobTitle());
+                sharedIntent.putExtra("COMPANY_NAME",data.get(position).getCompanyName());
+                sharedIntent.putExtra("LOCATION",data.get(position).getJobDeadline().getTimezone());
+
 
                 Pair[] pairs = new Pair[4];
                 pairs[0] = new Pair<View, String>(companyLogo, "company_logo");

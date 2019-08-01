@@ -137,14 +137,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="15dp"/>
 
+                <ProgressBar
+                    android:id="@+id/progress_bar_loading_job_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    app:layout_constraintEnd_toEndOf="@+id/view13"
+                    app:layout_constraintStart_toStartOf="@+id/view13"
+                    app:layout_constraintTop_toBottomOf="@+id/view13" />
+
                 <LinearLayout
+                    android:id="@+id/linear_layout_job_details_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/view13">
+                    app:layout_constraintTop_toBottomOf="@+id/view13"
+                    tools:visibility="invisible">
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardView_job_details"
@@ -203,8 +214,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
-                        android:fontFamily="@font/open_sans_regular"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/open_sans_regular" />
 
                     <TextView
                         style="@style/TextAppearance.AppCompat.Large"
@@ -226,8 +236,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
-                        android:fontFamily="@font/open_sans_regular"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/open_sans_regular" />
 
                     <TextView
                         style="@style/TextAppearance.AppCompat.Large"
@@ -249,8 +258,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
-                        android:fontFamily="@font/open_sans_regular"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/open_sans_regular" />
 
                     <TextView
                         style="@style/TextAppearance.AppCompat.Large"
@@ -272,8 +280,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
-                        android:fontFamily="@font/open_sans_regular"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/open_sans_regular" />
 
                     <TextView
                         style="@style/TextAppearance.AppCompat.Large"
@@ -295,12 +302,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
-                        android:fontFamily="@font/open_sans_regular"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/open_sans_regular" />
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="8dp"/>
+                        android:layout_height="8dp" />
 
                 </LinearLayout>
 

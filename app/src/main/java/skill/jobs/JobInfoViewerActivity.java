@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +40,8 @@ import skill.jobs.database.JsonPlaceHolderApi;
 import skill.jobs.recyclerview.adapter.JobDetailsViewAdapter;
 import skill.jobs.recyclerview.helper.JobDetailsViewHelper;
 
+import static android.view.View.VISIBLE;
+
 public class JobInfoViewerActivity extends AppCompatActivity {
     private static final String TAG = "JobInfoViewerActivity";
 
@@ -50,6 +54,8 @@ public class JobInfoViewerActivity extends AppCompatActivity {
     private JobDetailsViewHelper profileInformationHelper;
     private int jobId;
     private CardView layoutBottom;
+    private LinearLayout jobDetailsContainer;
+    private ProgressBar loadingJobDetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +70,27 @@ public class JobInfoViewerActivity extends AppCompatActivity {
 
         Intent intent = this.getIntent();
         jobId = intent.getIntExtra("JOB_ID", 0);
+        String jobTitle = intent.getStringExtra("JOB_TITLE");
+        String companyName = intent.getStringExtra("COMPANY_NAME");
+        String location = intent.getStringExtra("LOCATION");
+
+        TextView mJobName = findViewById(R.id.textView79);
+        TextView mCompanyName = findViewById(R.id.textView82);
+        TextView mLocation = findViewById(R.id.textView83);
+
+        mJobName.setText(jobTitle);
+        mCompanyName.setText(companyName);
+        mLocation.setText(location);
+
+        loadingJobDetails = findViewById(R.id.progress_bar_loading_job_details);
+
+        jobDetailsContainer = findViewById(R.id.linear_layout_job_details_container);
+        jobDetailsContainer.setVisibility(View.GONE);
 
         scrollView = findViewById(R.id.mNestedScrollView);
 
         layoutBottom = findViewById(R.id.card_view_bottom);
+        layoutBottom.setVisibility(View.GONE);
 
         materialButtonSave = findViewById(R.id.materialButton3);
 
@@ -83,7 +106,7 @@ public class JobInfoViewerActivity extends AppCompatActivity {
                 float bottom = top + materialButtonSave.getHeight();
 
                 if (scrollY >= bottom) {
-                    layoutBottom.setVisibility(View.VISIBLE);
+                    layoutBottom.setVisibility(VISIBLE);
                 } else if ((scrollY < bottom)) {
                     layoutBottom.setVisibility(View.GONE);
                 }
@@ -91,6 +114,7 @@ public class JobInfoViewerActivity extends AppCompatActivity {
         });
 
         getResponse();
+
     }
 
     private void getResponse() {
@@ -115,11 +139,11 @@ public class JobInfoViewerActivity extends AppCompatActivity {
                         getJobInfo(jsonResponse);
 
                     } else {
-                        Toast.makeText(JobInfoViewerActivity.this, "" + jobId, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(JobInfoViewerActivity.this, "" + jobId, Toast.LENGTH_SHORT).show();
                         Log.i("onEmptyResponse: " + jobId, "Returned empty response");
                     }
-                }else{
-                    Toast.makeText(JobInfoViewerActivity.this, jobId+":"+response.message(), Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(JobInfoViewerActivity.this, "Network Error! " + response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -140,14 +164,6 @@ public class JobInfoViewerActivity extends AppCompatActivity {
 
             for (int i = 0; i < dataArray.length(); i++) {
                 JSONObject jsonObject = dataArray.getJSONObject(i);
-
-                TextView mJobName = findViewById(R.id.textView79);
-                TextView mCompanyName = findViewById(R.id.textView82);
-                TextView mLocation = findViewById(R.id.textView83);
-
-                mJobName.setText(jsonObject.getString("jobTitle"));
-                mCompanyName.setText(jsonObject.getString("companyName"));
-                mLocation.setText(jsonObject.getJSONObject("jobDeadline").getString("timezone"));
 
                 info = new ArrayList<>();
 
@@ -173,7 +189,7 @@ public class JobInfoViewerActivity extends AppCompatActivity {
                 info.add(1, profileInformationHelper);
 
                 profileInformationHelper = new JobDetailsViewHelper(title[5],
-                        jsonObject.getJSONObject("jobDeadline").getString("date"));
+                        jsonObject.getJSONObject("jobDeadline").getString("date").substring(0,10));
                 info.add(2, profileInformationHelper);
 
                 try {
@@ -200,12 +216,12 @@ public class JobInfoViewerActivity extends AppCompatActivity {
     }
 
     private void featureJobsAdapter() {
-        //jobsList.clear();
-        mJobInformation = new JobDetailsViewAdapter(R.layout.example_preview_job_details, info);
-        mJobInformation.isFirstOnly(false);
-        mJobInformation.openLoadAnimation();
 
+        mJobInformation = new JobDetailsViewAdapter(R.layout.example_preview_job_details, info);
         mRecyclerViewJobDetails.setAdapter(mJobInformation);
+
+        jobDetailsContainer.setVisibility(View.VISIBLE);
+        loadingJobDetails.setVisibility(View.INVISIBLE);
 
     }
 
@@ -232,12 +248,19 @@ public class JobInfoViewerActivity extends AppCompatActivity {
         TextView applyInstruction = findViewById(R.id.tv_apply_instruction);
 
         jobDescription.setText(Html.fromHtml(jobDesc.trim(), null, new UlTagHandler()));
+
         educationalRequirements.setText(Html.fromHtml(educationalReq.trim(), null, new UlTagHandler()));
+
+//        String text = Html.fromHtml(additionalReq.trim(), null, new UlTagHandler()).toString();
+//        if  (text.equals("null"))
+//            text = "  -";
         additionalRequirements.setText(Html.fromHtml(additionalReq.trim(), null, new UlTagHandler()));
+
         extraFacilities.setText(Html.fromHtml(extraFacility.trim(), null, new UlTagHandler()));
 
-        applyInstruction.setText("\nOnline apply");
+        applyInstruction.setText("\n‣ Online apply\n");
     }
+
 
     public class UlTagHandler implements Html.TagHandler {
         @Override
@@ -247,4 +270,5 @@ public class JobInfoViewerActivity extends AppCompatActivity {
             if (tag.equals("li") && opening) output.append("\n‣ ");
         }
     }
+
 }

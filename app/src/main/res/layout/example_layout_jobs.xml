@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"
@@ -59,8 +58,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/open_sans_regular"
-            android:transitionName="company_location"
             android:gravity="center"
+            android:transitionName="company_location"
             app:layout_constraintStart_toStartOf="@+id/job_vacancy_name"
             app:layout_constraintTop_toBottomOf="@+id/job_company_name" />
 
@@ -75,11 +74,16 @@
 
         <TextView
             android:id="@+id/job_dead_line"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:drawableStart="@drawable/ic_date_red_20dp"
+            android:drawablePadding="4dp"
             android:fontFamily="@font/open_sans_regular"
-            android:gravity="center"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toStartOf="@+id/menu_share_job"
             app:layout_constraintStart_toStartOf="@+id/job_salary"
             app:layout_constraintTop_toBottomOf="@+id/job_salary" />
 

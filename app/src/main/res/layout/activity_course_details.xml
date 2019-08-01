@@ -12,7 +12,8 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_weight="3">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -21,8 +22,8 @@
             <ImageView
                 android:id="@+id/jd_coverImage"
                 android:layout_width="0dp"
-                android:scaleType="centerCrop"
                 android:layout_height="100dp"
+                android:scaleType="centerCrop"
                 android:src="@drawable/logo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -75,7 +76,7 @@
 
             <TextView
                 android:id="@+id/jd_courseTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/open_sans_regular"
@@ -84,7 +85,7 @@
                 android:textSize="@dimen/large_text"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.028"
                 app:layout_constraintStart_toEndOf="@+id/textView4"
                 app:layout_constraintTop_toTopOf="@+id/textView4" />
 
@@ -93,7 +94,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
+
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/open_sans_regular"
                 android:text="TK 200000"
@@ -110,9 +112,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="16dp"
                 android:drawableLeft="@drawable/ic_date_black_24dp"
                 android:fontFamily="@font/open_sans_regular"
+                android:gravity="center"
                 android:text="Start Date : "
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/jd_courcePrice" />
@@ -135,9 +138,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="16dp"
                 android:drawableLeft="@drawable/ic_date_black_24dp"
                 android:fontFamily="@font/open_sans_regular"
+                android:gravity="center"
                 android:text="End Date : "
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -160,9 +164,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="16dp"
                 android:drawableLeft="@drawable/ic_clock_black_24dp"
                 android:fontFamily="@font/open_sans_regular"
+                android:gravity="center"
                 android:text="Total Class :"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -173,8 +178,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/open_sans_regular"
+                android:gravity="center"
                 android:text="30"
                 app:layout_constraintBottom_toBottomOf="@+id/textView13"
+
                 app:layout_constraintStart_toEndOf="@+id/textView13"
                 app:layout_constraintTop_toTopOf="@+id/textView13" />
 
@@ -209,7 +216,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="16dp"
+
                 android:drawableLeft="@drawable/ic_location_on_black_24dp"
                 android:fontFamily="@font/open_sans_regular"
                 android:text="Location :"
@@ -218,7 +226,7 @@
 
             <TextView
                 android:id="@+id/jd_location"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
@@ -234,7 +242,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="16dp"
+
                 android:layout_marginEnd="8dp"
                 android:fontFamily="@font/open_sans_regular"
                 android:text="Saturday : 06:00 pm - 08:00 pm"
@@ -273,41 +282,40 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
                 android:layout_marginEnd="0dp"
+                android:layout_marginBottom="32dp"
                 android:orientation="vertical"
                 android:padding="8dp"
-                android:layout_marginBottom="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView17">
 
                 <TextView
                     android:id="@+id/jd_summaryOverview"
-                    android:layout_marginTop="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="User experience design (UXD) is the process of enhancing customer satisfaction and loyalty by improving the usability, ease of use, and pleasure provided in the interaction between the customer and the product. The User Experience (UX) course imparts how to design usable, useful, and desirable digital interfaces (e.g., websites, mobile/tablet apps, etc.) from a user-centered perspective. While UX is a field in its own right, UX skills are becoming increasingly important. Drawing from the human-computer interaction (HCI) discipline, UXD methods help delegates to understand users and their contexts."
+                    android:layout_marginTop="16dp"
                     android:fontFamily="@font/open_sans_regular"
-                    />
+                    android:text="User experience design (UXD) is the process of enhancing customer satisfaction and loyalty by improving the usability, ease of use, and pleasure provided in the interaction between the customer and the product. The User Experience (UX) course imparts how to design usable, useful, and desirable digital interfaces (e.g., websites, mobile/tablet apps, etc.) from a user-centered perspective. While UX is a field in its own right, UX skills are becoming increasingly important. Drawing from the human-computer interaction (HCI) discipline, UXD methods help delegates to understand users and their contexts." />
+
                 <TextView
                     style="@style/TextAppearance.AppCompat.Large"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="16dp"
+
+                    android:layout_marginBottom="8dp"
                     android:fontFamily="@font/open_sans_regular"
                     android:text="Course Content :"
-                    android:layout_marginBottom="8dp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/jd_contentOverview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="User experience design (UXD) is the process of enhancing customer satisfaction and loyalty by improving the usability, ease of use, and pleasure provided in the interaction between the customer and the product. The User Experience (UX) course imparts how to design usable, useful, and desirable digital interfaces (e.g., websites, mobile/tablet apps, etc.) from a user-centered perspective. While UX is a field in its own right, UX skills are becoming increasingly important. Drawing from the human-computer interaction (HCI) discipline, UXD methods help delegates to understand users and their contexts."
+                    android:layout_marginTop="16dp"
+
                     android:fontFamily="@font/open_sans_regular"
-                    />
-
-
-
+                    android:text="User experience design (UXD) is the process of enhancing customer satisfaction and loyalty by improving the usability, ease of use, and pleasure provided in the interaction between the customer and the product. The User Experience (UX) course imparts how to design usable, useful, and desirable digital interfaces (e.g., websites, mobile/tablet apps, etc.) from a user-centered perspective. While UX is a field in its own right, UX skills are becoming increasingly important. Drawing from the human-computer interaction (HCI) discipline, UXD methods help delegates to understand users and their contexts." />
 
 
             </LinearLayout>

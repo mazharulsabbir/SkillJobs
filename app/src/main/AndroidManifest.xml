@@ -54,6 +54,7 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity android:name=".jobseeker.EditJobSeekerProfile" />
+        <activity android:name=".EnrollmentFormActivity" />
     </application>
 
 </manifest>

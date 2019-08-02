@@ -32,6 +32,12 @@
        <item name="android:theme">@style/bottom_nav_theme</item>
 
     </style>
+    <style name="bottom_nav_theme" parent="Widget.Design.BottomNavigationView">
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/open_sans_regular</item>
+    </style>
 
     <style name="ToolbarOverlayTheme" parent="ThemeOverlay.AppCompat.Light">
         <item name="windowActionBarOverlay">true</item>
@@ -43,13 +49,12 @@
         <item name="android:fontFamily">@font/open_sans_regular</item>
     </style>
 
-    <style name="bottom_nav_theme" parent="Widget.Design.BottomNavigationView">
-        <item name="android:fitsSystemWindows">true</item>
-        <item name="android:textSize">10sp</item>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:fontFamily">@font/open_sans_regular</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="android:fontFamily">@font/open_sans_regular</item>
+    <style name="CollapsingToolbarLayoutExpandedTextStyle" parent="AppTheme">
+        <item name="android:textColor">@android:color/transparent</item>
+        <item name="android:textSize">0sp</item>
     </style>
 </resources>

@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".CourseDetailsActivity"></activity>
+        <activity android:name=".CourseDetailsActivity"/>
         <activity android:name=".JobInfoViewerActivity" />
         <!--
  this activity enables the search dialog to initiate searches

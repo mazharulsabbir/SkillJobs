@@ -116,8 +116,8 @@ public class FeatureJobsFragment extends Fragment {
                             mCurrentCounter = mFeatureJobsAdapter.getData().size();
                             limitedData.clear();
 
-                            if (mCurrentCounter + 10 <= data.size()) {
-                                for (int i = 0; i < mCurrentCounter + 10; i++) {
+                            if (mCurrentCounter + 20 <= data.size()) {
+                                for (int i = 0; i < mCurrentCounter + 20; i++) {
                                     limitedData.add(data.get(i));
                                 }
                             } else limitedData.addAll(data);

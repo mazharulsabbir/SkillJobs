@@ -83,10 +83,11 @@ public class ProfileDetailsJS extends Fragment implements View.OnClickListener {
                 initSampleData();
                 initiateRecyclerViews();
                 initiateRecyclerViewAdapters();
+                mRecyclerViewProfileInfo.setAdapter(mProfileInformation);
 
-                setAdapters();//connection between recyclerView and adapters
+                //setAdapters();//connection between recyclerView and adapters
             }
-        }, 300);
+        }, 200);
     }
 
     private void initiateRecyclerViews() {
@@ -215,7 +216,7 @@ public class ProfileDetailsJS extends Fragment implements View.OnClickListener {
     }
 
     private void setAdapters() {
-        mRecyclerViewProfileInfo.setAdapter(mProfileInformation);
+//        mRecyclerViewProfileInfo.setAdapter(mProfileInformation);
 
         mRecyclerViewWorkExperience.setAdapter(mWorkExperience);
 

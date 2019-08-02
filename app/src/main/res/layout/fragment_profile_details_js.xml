@@ -226,10 +226,12 @@
             app:layout_constraintTop_toBottomOf="@+id/view10" />
 
         <TextView
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/open_sans_regular"
             android:id="@+id/textView91"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Career Objective Desc...."
+            android:text="Career Objective"
             app:layout_constraintStart_toStartOf="@+id/textView90"
             app:layout_constraintTop_toBottomOf="@+id/textView90" />
 

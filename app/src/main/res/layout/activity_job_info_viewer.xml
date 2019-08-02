@@ -328,7 +328,6 @@
             app:cardElevation="8dp"
             android:layout_gravity="bottom"
             app:cardCornerRadius="0dp">
-
             <include layout="@layout/example_button_design" />
         </androidx.cardview.widget.CardView>
 

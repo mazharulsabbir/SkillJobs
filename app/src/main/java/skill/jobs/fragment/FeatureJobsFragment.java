@@ -91,7 +91,7 @@ public class FeatureJobsFragment extends Fragment {
                          @Override
                          public void onFailure(Call<AllJobs> call, Throwable t) {
                              Log.e(TAG, "onFailure: ", t);
-                             Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                             //Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
                          }
                      }
         );

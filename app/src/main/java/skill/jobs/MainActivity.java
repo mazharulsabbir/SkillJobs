@@ -5,13 +5,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.inputmethod.EditorInfo;
 import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuBuilder;
-import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -32,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String ACTIVE_FRAGMENT = "";
     private FrameLayout frameLayout;
+    private MenuItem searchItem;
 
     @SuppressLint("NewApi")
     @Override
@@ -67,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.nav_Dashboard:
                         if (!ACTIVE_FRAGMENT.equals("DASHBOARD")) {
+                            searchItem.setVisible(false);
                             openFragment(new DashboardFragment(), "DASHBOARD");
                         }
                         return true;
@@ -74,12 +74,14 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_jobs:
 
                         if (!ACTIVE_FRAGMENT.equals("JOBS")) {
+                            searchItem.setVisible(true);
                             openFragment(new JobsFragment(), "JOBS");
                         }
                         return true;
 
                     case R.id.nav_favorite_jobs:
                         if (!ACTIVE_FRAGMENT.equals("FAV_JOBS")) {
+                            searchItem.setVisible(false);
                             openFragment(new FavoriteJobsFragment(), "FAV_JOBS");
 
                         }
@@ -87,12 +89,14 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.nav_Training:
                         if (!ACTIVE_FRAGMENT.equals("TRAINING")) {
+                            searchItem.setVisible(false);
                             openFragment(new TrainingFragment(), "TRAINING");
                         }
                         return true;
 
                     case R.id.nav_Profile:
                         if (!ACTIVE_FRAGMENT.equals("PROFILE")) {
+                            searchItem.setVisible(false);
                             openFragment(new ProfileDetailsJS(), "PROFILE");
                         }
                         return true;
@@ -129,30 +133,31 @@ public class MainActivity extends AppCompatActivity {
             m.setOptionalIconsVisible(true);
         }
 
+        searchItem = menu.findItem(R.id.search_job);
+        searchItem.setVisible(false);
+//        SearchView searchView = (SearchView) searchItem.getActionView();
 
-        MenuItem searchItem = menu.findItem(R.id.search_job);
-        SearchView searchView = (SearchView) searchItem.getActionView();
 
-        searchView.setMaxWidth(Integer.MAX_VALUE);
-        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        searchView.setQueryHint("Try, Android Developer?");
-
-        //TODO: ADD SUGGESTED SEARCH, RECENT SEARCH QUERY ON searchView ... modify searchable.xml
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                startActivity(new Intent(MainActivity.this, SearchResultActivity.class));
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-
-                return false;
-            }
-        });
+//        searchView.setMaxWidth(Integer.MAX_VALUE);
+//        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
+//        searchView.setQueryHint("Try, Android Developer?");
+//
+//        //TODO: ADD SUGGESTED SEARCH, RECENT SEARCH QUERY ON searchView ... modify searchable.xml
+//
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                startActivity(new Intent(MainActivity.this, SearchResultActivity.class));
+//                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//
+//                return false;
+//            }
+//        });
         return true;
     }
 
@@ -171,6 +176,11 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.menu_edit_profile:
                 startActivity(new Intent(this, EditJobSeekerProfile.class));
+                return true;
+
+            case R.id.search_job:
+                startActivity(new Intent(MainActivity.this, SearchResultActivity.class));
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
 
             default:

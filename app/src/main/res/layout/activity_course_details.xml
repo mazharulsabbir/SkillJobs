@@ -47,7 +47,6 @@
                     style="@style/ToolbarOverlayTheme"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:paddingEnd="8dp"
                     app:layout_collapseMode="pin"
                     app:layout_scrollFlags="enterAlways|snap|scroll" />
 

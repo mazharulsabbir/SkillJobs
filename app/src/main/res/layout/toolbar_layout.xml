@@ -8,23 +8,52 @@
     android:layout_gravity="center_horizontal"
     android:background="#fff">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <!--<androidx.appcompat.widget.Toolbar-->
+        <!--android:id="@+id/toolbar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:theme="@style/ToolbarOverlayTheme"-->
+        <!--app:layout_scrollFlags="enterAlways|scroll|snap">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
+
+            <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/skill_jobs_toolbar_logo_small" />-->
+        <!--</LinearLayout>-->
+
+    <!--</androidx.appcompat.widget.Toolbar>-->
+
+    <com.google.android.material.appbar.CollapsingToolbarLayout
+        android:id="@+id/collapsing_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:theme="@style/ToolbarOverlayTheme"
-        app:layout_scrollFlags="enterAlways|scroll|snap">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
+        app:contentScrim="#fff"
+        app:expandedTitleGravity="bottom"
+        app:expandedTitleTextAppearance="@style/CollapsingToolbarLayoutExpandedTextStyle"
+        app:layout_scrollFlags="enterAlways|snap|scroll"
+        app:title="Course Details">
 
-        <LinearLayout
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="Skill Jobs Company Logo"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/skill_jobs_toolbar_logo_small" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/ToolbarOverlayTheme"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="enterAlways|snap|scroll" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/skill_jobs_toolbar_logo_small" />
-        </LinearLayout>
-
-    </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.CollapsingToolbarLayout>
 
 </com.google.android.material.appbar.AppBarLayout>

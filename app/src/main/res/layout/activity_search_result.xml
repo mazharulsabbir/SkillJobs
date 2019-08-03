@@ -8,23 +8,44 @@
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayoutTop"
-            app:liftOnScroll="true"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            android:background="#fff">
+            android:background="#fff"
+            app:liftOnScroll="false">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:theme="@style/ToolbarOverlayTheme"
-                app:layout_scrollFlags="scroll|enterAlways"
-                app:title="Search Result" />
+                app:layout_scrollFlags="enterAlways|snap"
+                app:title="Search Result">
+
+                <RelativeLayout
+                    android:paddingEnd="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:layout_centerVertical="true"
+                        style="@style/Widget.AppCompat.SearchView.ActionBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_alignParentStart="true"
+                        android:background="@drawable/rectangle_shape_filled"
+                        android:drawableStart="@drawable/ic_search_black_24dp"
+                        android:drawablePadding="8dp"
+                        android:imeOptions="actionSearch"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp" />
+                </RelativeLayout>
+
+            </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

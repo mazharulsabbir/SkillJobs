@@ -6,10 +6,9 @@
         android:id="@+id/search_job"
         android:icon="@drawable/ic_search_black_24dp"
         android:title="SEARCH JOB"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="always|collapseActionView" />
+        app:showAsAction="ifRoom" />
 
-
+<!--app:actionViewClass="androidx.appcompat.widget.SearchView"-->
     <item
         android:id="@+id/menu_job_seeker_profile"
         android:icon="@drawable/ic_account_circle_black_24dp"

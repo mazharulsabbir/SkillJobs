@@ -1,11 +1,10 @@
 package skill.jobs;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class SearchResultActivity extends AppCompatActivity {
 
@@ -13,38 +12,25 @@ public class SearchResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    @Override
-    public boolean onSearchRequested() {
-        return super.onSearchRequested();
-    }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-        MenuItem searchItem = menu.findItem(R.id.search_job);
-        SearchView searchView = (SearchView) searchItem.getActionView();
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                super.onBackPressed();
+                return true;
 
-//        searchView.setMaxWidth(Integer.MAX_VALUE);
-//        searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
-//        searchView.setQueryHint("Try, Android Developer?");
-//
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                startActivity(new Intent(MainActivity.this, SearchResultActivity.class));
-//                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//
-//                return false;
-//            }
-//        });
-        return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

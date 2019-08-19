@@ -20,9 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,7 +33,6 @@ import skill.jobs.database.JsonPlaceHolderApi;
 import skill.jobs.database.RunCourse;
 import skill.jobs.recyclerview.adapter.RunningCourseAdapter;
 import skill.jobs.recyclerview.helper.RunningCourseHelper;
-import skill.jobs.recyclerview.helper.UpcommingCourse;
 
 public class RunningCourseFragment extends Fragment {
     View view;

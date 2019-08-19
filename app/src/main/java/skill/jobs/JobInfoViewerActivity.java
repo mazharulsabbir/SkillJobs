@@ -184,12 +184,16 @@ public class JobInfoViewerActivity extends AppCompatActivity {
                         jsonObject.getString("jobTitle"));
                 info.add(0, profileInformationHelper);
 
-                profileInformationHelper = new JobDetailsViewHelper(title[2],
-                        jsonObject.getString("experienceRequire") + " year");
+                String xp = jsonObject.getString("experienceRequire");
+                if (xp.contains("null"))
+                    xp = "-";
+                else xp += " year";
+
+                profileInformationHelper = new JobDetailsViewHelper(title[2], xp);
                 info.add(1, profileInformationHelper);
 
                 profileInformationHelper = new JobDetailsViewHelper(title[5],
-                        jsonObject.getJSONObject("jobDeadline").getString("date").substring(0,10));
+                        jsonObject.getJSONObject("jobDeadline").getString("date").substring(0, 10));
                 info.add(2, profileInformationHelper);
 
                 try {

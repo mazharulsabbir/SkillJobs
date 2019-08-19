@@ -11,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,13 +33,13 @@ import skill.jobs.CourseDetailsActivity;
 import skill.jobs.R;
 import skill.jobs.database.JsonPlaceHolderApi;
 import skill.jobs.database.RunCourse;
-import skill.jobs.recyclerview.adapter.UpCommingCourseAdapter;
-import skill.jobs.recyclerview.helper.UpcommingCourse;
+import skill.jobs.recyclerview.adapter.UpComingCourseAdapter;
+import skill.jobs.recyclerview.helper.UpcomingCourse;
 
-public class UpcommingCourseFragment extends Fragment {
+public class UpcomingCourseFragment extends Fragment {
 
     View view;
-    private List<UpcommingCourse> courses;
+    private List<UpcomingCourse> courses;
     private BaseQuickAdapter mUpCommingCoursesAdapter;
     ArrayList<RunCourse> retroModelArrayList;
 
@@ -51,7 +50,7 @@ public class UpcommingCourseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_upcomming_course, container, false);
+        view = inflater.inflate(R.layout.fragment_upcoming_course, container, false);
 
 
         ApiData();
@@ -122,7 +121,7 @@ public class UpcommingCourseFragment extends Fragment {
             }
 
             for (int j = 0; j < retroModelArrayList.size(); j++) {
-                UpcommingCourse helper = new UpcommingCourse(
+                UpcomingCourse helper = new UpcomingCourse(
                         retroModelArrayList.get(j).getName() + "",
                         "10-4-19",
                         "5-5-19",
@@ -151,7 +150,7 @@ public class UpcommingCourseFragment extends Fragment {
 
 
     private void UpCommingCoursesAdapter() {
-        mUpCommingCoursesAdapter = new UpCommingCourseAdapter(R.layout.design_upcoming_course, courses);
+        mUpCommingCoursesAdapter = new UpComingCourseAdapter(R.layout.design_upcoming_course, courses);
         mUpCommingCoursesAdapter.isFirstOnly(false);
         mUpCommingCoursesAdapter.openLoadAnimation();
 

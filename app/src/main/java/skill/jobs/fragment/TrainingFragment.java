@@ -63,7 +63,7 @@ public class TrainingFragment extends Fragment {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    fragment = new UpcommingCourseFragment();
+                    fragment = new UpcomingCourseFragment();
                     break;
                 case 1:
                     fragment = new RunningCourseFragment();

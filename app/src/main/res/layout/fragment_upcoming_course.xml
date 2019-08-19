@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.RunningCourseFragment">
+    tools:context=".fragment.UpcomingCourseFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/running_course_recyclerview"
+        android:id="@+id/upcomming_course_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="false"

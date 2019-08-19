@@ -1,5 +1,8 @@
 package skill.jobs.recyclerview.adapter;
 
+import android.graphics.Paint;
+import android.widget.TextView;
+
 import androidx.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -8,20 +11,20 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import java.util.List;
 
 import skill.jobs.R;
-import skill.jobs.recyclerview.helper.UpcommingCourse;
+import skill.jobs.recyclerview.helper.UpcomingCourse;
 
-public class UpCommingCourseAdapter extends BaseQuickAdapter<UpcommingCourse, BaseViewHolder> {
+public class UpComingCourseAdapter extends BaseQuickAdapter<UpcomingCourse, BaseViewHolder> {
 
-    List<UpcommingCourse> courses;
+    private List<UpcomingCourse> courses;
 
-    public UpCommingCourseAdapter(int layoutResId, @Nullable List<UpcommingCourse> data) {
+    public UpComingCourseAdapter(int layoutResId, @Nullable List<UpcomingCourse> data) {
         super(layoutResId,data);
         courses=data;
     }
 
 
     @Override
-    protected void convert(BaseViewHolder viewHolder, UpcommingCourse item) {
+    protected void convert(BaseViewHolder viewHolder, UpcomingCourse item) {
         viewHolder
                 .setText(R.id.tv_running_course_title,item.getTitle())
                 .setText(R.id.reg_last_date,item.getLastdate())
@@ -30,6 +33,9 @@ public class UpCommingCourseAdapter extends BaseQuickAdapter<UpcommingCourse, Ba
                 .setText(R.id.previous_price_upcomming_course,item.getPre_price())
                 .addOnClickListener(R.id.enrollButton)
                 .setText(R.id.tv_price,item.getPrice());
+
+        TextView oldPrice = viewHolder.getView(R.id.previous_price_upcomming_course);
+        oldPrice.setPaintFlags(oldPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
     }
 
     @Override

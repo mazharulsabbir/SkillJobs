@@ -7,9 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -41,9 +43,12 @@ import skill.jobs.recyclerview.helper.WorkExperienceHepler;
 
 
 public class ProfileDetailsJS extends Fragment implements View.OnClickListener {
-    ImageView pro_I_edit;
-    View view;
-    boolean pro_edit_flag = true, pro_edit_open = true;
+    private ImageView pro_I_edit;
+    private View view;
+    private boolean pro_edit_flag = true, pro_edit_open = true;
+
+    private ConstraintLayout constraintLayout;
+    private ProgressBar progressBar;
 
     private int[] drawables = {R.drawable.ic_my_location_black_24dp, R.drawable.ic_phone_black_24dp, R.drawable.ic_date_black_24dp,
             R.drawable.ic_gender, R.drawable.ic_marriage_ring, R.drawable.ic_nationality,
@@ -65,17 +70,14 @@ public class ProfileDetailsJS extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_profile_details_js, container, false);
 
-        NestedScrollView mNestedScrollView = view.findViewById(R.id.nestedScrollView);
+        final NestedScrollView mNestedScrollView = view.findViewById(R.id.nestedScrollView);
+
+        progressBar = view.findViewById(R.id.progress_circular);
+        constraintLayout = view.findViewById(R.id.constraintLayout);
+        progressBar.setVisibility(View.INVISIBLE);
 
         //ON CLICK SEGMENT
         initiateOnClick();
-
-        return view;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -85,9 +87,12 @@ public class ProfileDetailsJS extends Fragment implements View.OnClickListener {
                 initiateRecyclerViewAdapters();
                 mRecyclerViewProfileInfo.setAdapter(mProfileInformation);
 
+
                 //setAdapters();//connection between recyclerView and adapters
             }
         }, 200);
+
+        return view;
     }
 
     private void initiateRecyclerViews() {

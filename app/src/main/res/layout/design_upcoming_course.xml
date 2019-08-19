@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
@@ -17,6 +16,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            app:layout_constraintBottom_toTopOf="@+id/view1"
             android:id="@+id/imageView4"
             android:layout_width="0dp"
             android:layout_height="150dp"
@@ -29,6 +29,7 @@
             app:layout_constraintVertical_weight="2" />
 
         <View
+            android:id="@+id/view1"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:background="@color/color_view_color"
@@ -36,11 +37,12 @@
 
         <TextView
             android:id="@+id/tv_running_course_title"
-            style="@style/TextAppearance.AppCompat.Medium"
-            android:layout_width="wrap_content"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="Upcoming Course Title"
             android:textStyle="bold"
@@ -53,12 +55,13 @@
             android:id="@+id/textView10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:drawableLeft="@drawable/ic_date_black_24dp"
             android:drawablePadding="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:gravity="center"
             android:text="Registration last date:"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="@+id/tv_running_course_title"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/tv_running_course_title"
@@ -68,13 +71,13 @@
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="4dp"
             android:drawableLeft="@drawable/ic_date_black_24dp"
             android:drawablePadding="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:gravity="center"
             android:text="Class start date:"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="@+id/textView10"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView10"
@@ -84,13 +87,14 @@
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
             android:drawableLeft="@drawable/ic_watch_later_black_24dp"
             android:drawablePadding="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:gravity="center"
             android:text="Total Hours:"
+            android:textAllCaps="false"
             app:layout_constraintEnd_toEndOf="@+id/textView12"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/textView12"
@@ -100,7 +104,7 @@
             android:id="@+id/reg_last_date"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
 
@@ -117,7 +121,7 @@
             android:id="@+id/start_date"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
 
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
@@ -134,7 +138,7 @@
             android:id="@+id/tv_running_course_hours"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:gravity="center"
@@ -152,52 +156,52 @@
             android:id="@+id/previous_price_upcomming_course"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:text="TK "
             android:textColor="@color/colorAccent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView14"
             app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
         <TextView
             android:id="@+id/tv_price"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
-            android:text="TK "
+            android:text="Tk"
             android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/enrollButton"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/previous_price_upcomming_course"
             app:layout_constraintTop_toBottomOf="@+id/previous_price_upcomming_course" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/enrollButton"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/open_sans_regular"
+            android:minWidth="150dp"
+            android:text="Enroll Now"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_price"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <View
             android:id="@+id/view5"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="4dp"
+            android:layout_marginTop="16dp"
             android:background="@color/colorPrimaryDark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/enrollButton" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/enrollButton"
-            style="@style/TextAppearance.AppCompat.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:fontFamily="@font/open_sans_regular"
-            android:text="Enroll Now"
-            android:textAlignment="viewStart"
-            android:textAllCaps="false"
-            android:textSize="14sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/tv_price"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.cardview.widget.CardView>

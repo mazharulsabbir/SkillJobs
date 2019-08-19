@@ -1,14 +1,14 @@
 package skill.jobs.recyclerview.helper;
 
-public class UpcommingCourse {
+public class UpcomingCourse {
 
     private String title,lastdate,startdate,hours;
     private String price,pre_price;
 
-    public UpcommingCourse() {
+    public UpcomingCourse() {
     }
 
-    public UpcommingCourse(String title, String lastdate, String startdate, String hours, String price, String pre_price) {
+    public UpcomingCourse(String title, String lastdate, String startdate, String hours, String price, String pre_price) {
         this.title = title;
         this.lastdate = lastdate;
         this.startdate = startdate;
@@ -50,7 +50,7 @@ public class UpcommingCourse {
     }
 
     public String getPrice() {
-        return price;
+        return "৳ "+price;
     }
 
     public void setPrice(String price) {
@@ -58,7 +58,7 @@ public class UpcommingCourse {
     }
 
     public String getPre_price() {
-        return pre_price;
+        return "৳ "+pre_price;
     }
 
     public void setPre_price(String pre_price) {

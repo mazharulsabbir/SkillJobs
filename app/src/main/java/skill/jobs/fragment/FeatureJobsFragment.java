@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,15 +45,22 @@ public class FeatureJobsFragment extends Fragment {
     private int mCurrentCounter = 10;
     private Toast toast;
 
+    private ProgressBar loadingProgress;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_feature_jobs, container, false);
 
+        loadingProgress = view.findViewById(R.id.progressBar);
+
         mRecyclerViewFeatureJobs = view.findViewById(R.id.recycler_view_feature_job);
         mRecyclerViewFeatureJobs.setLayoutManager(new LinearLayoutManager(getContext()));
+
         mRecyclerViewFeatureJobs.setHasFixedSize(true);
+
+        mRecyclerViewFeatureJobs.setVisibility(View.INVISIBLE);
 
         getResponse();
 
@@ -100,6 +108,9 @@ public class FeatureJobsFragment extends Fragment {
     private void featureJobsAdapter() {
         mFeatureJobsAdapter = new JobsContainerAdapter(R.layout.example_layout_jobs, limitedData);
         mFeatureJobsAdapter.setHasStableIds(true);
+
+        loadingProgress.setVisibility(View.INVISIBLE);
+        mRecyclerViewFeatureJobs.setVisibility(View.VISIBLE);
 
         mRecyclerViewFeatureJobs.setAdapter(mFeatureJobsAdapter);
 

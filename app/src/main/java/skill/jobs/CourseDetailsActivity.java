@@ -18,9 +18,16 @@ import com.google.android.material.internal.CollapsingTextHelper;
 
 public class CourseDetailsActivity extends AppCompatActivity {
     Intent mintent;
-    private String title, summary, detail;
+    private String title="", summary="", detail="";
     private CollapsingToolbarLayout collapsingToolbar;
     private CollapsingTextHelper collapsingTextHelper;
+
+    TextView Summary;
+    TextView Detail;
+    TextView Title;
+
+
+
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -35,6 +42,10 @@ public class CourseDetailsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         collapsingToolbar = findViewById(R.id.collapsing_toolbar);
+
+        Title = findViewById(R.id.course_title);
+        Summary = findViewById(R.id.jd_summaryOverview);
+        Detail = findViewById(R.id.jd_contentOverview);
 
         /*CHANGING THE COLLAPSING TOOLBAR TITLE FONT STYLE USING TYPEFACE*/
         final Typeface tf = ResourcesCompat.getFont(this, R.font.open_sans_regular);
@@ -53,22 +64,14 @@ public class CourseDetailsActivity extends AppCompatActivity {
 
     private void setdata() {
 
-        TextView Title = findViewById(R.id.course_title);
         Title.setText(title);
-        collapsingToolbar.setTitle(title);
-
-        TextView Summary = findViewById(R.id.jd_summaryOverview);
 
         if (summary.equals("null")) {
             Summary.setVisibility(View.GONE);
-
         } else {
-
             Summary.setText(Html.fromHtml(summary));
         }
 
-
-        TextView Detail = findViewById(R.id.jd_contentOverview);
         if (detail.equals("null")) {
             Detail.setVisibility(View.GONE);
         } else {

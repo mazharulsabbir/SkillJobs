@@ -108,14 +108,12 @@ public class MainActivity extends AppCompatActivity {
 
         /*MANAGE BADGE OF BOTTOM NAVIGATION ITEMS*/
 
-//        BadgeDrawable badge = bottomNavigation.showBadge(R.id.nav_jobs);
-//        int jobs = data.size();
-//        if (jobs>0){
-//            badge.setNumber(jobs);
-//            badge.setMaxCharacterCount(4);
-//            badge.setBackgroundColor(Color.BLUE);
-//            badge.setBadgeTextColor(Color.WHITE);
-//        }
+//        BadgeDrawable badge = bottomNavigation.getOrCreateBadge(R.id.nav_jobs);
+//
+//        badge.setNumber(10);
+//        badge.setMaxCharacterCount(4);
+//        badge.setBackgroundColor(Color.BLUE);
+//        badge.setBadgeTextColor(Color.WHITE);
 
         /*MAINTAIN CHILD POSITION OF FRAME LAYOUT SEGMENT*/
         frameLayout = findViewById(R.id.fragment_container);
@@ -180,7 +178,6 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.search_job:
                 startActivity(new Intent(MainActivity.this, SearchResultActivity.class));
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
                 return true;
 
             default:

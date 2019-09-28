@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         app:tabGravity="fill"
+        app:tabIndicatorFullWidth="false"
         app:tabMode="scrollable">
 
         <com.google.android.material.tabs.TabItem

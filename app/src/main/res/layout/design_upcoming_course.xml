@@ -16,13 +16,13 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            app:layout_constraintBottom_toTopOf="@+id/view1"
             android:id="@+id/imageView4"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:paddingBottom="1dp"
             android:scaleType="centerCrop"
             android:src="@drawable/logo"
+            app:layout_constraintBottom_toTopOf="@+id/view1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -153,7 +153,7 @@
 
         <TextView
 
-            android:id="@+id/previous_price_upcomming_course"
+            android:id="@+id/previous_price_upcoming_course"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -173,15 +173,14 @@
             android:text="Tk"
             android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/enrollButton"
-            app:layout_constraintStart_toStartOf="@+id/previous_price_upcomming_course"
-            app:layout_constraintTop_toBottomOf="@+id/previous_price_upcomming_course" />
+            app:layout_constraintStart_toStartOf="@+id/previous_price_upcoming_course"
+            app:layout_constraintTop_toBottomOf="@+id/previous_price_upcoming_course" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/enrollButton"
             style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_sans_regular"
             android:minWidth="150dp"
             android:text="Enroll Now"
@@ -196,11 +195,10 @@
             android:id="@+id/view5"
             android:layout_width="0dp"
             android:layout_height="4dp"
-            android:layout_marginTop="16dp"
             android:background="@color/colorPrimaryDark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/enrollButton" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_price" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

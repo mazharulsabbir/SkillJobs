@@ -18,21 +18,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:gravity="center_horizontal"
             android:orientation="vertical"
             android:paddingBottom="100dp">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="160dp"
-                android:layout_height="52dp"
-                android:padding="16dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/skill_jobs_toolbar_logo_small"
-                android:transitionName="ic_app_logo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                style="@style/TextAppearance.MaterialComponents.Headline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Welcome!"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login using email and password to continue." />
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="Email"
-                app:errorEnabled="true">
+                app:boxBackgroundMode="outline">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -53,12 +53,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="8dp"
                 android:id="@+id/text_input_password"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                app:errorEnabled="true"
                 app:passwordToggleEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -82,7 +82,7 @@
                     android:layout_toEndOf="@+id/reset_password"
                     android:checked="true"
                     android:fontFamily="@font/open_sans_regular"
-                    android:text="Remember Me!" />
+                    android:text="Remember!" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/reset_password"
@@ -99,6 +99,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_sign_in"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/open_sans_regular"
@@ -125,7 +126,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/skip_login"
-        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

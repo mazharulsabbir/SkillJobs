@@ -2,22 +2,17 @@ package skill.jobs.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,133 +21,91 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 import skill.jobs.CourseDetailsActivity;
 import skill.jobs.R;
+import skill.jobs.database.AllTrainings;
 import skill.jobs.database.JsonPlaceHolderApi;
-import skill.jobs.database.RunCourse;
+import skill.jobs.database.TrainingApiHelper;
 import skill.jobs.recyclerview.adapter.RunningCourseAdapter;
-import skill.jobs.recyclerview.helper.RunningCourseHelper;
 
 public class RunningCourseFragment extends Fragment {
-    View view;
+    private static final String TAG = "RunningCourseFragment";
 
-    private List<RunningCourseHelper> RunnigCourses;
+    View view;
 
     private BaseQuickAdapter mRunningCoursesAdapter;
 
     private RecyclerView mRecyclerViewRunningCourse;
-    ArrayList<RunCourse> retroModelArrayList;
+
+    private List<TrainingApiHelper> trainingApiHelperList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view= inflater.inflate(R.layout.fragment_running_course, container, false);
+        view = inflater.inflate(R.layout.fragment_running_course, container, false);
 
 
         ApiData();
         initRecyclerView();
 
 
-
-
         return view;
     }
+
     private void ApiData() {
 
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://training.skill.jobs/api/v1/")
-                .addConverterFactory(ScalarsConverterFactory.create())
+                .baseUrl(JsonPlaceHolderApi.BASE_TRAINING_URL)
+                .addConverterFactory(GsonConverterFactory.create())//ScalarsConverterFactory.create()
                 .build();
 
+        JsonPlaceHolderApi api = retrofit.create(JsonPlaceHolderApi.class);
 
-        JsonPlaceHolderApi mapi = retrofit.create(JsonPlaceHolderApi.class);
-        Call<String> call = mapi.getUpcourses();
+        Call<AllTrainings> call = api.getTrainings();
 
-        call.enqueue(new Callback<String>() {
+        call.enqueue(new Callback<AllTrainings>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                Log.i("Response: ", response.body());
-                if (!response.isSuccessful()) return;
-
-                if (response.body() != null) {
-                    Log.i("onSuccess", response.body());
-
-                    String jsonResponse = response.body();
-                    getJobLists(jsonResponse);
-
-                } else {
-                    Log.i("onEmptyResponse", "Returned empty response");
+            public void onResponse(Call<AllTrainings> call, Response<AllTrainings> response) {
+                if (!response.isSuccessful()) {
+                    Log.i(TAG, "onResponse: " + response.message() + ":" + response.code());
+                    Toast.makeText(getContext(), response.code(), Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
+                trainingApiHelperList = new ArrayList<>();
+
+                trainingApiHelperList = response.body().getTrainingApiHelper();
+
+                RunningCoursesAdapter();
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<AllTrainings> call, Throwable t) {
 
-                Toast.makeText(getContext(), t.getMessage() + "", Toast.LENGTH_SHORT).show();
-                Log.i("Response error: ", t.getMessage());
             }
         });
-
-
     }
-
-    private void getJobLists(String response) {
-        try {
-            //getting the whole json object from the response
-            JSONObject obj = new JSONObject(response);
-            retroModelArrayList= new ArrayList<>();
-            JSONArray dataArray = obj.getJSONArray("data");
-            RunnigCourses = new ArrayList<>();
-
-            for (int i = 0; i < dataArray.length(); i++) {
-                RunCourse runCourse = new RunCourse();
-                JSONObject jsonObject = dataArray.getJSONObject(i);
-
-                runCourse.setName(jsonObject.getString("name"));
-                runCourse.setSummary(jsonObject.getString("summary"));
-                runCourse.setDetail(jsonObject.getString("detail"));
-
-                retroModelArrayList.add(runCourse);
-            }
-
-            for (int j = 0; j < retroModelArrayList.size(); j++) {
-                RunningCourseHelper helper = new RunningCourseHelper(
-                        retroModelArrayList.get(j).getName() + "",
-                        "48 ");
-
-                RunnigCourses.add(helper);
-
-            }
-
-            RunningCoursesAdapter();
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-
 
     private void RunningCoursesAdapter() {
-        mRunningCoursesAdapter=new RunningCourseAdapter(R.layout.design_running_course,RunnigCourses);
+        mRunningCoursesAdapter = new RunningCourseAdapter(R.layout.design_running_course, trainingApiHelperList);
         mRunningCoursesAdapter.isFirstOnly(false);
         mRunningCoursesAdapter.openLoadAnimation();
+
         mRecyclerViewRunningCourse.setAdapter(mRunningCoursesAdapter);
 
         mRunningCoursesAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View v, int position) {
 
+                TrainingApiHelper helper = trainingApiHelperList.get(position);
 
-                Intent intent=new Intent(getActivity(), CourseDetailsActivity.class);
-                intent.putExtra("Title",retroModelArrayList.get(position).getName());
-                intent.putExtra("Summary",retroModelArrayList.get(position).getSummary());
-                intent.putExtra("Detail",retroModelArrayList.get(position).getDetail());
+                Intent intent = new Intent(getActivity(), CourseDetailsActivity.class);
+                intent.putExtra("Title", helper.getName());
+                intent.putExtra("Summary", String.valueOf(helper.getSummary()));
+                intent.putExtra("Detail", String.valueOf(helper.getDetail()));
                 startActivity(intent);
 
             }
@@ -162,11 +115,10 @@ public class RunningCourseFragment extends Fragment {
     }
 
 
-
-
     private void initRecyclerView() {
 
-        mRecyclerViewRunningCourse=view.findViewById(R.id.running_course_recyclerview);
+        mRecyclerViewRunningCourse = view.findViewById(R.id.running_course_recyclerview);
+        mRecyclerViewRunningCourse.setHasFixedSize(true);
         mRecyclerViewRunningCourse.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 

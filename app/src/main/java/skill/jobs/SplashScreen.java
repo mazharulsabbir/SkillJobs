@@ -13,6 +13,9 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
+//        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+//        getDelegate().applyDayNight();
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -23,5 +26,7 @@ public class SplashScreen extends AppCompatActivity {
             }
         }, 3000);
 
+
     }
+
 }

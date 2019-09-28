@@ -16,10 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,21 +23,25 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.scalars.ScalarsConverterFactory;
-import skill.jobs.EnrollmentFormActivity;
+import retrofit2.converter.gson.GsonConverterFactory;
 import skill.jobs.CourseDetailsActivity;
 import skill.jobs.R;
+import skill.jobs.database.AllTrainings;
 import skill.jobs.database.JsonPlaceHolderApi;
-import skill.jobs.database.RunCourse;
-import skill.jobs.recyclerview.adapter.UpComingCourseAdapter;
+import skill.jobs.database.TrainingApiHelper;
+import skill.jobs.recyclerview.adapter.UpcomingCourseAdapter;
 import skill.jobs.recyclerview.helper.UpcomingCourse;
 
 public class UpcomingCourseFragment extends Fragment {
 
+    private static final String TAG = "UpcomingCourseFragment";
+
     View view;
     private List<UpcomingCourse> courses;
-    private BaseQuickAdapter mUpCommingCoursesAdapter;
-    ArrayList<RunCourse> retroModelArrayList;
+    private BaseQuickAdapter mUpcomingCoursesAdapter;
+
+    private List<TrainingApiHelper> trainingApiHelperList;
+
 
     private RecyclerView mRecyclerViewUpcomingCourse;
 
@@ -54,144 +54,81 @@ public class UpcomingCourseFragment extends Fragment {
 
 
         ApiData();
-        initialRecyclerview();
-
+        initialRecyclerView();
 
         return view;
     }
 
     private void ApiData() {
 
-
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://training.skill.jobs/api/v1/")
-                .addConverterFactory(ScalarsConverterFactory.create())
+                .baseUrl(JsonPlaceHolderApi.BASE_TRAINING_URL)
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
+        JsonPlaceHolderApi api = retrofit.create(JsonPlaceHolderApi.class);
 
-        JsonPlaceHolderApi mapi = retrofit.create(JsonPlaceHolderApi.class);
-        Call<String> call = mapi.getUpcourses();
+        Call<AllTrainings> call = api.getTrainings();
 
-        call.enqueue(new Callback<String>() {
+        call.enqueue(new Callback<AllTrainings>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                Log.i("Response: ", response.body());
-                if (!response.isSuccessful()) return;
-
-                if (response.body() != null) {
-                    Log.i("onSuccess", response.body());
-
-                    String jsonResponse = response.body();
-                    getJobLists(jsonResponse);
-
-                } else {
-                    Log.i("onEmptyResponse", "Returned empty response");
+            public void onResponse(Call<AllTrainings> call, Response<AllTrainings> response) {
+                if (!response.isSuccessful()) {
+                    Log.i(TAG, "onResponse: " + response.message() + ":" + response.code());
+                    Toast.makeText(getContext(), response.code(), Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
+                trainingApiHelperList = new ArrayList<>();
+
+                trainingApiHelperList = response.body().getTrainingApiHelper();
+
+                UpcomingCoursesAdapter();
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<AllTrainings> call, Throwable t) {
+                Log.e(TAG, "onFailure: ", t);
 
-                Toast.makeText(getContext(), t.getMessage() + "", Toast.LENGTH_SHORT).show();
-                Log.i("Response error: ", t.getMessage());
+            }
+        });
+    }
+
+    private void UpcomingCoursesAdapter() {
+        mUpcomingCoursesAdapter = new UpcomingCourseAdapter(R.layout.design_upcoming_course, trainingApiHelperList);
+        mUpcomingCoursesAdapter.isFirstOnly(false);
+
+        mRecyclerViewUpcomingCourse.setAdapter(mUpcomingCoursesAdapter);
+
+        mUpcomingCoursesAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View v, int position) {
+
+                TrainingApiHelper helper = trainingApiHelperList.get(position);
+
+                Intent intent = new Intent(getActivity(), CourseDetailsActivity.class);
+
+                intent.putExtra("Title", helper.getName());
+                intent.putExtra("Summary", String.valueOf(helper.getSummary()));
+                intent.putExtra("Detail", String.valueOf(helper.getDetail()));
+                startActivity(intent);
+
             }
         });
 
 
     }
 
-    private void getJobLists(String response) {
-        try {
-            //getting the whole json object from the response
-            JSONObject obj = new JSONObject(response);
-            retroModelArrayList = new ArrayList<>();
-            JSONArray dataArray = obj.getJSONArray("data");
-            courses = new ArrayList<>();
 
-            for (int i = 0; i < dataArray.length(); i++) {
-                RunCourse upcourse = new RunCourse();
-                JSONObject jsonObject = dataArray.getJSONObject(i);
-
-                upcourse.setName(jsonObject.getString("name"));
-                upcourse.setSummary(jsonObject.getString("summary"));
-                upcourse.setDetail(jsonObject.getString("detail"));
-
-                retroModelArrayList.add(upcourse);
-            }
-
-            for (int j = 0; j < retroModelArrayList.size(); j++) {
-                UpcomingCourse helper = new UpcomingCourse(
-                        retroModelArrayList.get(j).getName() + "",
-                        "10-4-19",
-                        "5-5-19",
-                        "48 ",
-                        "5000",
-                        "8000");
-
-                courses.add(helper);
-
-            }
-
-            UpCommingCoursesAdapter();
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-
-    private void initialRecyclerview() {
+    private void initialRecyclerView() {
         mRecyclerViewUpcomingCourse = view.findViewById(R.id.upcomming_course_recyclerview);
         mRecyclerViewUpcomingCourse.setLayoutManager(new LinearLayoutManager(getContext()));
 
     }
 
-
-    private void UpCommingCoursesAdapter() {
-        mUpCommingCoursesAdapter = new UpComingCourseAdapter(R.layout.design_upcoming_course, courses);
-        mUpCommingCoursesAdapter.isFirstOnly(false);
-        mUpCommingCoursesAdapter.openLoadAnimation();
-
-        mRecyclerViewUpcomingCourse.setAdapter(mUpCommingCoursesAdapter);
-
-
-        mUpCommingCoursesAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-
-                Intent intent=new Intent(getActivity(), CourseDetailsActivity.class);
-                intent.putExtra("Title",retroModelArrayList.get(position).getName());
-                intent.putExtra("Summary",retroModelArrayList.get(position).getSummary());
-                intent.putExtra("Detail",retroModelArrayList.get(position).getDetail());
-                startActivity(intent);
-            }
-        });
-
-        mUpCommingCoursesAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
-            @Override
-            public void onItemChildClick(BaseQuickAdapter adapter, View v, int position) {
-                switch (v.getId()) {
-
-                    case R.id.enrollButton:
-                       startActivity(new Intent(getActivity(),EnrollmentFormActivity.class));
-                        break;
-                }
-            }
-        });
-
-    }
-
-
-
-
-
     private void texturl() {
-        TextView previous_price = view.findViewById(R.id.previous_price_upcomming_course);
+        TextView previous_price = view.findViewById(R.id.previous_price_upcoming_course);
         previous_price.setPaintFlags(previous_price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-
-
     }
 
 

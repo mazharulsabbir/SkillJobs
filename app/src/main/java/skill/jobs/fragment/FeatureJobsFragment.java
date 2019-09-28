@@ -82,7 +82,9 @@ public class FeatureJobsFragment extends Fragment {
                              if (!response.isSuccessful()) {
                                  Log.i(TAG, "onResponse: " + response.message() + ":" + response.code());
                                  Toast.makeText(getContext(), response.code(), Toast.LENGTH_SHORT).show();
+                                 return;
                              }
+
                              data = new ArrayList<>();
                              limitedData = new ArrayList<>();
 

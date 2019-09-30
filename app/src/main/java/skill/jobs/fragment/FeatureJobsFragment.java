@@ -2,6 +2,7 @@ package skill.jobs.fragment;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Pair;
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,9 +62,9 @@ public class FeatureJobsFragment extends Fragment {
 
         mRecyclerViewFeatureJobs.setHasFixedSize(true);
 
-        mRecyclerViewFeatureJobs.setVisibility(View.INVISIBLE);
+//        getResponse();
 
-        getResponse();
+        new JobsAPIRequest().execute();
 
         return view;
     }
@@ -111,9 +113,6 @@ public class FeatureJobsFragment extends Fragment {
         mFeatureJobsAdapter = new JobsContainerAdapter(R.layout.example_layout_jobs, limitedData);
         mFeatureJobsAdapter.setHasStableIds(true);
 
-        loadingProgress.setVisibility(View.INVISIBLE);
-        mRecyclerViewFeatureJobs.setVisibility(View.VISIBLE);
-
         mRecyclerViewFeatureJobs.setAdapter(mFeatureJobsAdapter);
 
         mFeatureJobsAdapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
@@ -155,9 +154,9 @@ public class FeatureJobsFragment extends Fragment {
 
                 Intent sharedIntent = new Intent(getActivity(), JobInfoViewerActivity.class);
                 sharedIntent.putExtra("JOB_ID", data.get(position).getId());
-                sharedIntent.putExtra("JOB_TITLE",data.get(position).getJobTitle());
-                sharedIntent.putExtra("COMPANY_NAME",data.get(position).getCompanyName());
-                sharedIntent.putExtra("LOCATION",data.get(position).getJobDeadline().getTimezone());
+                sharedIntent.putExtra("JOB_TITLE", data.get(position).getJobTitle());
+                sharedIntent.putExtra("COMPANY_NAME", data.get(position).getCompanyName());
+                sharedIntent.putExtra("LOCATION", data.get(position).getJobDeadline().getTimezone());
 
 
                 Pair[] pairs = new Pair[4];
@@ -195,4 +194,50 @@ public class FeatureJobsFragment extends Fragment {
         });
     }
 
+    class JobsAPIRequest extends AsyncTask<Void, Void, AllJobs> {
+
+
+        @Override
+        protected AllJobs doInBackground(Void... voids) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(JsonPlaceHolderApi.BASE_JOBS_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            JsonPlaceHolderApi api = retrofit.create(JsonPlaceHolderApi.class);
+
+            Call<AllJobs> call = api.getAllJobs();
+            try {
+                return call.execute().body();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(AllJobs allJobs) {
+            loadingProgress.setVisibility(View.INVISIBLE);
+
+            if (allJobs == null) {
+                Toast.makeText(getContext(), "Something going wrong. Can't load data.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            data = new ArrayList<>();
+            limitedData = new ArrayList<>();
+
+            data = allJobs.getJobsData();
+            TOTAL_COUNTER = data.size();
+            if (data.size() > 10)
+                for (int i = 0; i < 10; i++) {
+                    limitedData.add(data.get(i));
+                }
+            else limitedData.addAll(data);
+            featureJobsAdapter();
+
+
+        }
+    }
 }

@@ -1,13 +1,12 @@
 package skill.jobs.fragment;
 
 import android.content.Intent;
-import android.graphics.Paint;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -16,12 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.List;
 
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import skill.jobs.CourseDetailsActivity;
@@ -52,46 +49,10 @@ public class UpcomingCourseFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_upcoming_course, container, false);
 
-
-        ApiData();
+        new TrainingAPIRequest().execute();
         initialRecyclerView();
 
         return view;
-    }
-
-    private void ApiData() {
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(JsonPlaceHolderApi.BASE_TRAINING_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        JsonPlaceHolderApi api = retrofit.create(JsonPlaceHolderApi.class);
-
-        Call<AllTrainings> call = api.getTrainings();
-
-        call.enqueue(new Callback<AllTrainings>() {
-            @Override
-            public void onResponse(Call<AllTrainings> call, Response<AllTrainings> response) {
-                if (!response.isSuccessful()) {
-                    Log.i(TAG, "onResponse: " + response.message() + ":" + response.code());
-                    Toast.makeText(getContext(), response.code(), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                trainingApiHelperList = new ArrayList<>();
-
-                trainingApiHelperList = response.body().getTrainingApiHelper();
-
-                UpcomingCoursesAdapter();
-            }
-
-            @Override
-            public void onFailure(Call<AllTrainings> call, Throwable t) {
-                Log.e(TAG, "onFailure: ", t);
-
-            }
-        });
     }
 
     private void UpcomingCoursesAdapter() {
@@ -119,17 +80,46 @@ public class UpcomingCourseFragment extends Fragment {
 
     }
 
-
     private void initialRecyclerView() {
         mRecyclerViewUpcomingCourse = view.findViewById(R.id.upcomming_course_recyclerview);
         mRecyclerViewUpcomingCourse.setLayoutManager(new LinearLayoutManager(getContext()));
 
     }
 
-    private void texturl() {
-        TextView previous_price = view.findViewById(R.id.previous_price_upcoming_course);
-        previous_price.setPaintFlags(previous_price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-    }
+    class TrainingAPIRequest extends AsyncTask<Void, Void, AllTrainings> {
 
+
+        @Override
+        protected AllTrainings doInBackground(Void... voids) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(JsonPlaceHolderApi.BASE_TRAINING_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+
+            JsonPlaceHolderApi api = retrofit.create(JsonPlaceHolderApi.class);
+
+            Call<AllTrainings> call = api.getTrainings();
+            try {
+                return call.execute().body();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(AllTrainings allTrainings) {
+            ProgressBar progressBar = view.findViewById(R.id.loading_progress);
+            progressBar.setVisibility(View.INVISIBLE);
+
+            if (allTrainings == null) {
+                Toast.makeText(getContext(), "Something going wrong. Can't load data.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            trainingApiHelperList = allTrainings.getTrainingApiHelper();
+            UpcomingCoursesAdapter();
+        }
+    }
 
 }

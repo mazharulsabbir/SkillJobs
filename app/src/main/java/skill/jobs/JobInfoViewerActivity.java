@@ -143,7 +143,8 @@ public class JobInfoViewerActivity extends AppCompatActivity {
                         Log.i("onEmptyResponse: " + jobId, "Returned empty response");
                     }
                 } else {
-                    Toast.makeText(JobInfoViewerActivity.this, "Network Error! " + response.code(), Toast.LENGTH_SHORT).show();
+                    loadingJobDetails.setVisibility(View.INVISIBLE);
+                    Toast.makeText(JobInfoViewerActivity.this, response.message() + " : " + response.code(), Toast.LENGTH_SHORT).show();
                 }
             }
 

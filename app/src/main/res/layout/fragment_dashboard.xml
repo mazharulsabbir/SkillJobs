@@ -1,10 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".fragment.DashboardFragment">
 
-    <include layout="@layout/design_dashboard" />
+    <TextView
+        android:id="@+id/textView1"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans_regular"
+        android:text="What are you looking for?" />
 
-</FrameLayout>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_round_corner"
+        android:drawableStart="@drawable/ic_search_black_24dp"
+        android:drawablePadding="16dp"
+        android:fontFamily="@font/open_sans_regular"
+        android:hint="Search Here..."
+        android:padding="12dp"
+        android:paddingStart="16dp" />
+
+
+</LinearLayout>

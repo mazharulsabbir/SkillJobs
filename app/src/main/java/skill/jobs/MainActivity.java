@@ -17,7 +17,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import skill.jobs.fragment.BottomSheetProductsAndServices;
 import skill.jobs.fragment.DashboardFragment;
 import skill.jobs.fragment.FavoriteJobsFragment;
 import skill.jobs.fragment.JobsFragment;
@@ -42,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_service_black);
+//        getSupportActionBar().setHomeButtonEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_service_black);
 
         /*BOTTOM NAVIGATION BAR SEGMENT*/
         BottomNavigationView bottomNavigation = findViewById(R.id.navigation_view);
@@ -163,11 +162,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case android.R.id.home:
-                BottomSheetProductsAndServices sheet = new BottomSheetProductsAndServices();
-                sheet.show(getSupportFragmentManager(), "BottomSheetDialog");
-                return true;
-
             case R.id.menu_job_seeker_profile:
                 startActivity(new Intent(MainActivity.this, JobSeekerActivity.class));
                 return true;

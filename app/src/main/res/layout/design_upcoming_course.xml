@@ -178,16 +178,12 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/enrollButton"
-            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
             android:fontFamily="@font/open_sans_regular"
-            android:minWidth="150dp"
-            android:text="Enroll Now"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold"
+            android:text="Enroll"
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_price"
             app:layout_constraintEnd_toEndOf="parent" />
 

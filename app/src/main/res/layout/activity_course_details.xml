@@ -58,25 +58,29 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
-                        android:layout_marginBottom="8dp"
+                        android:ellipsize="end"
                         android:fontFamily="@font/open_sans_regular"
+                        android:maxLines="3"
                         android:text="Course title"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView12"
-                        app:layout_constraintEnd_toStartOf="@+id/course_price"
+                        app:layout_constraintBottom_toTopOf="@+id/course_price"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="@+id/imageView12" />
 
                     <TextView
                         android:id="@+id/course_price"
                         style="@style/TextAppearance.AppCompat.Medium"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="8dp"
                         android:fontFamily="@font/open_sans_regular"
                         android:text="Course Price"
                         app:layout_constraintBottom_toBottomOf="@+id/imageView12"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -85,9 +89,9 @@
                     style="@style/ToolbarOverlayTheme"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    app:title="Course Details"
                     app:layout_collapseMode="pin"
-                    app:layout_scrollFlags="enterAlways|snap|scroll" />
+                    app:layout_scrollFlags="enterAlways|snap|scroll"
+                    app:title="Course Details" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -181,7 +185,6 @@
                     android:gravity="center"
                     android:text="30"
                     app:layout_constraintBottom_toBottomOf="@+id/textView13"
-                    app:layout_constraintEnd_toStartOf="@+id/textView18"
                     app:layout_constraintStart_toEndOf="@+id/textView13"
                     app:layout_constraintTop_toTopOf="@+id/textView13" />
 
@@ -189,14 +192,14 @@
                     android:id="@+id/textView18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="16dp"
                     android:drawableLeft="@drawable/ic_clock_black_24dp"
+                    android:drawablePadding="8dp"
                     android:fontFamily="@font/open_sans_regular"
                     android:gravity="center_vertical"
                     android:text="Total Hours :"
-                    app:layout_constraintBottom_toBottomOf="@+id/jd_totalClass"
-                    app:layout_constraintStart_toEndOf="@+id/jd_totalClass"
-                    app:layout_constraintTop_toTopOf="@+id/jd_totalClass" />
+                    app:layout_constraintStart_toStartOf="@+id/textView13"
+                    app:layout_constraintTop_toBottomOf="@+id/jd_totalClass" />
 
                 <TextView
                     android:id="@+id/jd_totalHours"
@@ -223,7 +226,7 @@
                     android:fontFamily="@font/open_sans_regular"
                     android:text="Location :"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                    app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
                 <TextView
                     android:id="@+id/jd_location"
@@ -252,51 +255,51 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/jd_location" />
 
-<!--                <androidx.cardview.widget.CardView-->
-<!--                    android:id="@+id/relative_layout"-->
-<!--                    android:layout_width="0dp"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginTop="32dp"-->
-<!--                    android:clickable="true"-->
-<!--                    android:focusable="true"-->
-<!--                    android:foreground="?attr/selectableItemBackground"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="@+id/course_price"-->
-<!--                    app:layout_constraintTop_toBottomOf="@+id/jd_timeDuration">-->
+                <!--                <androidx.cardview.widget.CardView-->
+                <!--                    android:id="@+id/relative_layout"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="32dp"-->
+                <!--                    android:clickable="true"-->
+                <!--                    android:focusable="true"-->
+                <!--                    android:foreground="?attr/selectableItemBackground"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintStart_toStartOf="@+id/course_price"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@+id/jd_timeDuration">-->
 
-<!--                    <RelativeLayout-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:padding="16dp">-->
+                <!--                    <RelativeLayout-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:padding="16dp">-->
 
-<!--                        <com.mikhaellopez.circularimageview.CircularImageView-->
-<!--                            android:id="@+id/teacher_profile_picture"-->
-<!--                            android:layout_width="40dp"-->
-<!--                            android:layout_height="40dp"-->
-<!--                            android:layout_alignParentStart="true"-->
-<!--                            android:layout_marginEnd="16dp"-->
-<!--                            android:src="@drawable/ic_male" />-->
+                <!--                        <com.mikhaellopez.circularimageview.CircularImageView-->
+                <!--                            android:id="@+id/teacher_profile_picture"-->
+                <!--                            android:layout_width="40dp"-->
+                <!--                            android:layout_height="40dp"-->
+                <!--                            android:layout_alignParentStart="true"-->
+                <!--                            android:layout_marginEnd="16dp"-->
+                <!--                            android:src="@drawable/ic_male" />-->
 
-<!--                        <TextView-->
-<!--                            android:id="@+id/teacher_name"-->
-<!--                            style="@style/TextAppearance.AppCompat.Medium"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_toEndOf="@+id/teacher_profile_picture"-->
-<!--                            android:fontFamily="@font/open_sans_regular"-->
-<!--                            android:text="Teacher Name" />-->
+                <!--                        <TextView-->
+                <!--                            android:id="@+id/teacher_name"-->
+                <!--                            style="@style/TextAppearance.AppCompat.Medium"-->
+                <!--                            android:layout_width="wrap_content"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:layout_toEndOf="@+id/teacher_profile_picture"-->
+                <!--                            android:fontFamily="@font/open_sans_regular"-->
+                <!--                            android:text="Teacher Name" />-->
 
-<!--                        <TextView-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:layout_below="@+id/teacher_name"-->
-<!--                            android:layout_toEndOf="@+id/teacher_profile_picture"-->
-<!--                            android:fontFamily="@font/open_sans_regular"-->
-<!--                            android:text="Tap to view Profile" />-->
+                <!--                        <TextView-->
+                <!--                            android:layout_width="wrap_content"-->
+                <!--                            android:layout_height="wrap_content"-->
+                <!--                            android:layout_below="@+id/teacher_name"-->
+                <!--                            android:layout_toEndOf="@+id/teacher_profile_picture"-->
+                <!--                            android:fontFamily="@font/open_sans_regular"-->
+                <!--                            android:text="Tap to view Profile" />-->
 
-<!--                    </RelativeLayout>-->
+                <!--                    </RelativeLayout>-->
 
-<!--                </androidx.cardview.widget.CardView>-->
+                <!--                </androidx.cardview.widget.CardView>-->
 
                 <View
                     android:id="@+id/textView17"
@@ -372,8 +375,8 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
-                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                     android:id="@+id/jd_registerNow"
+                    style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"

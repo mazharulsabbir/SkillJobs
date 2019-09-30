@@ -7,24 +7,20 @@
     android:orientation="vertical"
     tools:context=".fragment.TrainingFragment">
 
-
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/coursetab"
         style="@style/Widget.Design.AppBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        app:tabIndicatorFullWidth="false"
         app:tabMode="auto"
-        app:tabGravity="center">
+        app:tabGravity="fill">
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/runningcourse_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:text="Upcoming Courses" />
-
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/upcomingcourse_item"

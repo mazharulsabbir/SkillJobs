@@ -6,8 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:theme">@style/font_style</item>
-
+        <item name="android:fontFamily">@font/open_sans_regular</item>
         <item name="android:windowActivityTransitions" tools:ignore="NewApi">true</item>
 
         <item name="android:statusBarColor" tools:ignore="NewApi">
@@ -43,10 +42,6 @@
         <item name="windowActionBarOverlay">true</item>
         <item name="android:fontFamily">@font/open_sans_regular</item>
 
-    </style>
-
-    <style name="font_style" parent="Theme.AppCompat.Light">
-        <item name="android:fontFamily">@font/open_sans_regular</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
